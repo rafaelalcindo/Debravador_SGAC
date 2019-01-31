@@ -10512,3 +10512,29 @@ a.text-dark:focus {
   font-weight: 500;
 }
 
+.index_conteudo {
+  margin: 30px;
+  padding: 20px;
+  box-shadow: -2px -4px 22px -8px #302f30;
+}
+
+.index_conteudo .parte_filtro {
+  padding: 30px;
+}
+
+.table th {
+  border-top: 1px solid #76afe7;
+}
+
+.table td {
+  border-top: 1px solid #76afe7;
+}
+
+.table thead th {
+  border-bottom: 2px solid #064079d0;
+}
+
+.table tbody tr {
+  border-bottom: 2px solid #76afe7;
+}
+

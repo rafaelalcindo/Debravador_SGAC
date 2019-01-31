@@ -26,3 +26,35 @@
         }
     }
 }
+
+.index_conteudo {
+    margin: 30px;
+    padding: 20px;
+    -webkit-box-shadow: -2px -4px 22px -8px rgba(48,47,48,1);
+    -moz-box-shadow: -2px -4px 22px -8px rgba(48,47,48,1);
+    box-shadow: -2px -4px 22px -8px rgba(48,47,48,1);
+    .parte_filtro{
+        padding: 30px;
+    }
+
+}
+
+.table{
+    th{
+        border-top: 1px solid #76afe7;
+    }
+    td{
+        border-top: 1px solid #76afe7;
+    }
+    thead{
+        th{
+            border-bottom: 2px solid #064079d0;
+        }        
+    }
+    tbody{
+        tr{
+            border-bottom: 2px solid #76afe7;
+        }
+    }
+}   
+    

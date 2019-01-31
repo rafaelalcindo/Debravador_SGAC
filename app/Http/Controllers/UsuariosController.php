@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Usuario;
 
 class UsuariosController extends Controller
 {
@@ -19,10 +20,8 @@ class UsuariosController extends Controller
      */
     public function index()
     {
-        //
-        //$usuario = Auth::user();
-        //dd($usuario);
-        return view('usuarios.index');
+        $desbravadores = Usuario::paginate(20);
+        return view('usuarios.index',compact('desbravadores'));
     }
 
     /**
