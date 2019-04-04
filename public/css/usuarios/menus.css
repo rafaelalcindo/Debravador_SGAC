@@ -10522,6 +10522,11 @@ a.text-dark:focus {
   padding: 30px;
 }
 
+.index_conteudo .parte_filtro .botao_add {
+  float: right;
+  margin-top: -4%;
+}
+
 .table th {
   border-top: 1px solid #76afe7;
 }

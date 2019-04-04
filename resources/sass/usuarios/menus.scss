@@ -23,6 +23,7 @@
                 font-size: 14px;
                 font-weight: 500;
             }
+            
         }
     }
 }
@@ -35,6 +36,12 @@
     box-shadow: -2px -4px 22px -8px rgba(48,47,48,1);
     .parte_filtro{
         padding: 30px;
+    }
+    .parte_filtro{
+        .botao_add {
+            float: right;
+            margin-top: -4%;
+        }
     }
 
 }

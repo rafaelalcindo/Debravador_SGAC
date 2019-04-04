@@ -1,47 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
+     <!-- Menu Lateral -->
     <div class="row">
-        <div class="col-md-2 MenuLateral">
 
-            <div class="menu_opçoes" >
-                <div class="escrito" >
-                    <h5>Desbravador</h5>
-                </div>
-                <div class="icon d-flex justify-content-center" >
-                    <img src="{{ asset('assets/icons/form.png') }}" alt="form"  />
-                </div>
-            </div>
+        @include('usuarios.cadastros.menuLateral')
 
-            <div class="menu_opçoes" >
-                <div class="escrito" >
-                    <h5>Unidades</h5>
-                </div>
-                <div class="icon d-flex justify-content-center" >
-                    <img src="{{ asset('assets/icons/listar.png') }}" alt="form"  />
-                </div>
-            </div>
-
-            <div class="menu_opçoes" >
-                <div class="escrito" >
-                    <h5>Atividades</h5>
-                </div>
-                <div class="icon d-flex justify-content-center" >
-                    <img src="{{ asset('assets/icons/listar.png') }}" alt="form"  />
-                </div>
-            </div>
-
-            <div class="menu_opçoes" >
-                <div class="escrito" >
-                    <h5>Pontuação</h5>
-                </div>
-                <div class="icon d-flex justify-content-center" >
-                    <img src="{{ asset('assets/icons/listar.png') }}" alt="form"  />
-                </div>
-            </div>
-
-        </div>
-
+        <!-- Table de Listagem de Usuários -->
         <div class="col-md-10" >
 
             <div class="index_conteudo">
@@ -51,8 +16,12 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="parte_filtro">
-                            <h2>Lista de Desbravadores</h2>
+                            <h2 class="titulo_lista" >Lista de Desbravadores</h2>
+                            <div class="botao_add" >
+                                <button type="button" class="btn btn-primary">Adicionar +</button>
+                            </div>
                             <hr/>
+                            
                         </div>
                         <div class="lista_index ">
                             <table class="table table-hover">
@@ -70,7 +39,11 @@
                                             <td>{{ $desbravador->nome }} {{ $desbravador->sobrenome }}</td>
                                             <td>{{ $desbravador->unidade }}</td>
                                             <td>{{ $desbravador->nivel }}</td>
-                                            <td></td>
+                                            <td>
+                                                <button type="button" class="btn btn-warning">Editar</button>
+                                                <button type="button" class="btn btn-danger">Deletar</button>
+                                                <button type="button" class="btn btn-info">Visualizar</button>
+                                            </td>
                                         </tr>
                                     @endforeach                                    
                                 </tbody>
