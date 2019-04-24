@@ -18,7 +18,7 @@
                         <div class="parte_filtro">
                             <h2 class="titulo_lista" >Lista de Desbravadores</h2>
                             <div class="botao_add" >
-                                <button type="button" class="btn btn-primary">Adicionar +</button>
+                                <a href="{{ url('/usuarios/create') }}" class="btn btn-primary">Adicionar +</a>
                             </div>
                             <hr/>
                             

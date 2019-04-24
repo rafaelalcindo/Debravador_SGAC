@@ -12,6 +12,7 @@ class Usuario extends Authenticatable
     use Notifiable;
 
     protected $table = "usuarios";
+    protected $primaryKey = 'id';
 
     /**
      * The attributes that are mass assignable.
@@ -19,7 +20,9 @@ class Usuario extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'nome', 'sobrenome','login', 'password','endereco','ativo','nivel'
+        'nome', 'sobrenome','login', 'password','endereco','ativo','nivel',
+        'cep','endereco','complemento','cidade','estado','tel','cel','data_nasc',
+        'rg','cpf','tamanho_camisa','unidade_id'
     ];
 
     /**
@@ -30,4 +33,8 @@ class Usuario extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function unidade(){
+        return $this->belongsTo('App\Unidade');
+    }
 }

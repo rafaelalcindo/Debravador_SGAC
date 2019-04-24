@@ -2,12 +2,14 @@
     <div class="col-md-2 MenuLateral">
 
     <div class="menu_opçoes" >
-        <div class="escrito" >
-            <h5>Desbravador</h5>
-        </div>
-        <div class="icon d-flex justify-content-center" >
-            <img src="{{ asset('assets/icons/form.png') }}" alt="form"  />
-        </div>
+        <a href="{{ url('/usuarios') }}" style="text-decoration: none;" >
+            <div class="escrito" >
+                <h5>Desbravador</h5>
+            </div>
+            <div class="icon d-flex justify-content-center" >
+                <img src="{{ asset('assets/icons/form.png') }}" alt="form"  />
+            </div>
+        </a>        
     </div>
 
     <div class="menu_opçoes" >
