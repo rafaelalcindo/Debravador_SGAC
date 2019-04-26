@@ -9,9 +9,10 @@ class Unidade extends Model
     //
     protected $table = "unidades";
     protected $primaryKey = 'id';
+    public $timestamps = true;
 
     protected $fillable = [
-        'nome', 'equipamentos'
+        'nome', 'equipamentos','created_at','updated_at'
     ];
 
     public function usuarios(){
