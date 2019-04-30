@@ -43,4 +43,16 @@ class UnidadesController extends Controller
         $unidade->update($request->all());
         return redirect('unidades');
     }
+
+    public function destroy($id)
+    {
+        $unidade = Unidade::whereId($id)->delete();
+        return redirect('/unidades');
+    }
+
+    public function show($id)
+    {
+        $unidade = Unidade::find($id);
+        return view('unidades.show',compact('unidades'));
+    }
 }

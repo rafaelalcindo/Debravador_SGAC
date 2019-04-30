@@ -38,7 +38,7 @@
                                             <td>{{ $unidade->equipamentos }}</td>
                                             <td>
                                                 <a href="{{ route('unidades.edit',$unidade->id) }}" class="btn btn-warning">Editar</a>
-                                                <a href="{{ route('unidades.edit',$unidade->id) }}" class="btn btn-danger">Deletar</a>
+                                                <a href="{{ url('/unidades/'.$unidade->id.'/delete') }}" class="btn btn-danger">Deletar</a>
                                                 <button type="button" class="btn btn-info">Visualizar</button>
                                             </td>
                                         </tr>
