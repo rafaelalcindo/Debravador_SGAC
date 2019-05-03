@@ -39,7 +39,7 @@
                                             <td>
                                                 <a href="{{ route('unidades.edit',$unidade->id) }}" class="btn btn-warning">Editar</a>
                                                 <a href="{{ url('/unidades/'.$unidade->id.'/delete') }}" class="btn btn-danger">Deletar</a>
-                                                <button type="button" class="btn btn-info">Visualizar</button>
+                                                <a href="{{ route('unidades.show', $unidade->id) }}" class="btn btn-info" >Vizualizar</a>
                                             </td>
                                         </tr>
                                     @endforeach                                    

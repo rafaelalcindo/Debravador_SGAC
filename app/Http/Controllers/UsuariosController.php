@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Usuario;
+use App\Unidade;
 
 class UsuariosController extends Controller
 {
@@ -31,7 +32,8 @@ class UsuariosController extends Controller
      */
     public function create()
     {
-        return view('usuarios.create');
+        $unidades = Unidade::all();
+        return view('usuarios.create', compact('unidades'));
     }
 
     /**
@@ -41,8 +43,9 @@ class UsuariosController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
+    {        
+        Usuario::create($request->all());
+        return redirect('/usuarios');
     }
 
     /**

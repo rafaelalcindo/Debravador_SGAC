@@ -53,6 +53,6 @@ class UnidadesController extends Controller
     public function show($id)
     {
         $unidade = Unidade::find($id);
-        return view('unidades.show',compact('unidades'));
+        return view('unidades.show',compact('unidade'));
     }
 }
