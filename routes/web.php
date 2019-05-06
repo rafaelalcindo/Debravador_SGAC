@@ -18,8 +18,16 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::resource('usuarios', 'UsuariosController');
+Route::get('usuarios/{id}/delete','UsuariosController@destroy');
 
 Route::resource('unidades', 'UnidadesController');
 Route::get('unidades/{id}/delete','UnidadesController@destroy');
+
+Route::get('responsaveis/index/{id}', 'ResponsavelsController@index');
+Route::get('responsaveis/create/{id_usuario}', 'ResponsavelsController@create');
+Route::post('responsaveis/','ResponsavelsController@store');
+Route::get('responsaveis/edit/{id}/{id_usuario}','ResponsavelsController@edit');
+Route::put('responsaveis/{id}','ResponsavelsController@update');
+
 
 Route::get('/home', 'HomeController@index')->name('home');

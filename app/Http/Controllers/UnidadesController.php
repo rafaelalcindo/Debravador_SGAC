@@ -27,7 +27,7 @@ class UnidadesController extends Controller
     public function store(Request $request)
     {
         Unidade::create($request->all());
-        return redirect('/unidades');
+        return redirect('/unidades')->with('success','Unidade Cadastrado com Sucesso!');;
     }
 
     public function edit($id)
@@ -41,13 +41,13 @@ class UnidadesController extends Controller
     {
         $unidade = Unidade::find($id);
         $unidade->update($request->all());
-        return redirect('unidades');
+        return redirect('unidades')->with('success','Unidade Atualizado com Sucesso!');;
     }
 
     public function destroy($id)
     {
         $unidade = Unidade::whereId($id)->delete();
-        return redirect('/unidades');
+        return redirect('/unidades')->with('success','Unidade Deletado com Sucesso!');;
     }
 
     public function show($id)

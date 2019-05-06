@@ -45,7 +45,7 @@ class UsuariosController extends Controller
     public function store(Request $request)
     {        
         Usuario::create($request->all());
-        return redirect('/usuarios');
+        return redirect('/usuarios')->with('success','Desbravador cadastrado com Sucesso!');;
     }
 
     /**
@@ -56,7 +56,8 @@ class UsuariosController extends Controller
      */
     public function show($id)
     {
-        //
+        $usuario = Usuario::find($id);
+        return view('usuarios.show', compact('usuario'));
     }
 
     /**
@@ -67,7 +68,9 @@ class UsuariosController extends Controller
      */
     public function edit($id)
     {
-        //
+        $usuario = Usuario::find($id);
+        $unidades = Unidade::all();
+        return view('usuarios.edit', compact('usuario','unidades'));
     }
 
     /**
@@ -79,7 +82,9 @@ class UsuariosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $usuario = Usuario::find($id);        
+        $usuario->update($request->all());
+        return redirect('usuarios')->with('success','Atualizado Desbravador com Sucesso!');
     }
 
     /**
@@ -90,6 +95,7 @@ class UsuariosController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $usuario = Usuario::whereId($id)->delete();
+        return redirect('usuarios')->with('success','Desbravador Deletado com Sucesso!');
     }
 }

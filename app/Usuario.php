@@ -37,4 +37,9 @@ class Usuario extends Authenticatable
     public function unidade(){
         return $this->belongsTo('App\Unidade');
     }
+
+    public function responsaveis(){
+        return $this->belongsToMany('App\Responsavel','desbravador_responsavel', 'usuario_id', 'responsavel_id')->withTimestamps();
+    }
+    
 }

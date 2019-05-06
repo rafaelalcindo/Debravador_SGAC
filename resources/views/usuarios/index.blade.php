@@ -8,7 +8,14 @@
 
         <!-- Table de Listagem de Usuários -->
         <div class="col-md-10" >
-
+            @if(session()->has('success'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    {{ session()->get('success') }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            @endif
             <div class="index_conteudo">
                 <div class="row">
 
@@ -37,12 +44,13 @@
                                     @foreach ($desbravadores as $desbravador)
                                         <tr>
                                             <td>{{ $desbravador->nome }} {{ $desbravador->sobrenome }}</td>
-                                            <td>{{ $desbravador->unidade }}</td>
+                                            <td>{{ $desbravador->unidade['nome'] }}</td>
                                             <td>{{ $desbravador->nivel }}</td>
                                             <td>
-                                                <button type="button" class="btn btn-warning">Editar</button>
-                                                <button type="button" class="btn btn-danger">Deletar</button>
-                                                <button type="button" class="btn btn-info">Visualizar</button>
+                                                <a href="{{ route('usuarios.edit',$desbravador->id) }}" class="btn btn-warning" >Editar</a>
+                                                <a href="{{ url('/usuarios/'.$desbravador->id.'/delete') }}" class="btn btn-danger">Deletar</a>
+                                                <a href="{{ route('usuarios.show', $desbravador->id) }}" class="btn btn-info" >Vizualizar</a>
+                                                <a href="{{ url('responsaveis/index/'.$desbravador->id) }}" class="btn btn-primary" >Responsaveis</a>
                                             </td>
                                         </tr>
                                     @endforeach                                    

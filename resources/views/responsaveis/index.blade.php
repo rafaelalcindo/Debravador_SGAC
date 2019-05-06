@@ -8,7 +8,6 @@
 
         <!-- Table de Listagem de Usuários -->
         <div class="col-md-10" >
-
             @if(session()->has('success'))
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                     {{ session()->get('success') }}
@@ -17,7 +16,6 @@
                     </button>
                 </div>
             @endif
-
             <div class="index_conteudo">
                 <div class="row">
 
@@ -25,9 +23,9 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="parte_filtro">
-                            <h2 class="titulo_lista" >Lista de Unidades</h2>
+                            <h2 class="titulo_lista" >Lista de Responsaveis</h2>
                             <div class="botao_add" >
-                                <a href="{{ url('/unidades/create') }}" class="btn btn-primary">Adicionar +</a>
+                                <a href="{{ url('/responsaveis/create/'.$id_usuario) }}" class="btn btn-primary">Adicionar +</a>
                             </div>
                             <hr/>
                             
@@ -37,21 +35,23 @@
                                 <thead>
                                     <tr>                                        
                                         <th scope="col">Nome</th>
-                                        <th scope="col">Equipamentos</th>
+                                        <th scope="col"> Ações </th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($unidades as $unidade)
-                                        <tr>
-                                            <td>{{ $unidade->nome }} </td>
-                                            <td>{{ $unidade->equipamentos }}</td>
-                                            <td>
-                                                <a href="{{ route('unidades.edit',$unidade->id) }}" class="btn btn-warning">Editar</a>
-                                                <a href="{{ url('/unidades/'.$unidade->id.'/delete') }}" class="btn btn-danger">Deletar</a>
-                                                <a href="{{ route('unidades.show', $unidade->id) }}" class="btn btn-info" >Vizualizar</a>
-                                            </td>
-                                        </tr>
-                                    @endforeach                                    
+                                    @if($resposaveis)
+                                            @foreach ($resposaveis as $resposavel)
+                                                <tr>
+                                                    <td>{{ $resposavel->nome }} {{ $resposavel->sobrenome }}</td>
+                                                    <td>
+                                                        <a href="{{ url('/responsaveis/edit/'.$resposavel->id.'/'.$id_usuario ) }}" class="btn btn-warning" >Editar</a>
+                                                        <!-- <a href="{{ url('/usuarios/'.$resposavel->id.'/delete') }}" class="btn btn-danger">Deletar</a>
+                                                        <a href="{{ route('usuarios.show', $resposavel->id) }}" class="btn btn-info" >Vizualizar</a> -->
+                                                        
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                    @endif
                                 </tbody>
                             </table>
                         </div>
