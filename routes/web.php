@@ -28,6 +28,10 @@ Route::get('responsaveis/create/{id_usuario}', 'ResponsavelsController@create');
 Route::post('responsaveis/','ResponsavelsController@store');
 Route::get('responsaveis/edit/{id}/{id_usuario}','ResponsavelsController@edit');
 Route::put('responsaveis/{id}','ResponsavelsController@update');
+Route::get('responsaveis/delete/{id}/{id_usuario}','ResponsavelsController@destroy');
+Route::get('responsaveis/show/{id}/{id_usuario}','ResponsavelsController@show');
+
+Route::resource('ponto-unidades','PontoUnidadesController');
 
 
 Route::get('/home', 'HomeController@index')->name('home');

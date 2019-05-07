@@ -82,14 +82,14 @@
                             <div class="col-sm-3">
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Telefone</label>
-                                    <input type="text" class="form-control" id="telefone" name="telefone" value="{{ $responsavel->telefone }}" aria-describedby="Telefone" placeholder="Telefone" >
+                                    <input type="text" class="form-control" id="telefone" name="tel" value="{{ $responsavel->tel }}" aria-describedby="Telefone" placeholder="Telefone" >
                                 </div>
                             </div>
 
                             <div class="col-sm-3">
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Celular</label>
-                                    <input type="text" class="form-control" id="celular" name="celular" value="{{ $responsavel->celular }}" aria-describedby="Celular" placeholder="Celular" >
+                                    <input type="text" class="form-control" id="celular" name="cel" value="{{ $responsavel->cel }}" aria-describedby="Celular" placeholder="Celular" >
                                 </div>
                             </div>
                             <!-- linha de baixo -->

@@ -51,4 +51,19 @@ class ResponsavelsController extends Controller
         return redirect('/responsaveis/index/'.$request['id_usuario'])->with('success','Responsavel Editado com Sucesso!');
     }
 
+    public function destroy($id, $id_usuario)
+    {
+        $usuario = Usuario::find($id_usuario);
+        $usuario->responsaveis()->detach($id);
+        $responsavel = Responsavel::whereId($id)->delete();
+        return redirect('/responsaveis/index/'.$id_usuario)->with('success','Responsavel Deletado com Sucesso!');
+    }
+
+    public function show($id, $id_usuario)
+    {
+        $usuario = Usuario::find($id_usuario);
+        $responsavel = Responsavel::find($id);
+        return view('responsaveis.show', compact('usuario','responsavel'));
+    }
+
 }

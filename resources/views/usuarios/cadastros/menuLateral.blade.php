@@ -24,12 +24,14 @@
     </div>
 
     <div class="menu_opçoes" >
-        <div class="escrito" >
-            <h5>Atividades</h5>
-        </div>
-        <div class="icon d-flex justify-content-center" >
-            <img src="{{ asset('assets/icons/listar.png') }}" alt="form"  />
-        </div>
+        <a href="{{ url('/unidades') }}" style="text-decoration: none;" >
+            <div class="escrito" >
+                <h5>Pontos da Unidade</h5>
+            </div>
+            <div class="icon d-flex justify-content-center" >
+                <img src="{{ asset('assets/icons/listar.png') }}" alt="form"  />
+            </div>
+        </a>
     </div>
 
     <div class="menu_opçoes" >

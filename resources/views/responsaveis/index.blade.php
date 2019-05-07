@@ -45,9 +45,8 @@
                                                     <td>{{ $resposavel->nome }} {{ $resposavel->sobrenome }}</td>
                                                     <td>
                                                         <a href="{{ url('/responsaveis/edit/'.$resposavel->id.'/'.$id_usuario ) }}" class="btn btn-warning" >Editar</a>
-                                                        <!-- <a href="{{ url('/usuarios/'.$resposavel->id.'/delete') }}" class="btn btn-danger">Deletar</a>
-                                                        <a href="{{ route('usuarios.show', $resposavel->id) }}" class="btn btn-info" >Vizualizar</a> -->
-                                                        
+                                                        <a href="{{ url('/responsaveis/delete/'.$resposavel->id.'/'.$id_usuario ) }}" class="btn btn-danger" >Deletar</a>
+                                                        <a href="{{ url('/responsaveis/show/'.$resposavel->id.'/'.$id_usuario ) }}" class="btn btn-info" >Informações</a>
                                                     </td>
                                                 </tr>
                                             @endforeach
