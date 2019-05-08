@@ -7,19 +7,45 @@ use Illuminate\Support\Facades\Auth;
 use App\Unidade;
 use App\Usuario;
 use App\DesbravadorResponsavel;
+use App\PontoUnidade;
 
 class PontoUnidadesController extends Controller
 {
-    protected $table = "ponto_individuals";
-    protected $primaryKey = 'id';
-    public $timestamps = true;
-
-    protected $fillable = [
-        'pontos', 'descricao', 'data_pontos', 'unidade_id','created_at','updated_at'
-    ];
-
-    public function unidade(){
-        return $this->belongsTo('App\Unidade');
+    public function __construct()
+    {
+        $this->middleware('auth');
     }
 
+    public function index()
+    {
+        $pontoUnidades = PontoUnidade::paginate(50);
+        return view('ponto_unidades.index',compact('pontoUnidades'));
+    }
+
+    public function create()
+    {
+        $unidades = Unidade::all();
+        return view('ponto_unidades.create', compact('unidades'));
+    }
+
+    public function store(Request $request)
+    {        
+        PontoUnidade::create($request->all());
+        return redirect('/ponto-unidades')->with('success','Pontos da Unidade cadastrado com Sucesso!');
+    }
+
+    public function edit($id)
+    {
+        $pontoUnidade = PontoUnidade::find($id);
+        $unidades     = Unidade::all();
+        return view('ponto_unidades.edit', compact('pontoUnidade', 'unidades'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $pontoUnidade = PontoUnidade::find($id);
+        $pontoUnidade->update($request->all());
+        return redirect('/ponto-unidades')->with('success','Pontos da Unidade Editado com Sucesso!');
+    }
+    
 }

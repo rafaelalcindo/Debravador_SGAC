@@ -24,7 +24,7 @@
     </div>
 
     <div class="menu_opçoes" >
-        <a href="{{ url('/unidades') }}" style="text-decoration: none;" >
+        <a href="{{ url('/ponto-unidades') }}" style="text-decoration: none;" >
             <div class="escrito" >
                 <h5>Pontos da Unidade</h5>
             </div>
