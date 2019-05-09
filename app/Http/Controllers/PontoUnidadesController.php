@@ -47,5 +47,17 @@ class PontoUnidadesController extends Controller
         $pontoUnidade->update($request->all());
         return redirect('/ponto-unidades')->with('success','Pontos da Unidade Editado com Sucesso!');
     }
+
+    public function destroy($id)
+    {
+        $pontoUnidade = PontoUnidade::whereId($id)->delete();
+        return redirect('/ponto-unidades')->with('success','Pontos da Unidade Deletado com Sucesso!');
+    }
+
+    public function show($id)
+    {
+        $pontoUnidade = PontoUnidade::find($id);
+        return view('ponto_unidades.show', compact('pontoUnidade'));
+    }
     
 }

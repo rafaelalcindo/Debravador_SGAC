@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Unidade;
+use App\PontoUnidade;
 
 class UnidadesController extends Controller
 {
@@ -53,6 +54,7 @@ class UnidadesController extends Controller
     public function show($id)
     {
         $unidade = Unidade::find($id);
+        
         return view('unidades.show',compact('unidade'));
     }
 }

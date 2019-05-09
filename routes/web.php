@@ -32,6 +32,7 @@ Route::get('responsaveis/delete/{id}/{id_usuario}','ResponsavelsController@destr
 Route::get('responsaveis/show/{id}/{id_usuario}','ResponsavelsController@show');
 
 Route::resource('ponto-unidades','PontoUnidadesController');
+Route::get('ponto-unidades/{id}/delete','PontoUnidadesController@destroy');
 
 
 Route::get('/home', 'HomeController@index')->name('home');

@@ -38,6 +38,7 @@
                                     <tr>                                        
                                         <th scope="col">Nome</th>
                                         <th scope="col">Equipamentos</th>
+                                        <th scope="col">Pontos Acumulado</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -45,6 +46,7 @@
                                         <tr>
                                             <td>{{ $unidade->nome }} </td>
                                             <td>{{ $unidade->equipamentos }}</td>
+                                            <td>{{ $unidade->pontosAcumulado() }}</td>
                                             <td>
                                                 <a href="{{ route('unidades.edit',$unidade->id) }}" class="btn btn-warning">Editar</a>
                                                 <a href="{{ url('/unidades/'.$unidade->id.'/delete') }}" class="btn btn-danger">Deletar</a>
