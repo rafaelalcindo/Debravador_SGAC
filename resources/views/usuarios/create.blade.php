@@ -116,8 +116,13 @@
 
                         <div class="col-sm-3">
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Data Nascimento</label>
-                                <input type="text" class="form-control" id="data_nasc" name="data_nasc" aria-describedby="Data Nascimento" placeholder="Data Nascimento" >
+                                <label for="exampleInputEmail1">Data Nascimento</label>                                
+                                <div class="input-group date" data-provide="datepicker">
+                                    <input type="text" class="form-control date" id="data_nasc" name="data_nasc" aria-describedby="Data Nascimento" placeholder="Data Nascimento" >    
+                                    <div class="input-group-addon">
+                                        <span class="glyphicon glyphicon-th"></span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
