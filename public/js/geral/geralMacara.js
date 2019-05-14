@@ -15,7 +15,7 @@ $(document).ready(function() {
     });
 
     $('.date').datepicker({
-        format: 'mm/dd/yyyy',
+        format: 'dd/mm/yyyy',
         language: 'pt-BR'
     });
 

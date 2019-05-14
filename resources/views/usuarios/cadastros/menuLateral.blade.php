@@ -35,12 +35,14 @@
     </div>
 
     <div class="menu_opçoes" >
-        <div class="escrito" >
-            <h5>Pontuação</h5>
-        </div>
-        <div class="icon d-flex justify-content-center" >
-            <img src="{{ asset('assets/icons/listar.png') }}" alt="form"  />
-        </div>
+        <a href="{{ url('/ponto_individuals') }}" style="text-decoration: none;" >
+            <div class="escrito" >
+                <h5>Pontos da Desbravador</h5>
+            </div>
+            <div class="icon d-flex justify-content-center" >
+                <img src="{{ asset('assets/icons/listar.png') }}" alt="form"  />
+            </div>
+        </a>
     </div>
 
     </div>

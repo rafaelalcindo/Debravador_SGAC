@@ -12,15 +12,15 @@
             <div class="index_conteudo">
                 <div class="row">
                     <div class="col-sm-10">
-                        <h2>Cadastrar Pontos de Unidade</h2>
+                        <h2>Cadastrar Pontos de Individual</h2>
                     </div>
                     <div class="col-sm-2">
-                        <a href="{{ url('ponto-unidades') }}" class="btn btn-primary">Voltar</a>
+                        <a href="{{ url('ponto_individuals') }}" class="btn btn-primary">Voltar</a>
                     </div>
                 </div>
                 <hr/>
                 <!-- Formulario de Cadastro -->
-                <form method="post" name="form_responsavel" id="form_responsavel" action="/ponto-unidades" >
+                <form method="post" name="form_responsavel" id="form_responsavel" action="/ponto_individuals" >
                     {{ csrf_field() }}
                     
                     <div class="row">
@@ -57,10 +57,10 @@
 
                             <div class="col-sm-3">
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">Unidade</label>
-                                    <select id="unidade" name="unidade_id" class="form-control" >
-                                        @foreach($unidades as $unidade)
-                                            <option value="{{ $unidade->id }}" >{{ $unidade->nome }}</option>
+                                    <label for="exampleInputEmail1">Usuario</label>
+                                    <select id="usuario" name="usuario_id" class="form-control" >
+                                        @foreach($usuarios as $usuario)
+                                            <option value="{{ $usuario->id }}" >{{ $usuario->nome }}</option>
                                         @endforeach                                
                                     </select>
                                 </div>

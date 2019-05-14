@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-
+use App\PontoIndividual;
 
 class Usuario extends Authenticatable
 {
@@ -40,6 +40,12 @@ class Usuario extends Authenticatable
 
     public function responsaveis(){
         return $this->belongsToMany('App\Responsavel','desbravador_responsavel', 'usuario_id', 'responsavel_id')->withTimestamps();
+    }
+
+    public function pontosAcumulado()
+    {        
+        $pontos = PontoIndividual::select('pontos')->where('usuario_id',$this->id)->sum('pontos');
+        return $pontos? $pontos : 0;
     }
     
 }

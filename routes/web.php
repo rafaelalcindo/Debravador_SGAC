@@ -34,5 +34,7 @@ Route::get('responsaveis/show/{id}/{id_usuario}','ResponsavelsController@show');
 Route::resource('ponto-unidades','PontoUnidadesController');
 Route::get('ponto-unidades/{id}/delete','PontoUnidadesController@destroy');
 
+Route::resource('ponto_individuals', 'PontoIndividuaisController');
+Route::get('ponto_individuals/{id}/delete', 'PontoIndividuaisController@destroy');
 
 Route::get('/home', 'HomeController@index')->name('home');
