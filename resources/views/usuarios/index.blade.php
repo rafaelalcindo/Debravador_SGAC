@@ -53,6 +53,7 @@
                                                 <a href="{{ url('/usuarios/'.$desbravador->id.'/delete') }}" class="btn btn-danger">Deletar</a>
                                                 <a href="{{ route('usuarios.show', $desbravador->id) }}" class="btn btn-info" >Vizualizar</a>
                                                 <a href="{{ url('responsaveis/index/'.$desbravador->id) }}" class="btn btn-primary" >Responsaveis</a>
+                                                <a href="{{ url('ficha-medicas/index/'.$desbravador->id) }}" class="btn btn-primary" >Ficha Médica</a>
                                             </td>
                                         </tr>
                                     @endforeach                                    

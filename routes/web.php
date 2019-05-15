@@ -31,6 +31,10 @@ Route::put('responsaveis/{id}','ResponsavelsController@update');
 Route::get('responsaveis/delete/{id}/{id_usuario}','ResponsavelsController@destroy');
 Route::get('responsaveis/show/{id}/{id_usuario}','ResponsavelsController@show');
 
+Route::get('ficha-medicas/index/{id}','FichaMedicasController@index');
+Route::get('ficha-medicas/create/{id_usuario}','FichaMedicasController@create');
+
+
 Route::resource('ponto-unidades','PontoUnidadesController');
 Route::get('ponto-unidades/{id}/delete','PontoUnidadesController@destroy');
 
