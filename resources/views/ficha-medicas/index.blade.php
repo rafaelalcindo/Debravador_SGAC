@@ -25,7 +25,11 @@
                         <div class="parte_filtro">
                             <h2 class="titulo_lista" >Lista de Ficha Técnica</h2>
                             <div class="botao_add" >
-                                @if(!isset( $fichaMedicas[0]->id) ) <a href="{{ url('/ficha-medicas/create/'.$id_usuario) }}" class="btn btn-primary">Adicionar +</a> @endif
+                                @if(!isset( $fichaMedicas[0]->id) ) 
+                                    <a href="{{ url('/ficha-medicas/create/'.$id_usuario) }}" class="btn btn-primary">Adicionar +</a>
+                                @else
+                                    <a href="{{ url('/ficha-medicas/edit/'.$fichaMedicas[0]->id.'/'.$id_usuario) }}" class="btn btn-success">Editar</a>
+                                @endif
                             </div>
                             <hr/>
                             

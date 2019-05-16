@@ -19,6 +19,7 @@ class FichaMedicasController extends Controller
         $id_usuario = $id;
         $usuario = Usuario::find($id);
         $fichaMedicas = $usuario->fichaMedica;
+        
         //$fichaMedicas
         return view('ficha-medicas.index', compact('fichaMedicas','id_usuario'));
     }
@@ -28,5 +29,23 @@ class FichaMedicasController extends Controller
         return view( 'ficha-medicas.create', compact('id_usuario') );
     }
 
+    public function store(Request $request)
+    {
+        FichaMedica::create($request->all());
+        return redirect('ficha-medicas/index/'.$request['usuario_id'])->with('success','Ficha Médica cadastrado com Sucesso!');
+    }
+
+    public function edit($id, $id_usuario)
+    {
+        $fichaMedica = FichaMedica::find($id);
+        return view( 'ficha-medicas.edit', compact('fichaMedica', 'id_usuario') );
+    }
+
+    public function update(Request $request, $id)
+    {
+        $fichaMedica = FichaMedica::find($id);
+        $fichaMedica->update($request->all());
+        return redirect('ficha-medicas/index/'.$request['usuario_id'])->with('success','Ficha Médica Atualizado com Sucesso!');
+    }
 
 }

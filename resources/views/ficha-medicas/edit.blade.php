@@ -20,23 +20,23 @@
                 </div>
                 <hr/>
                 <!-- Formulario de Cadastro -->
-                <form method="post" name="form_responsavel" id="form_responsavel" action="/ficha-medicas" >
+                <form method="post" name="form_responsavel" id="form_responsavel" action="/ficha-medicas/{{ $fichaMedica->id }}" >
                     {{ csrf_field() }}
-                    
+                    <input type="hidden" name="_method" value="PUT" />
                     <div class="row">
 
                         <div class="row">
                             <div class="col-sm-3">
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Plano de Saúde</label>
-                                    <input type="text" class="form-control" id="plano_saude" name="plano_saude" aria-describedby="plano_saude" placeholder="Plano de Saúde">
+                                    <input type="text" class="form-control" id="plano_saude" name="plano_saude" value="{{ $fichaMedica->plano_saude }}" aria-describedby="plano_saude" placeholder="Plano de Saúde">
                                 </div>
                             </div>
 
                             <div class="col-sm-3">
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Carteira de Saúde</label>
-                                    <input type="text" class="form-control" id="carteira_nac_saude" name="carteira_nac_saude" aria-describedby="carteira_nac_saude" placeholder="Carteira de Saúde">
+                                    <input type="text" class="form-control" id="carteira_nac_saude" name="carteira_nac_saude" value="{{ $fichaMedica->carteira_nac_saude }}" aria-describedby="carteira_nac_saude" placeholder="Carteira de Saúde">
                                 </div>
                             </div>
 
@@ -45,32 +45,28 @@
                             <div class="col-sm-3">
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Doença que teve</label>
-                                    <input type="text" class="form-control" id="doenc_teve" name="doenc_teve" aria-describedby="doenc_teve" >
+                                    <input type="text" class="form-control" id="doenc_teve" name="doenc_teve" value="{{ $fichaMedica->doenc_teve }}" aria-describedby="doenc_teve" >
                                 </div>
                             </div>
 
                             <div class="col-sm-3">
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">alergia</label>
-                                    <input type="text" class="form-control" id="alergia" name="alergia" aria-describedby="alergia" placeholder="Alergia" >
+                                    <input type="text" class="form-control" id="alergia" name="alergia" value="{{ $fichaMedica->alergia }}" aria-describedby="alergia" placeholder="Alergia" >
                                 </div>
                             </div>
 
                             <div class="col-sm-12">
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">Problemas de Saúde</label>
-                                    
-                                    <textarea class="form-control" id="problema_saude" name="problema_saude" placeholder="Problemas de Saúde" >
-                                    </textarea>
+                                    <label for="exampleInputEmail1">Problemas de Saúde</label>                                    
+                                    <textarea class="form-control" id="problema_saude" name="problema_saude"  placeholder="Problemas de Saúde" >{{ $fichaMedica->problema_saude }}</textarea>
                                 </div>
-                            </div>
-
-                            
+                            </div>                            
 
                             <div class="col-sm-3">
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">tipo_sanguineo</label>
-                                    <input type="text" class="form-control" id="tipo_sanguineo" name="tipo_sanguineo" aria-describedby="tipo_sanguineo" placeholder="Tipo Sanguideo" />
+                                    <input type="text" class="form-control" id="tipo_sanguineo" name="tipo_sanguineo"  value="{{ $fichaMedica->tipo_sanguineo }}" aria-describedby="tipo_sanguineo" placeholder="Tipo Sanguideo" />
                                 </div>
                             </div>
                             
@@ -83,7 +79,7 @@
 
                     <div class="row">
                         <div class="col-sm-12">
-                            <button type="submit" class="btn btn-outline-primary btn-lg btn-block">Salvar</button>
+                            <button type="submit" class="btn btn-outline-success btn-lg btn-block">Editar</button>
                         </div>
                     </div>
 

@@ -33,6 +33,9 @@ Route::get('responsaveis/show/{id}/{id_usuario}','ResponsavelsController@show');
 
 Route::get('ficha-medicas/index/{id}','FichaMedicasController@index');
 Route::get('ficha-medicas/create/{id_usuario}','FichaMedicasController@create');
+Route::post('ficha-medicas/','FichaMedicasController@store');
+Route::get('ficha-medicas/edit/{id}/{id_usuario}','FichaMedicasController@edit');
+Route::put('ficha-medicas/{id}','FichaMedicasController@update');
 
 
 Route::resource('ponto-unidades','PontoUnidadesController');
@@ -40,5 +43,7 @@ Route::get('ponto-unidades/{id}/delete','PontoUnidadesController@destroy');
 
 Route::resource('ponto_individuals', 'PontoIndividuaisController');
 Route::get('ponto_individuals/{id}/delete', 'PontoIndividuaisController@destroy');
+
+Route::resource('eventos', 'EventosController');
 
 Route::get('/home', 'HomeController@index')->name('home');
