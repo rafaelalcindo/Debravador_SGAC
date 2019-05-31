@@ -19,4 +19,16 @@ class EventosController extends Controller
         $eventos = Evento::paginate(20);
         return view('eventos.index',compact('eventos'));
     }
+
+    public function create()
+    {
+        $usuarios = Usuario::all();
+        return view('eventos.create', compact('usuarios'));
+    }
+
+    public function store(Request $request)
+    {
+        
+    }
+
 }
