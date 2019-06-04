@@ -42,6 +42,11 @@ class Usuario extends Authenticatable
         return $this->belongsToMany('App\Responsavel','desbravador_responsavel', 'usuario_id', 'responsavel_id')->withTimestamps();
     }
 
+    public function eventos(){
+        return $this->belongsToMany('App\Evento','desbravador_evento', 'usuario_id', 'evento_id')->withTimestamps();
+    }
+
+
     public function fichaMedica(){
         return $this->hasMany('App\FichaMedica');
     }

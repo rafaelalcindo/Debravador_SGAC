@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Usuario;
 use App\Evento;
+use App\Classes\FormataData;
+use Carbon\Carbon;
 
 class EventosController extends Controller
 {
@@ -28,7 +30,23 @@ class EventosController extends Controller
 
     public function store(Request $request)
     {
-        
+        $usuarios = Usuario::whereIn('id', $request['check_desbravador'])->get();
+        $data_formatada =  new FormataData($request['data_evento']);
+        $request['data_evento'] = $data_formatada->pegarNovaData();
+        $eventoId = Evento::create($request->all())->id;
+        foreach($usuarios as $idx => $usuario)
+        {
+            $usuario->eventos()->attach($eventoId);
+        }        
+        return redirect('/eventos')->with('success','Evento cadastrado com sucesso');
+    }
+
+    public function edit($id)
+    {
+        $evento = Evento::find($id);
+        $usuarios = Usuario::all();
+        $evento->data_evento = Carbon::parse($evento->data_evento)->format('d/m/Y');
+        return view('eventos.edit',compact('evento','usuarios'));
     }
 
 }

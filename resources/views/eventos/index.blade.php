@@ -49,9 +49,9 @@
                                             <td>{{ $evento->descricao }}</td>
                                             <td>{{ $evento->data_evento }}</td>
                                             <td>
-                                                <a href="{{ route('ponto-unidades.edit',$evento->id) }}" class="btn btn-warning">Editar</a>
-                                                <a href="{{ url('/ponto-unidades/'.$evento->id.'/delete') }}" class="btn btn-danger">Deletar</a>
-                                                <a href="{{ route('ponto-unidades.show', $evento->id) }}" class="btn btn-info" >Vizualizar</a> 
+                                                <a href="{{ route('eventos.edit',$evento->id) }}" class="btn btn-warning">Editar</a>
+                                                <a href="{{ url('/eventos/'.$evento->id.'/delete') }}" class="btn btn-danger">Deletar</a>
+                                                <a href="{{ route('eventos.show', $evento->id) }}" class="btn btn-info" >Vizualizar</a> 
                                             </td>
                                         </tr>
                                     @endforeach
