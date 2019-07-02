@@ -51,10 +51,15 @@ class Usuario extends Authenticatable
         return $this->hasMany('App\FichaMedica');
     }
 
+    public function especialidades()
+    {
+        return $this->hasMany('App\Especialidade');
+    }
+
     public function pontosAcumulado()
-    {        
+    {
         $pontos = PontoIndividual::select('pontos')->where('usuario_id',$this->id)->sum('pontos');
         return $pontos? $pontos : 0;
     }
-    
+
 }

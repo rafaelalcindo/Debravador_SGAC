@@ -28,12 +28,12 @@
                                 <a href="{{ url('/usuarios/create') }}" class="btn btn-primary">Adicionar +</a>
                             </div>
                             <hr/>
-                            
+
                         </div>
                         <div class="lista_index ">
                             <table class="table table-hover">
                                 <thead>
-                                    <tr>                                        
+                                    <tr>
                                         <th scope="col">Nome</th>
                                         <th scope="col">Unidade</th>
                                         <th scope="col" >Pontos Acumulados</th>
@@ -54,9 +54,10 @@
                                                 <a href="{{ route('usuarios.show', $desbravador->id) }}" class="btn btn-info" >Vizualizar</a>
                                                 <a href="{{ url('responsaveis/index/'.$desbravador->id) }}" class="btn btn-primary" >Responsaveis</a>
                                                 <a href="{{ url('ficha-medicas/index/'.$desbravador->id) }}" class="btn btn-primary" >Ficha Médica</a>
+                                                <a href="{{ url('especialidades/index/'.$desbravador->id) }}" class="btn btn-primary" >Especialidades</a>
                                             </td>
                                         </tr>
-                                    @endforeach                                    
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
@@ -66,7 +67,7 @@
 
         </div>
 
-        
+
     </div>
 
     </div>
