@@ -49,6 +49,17 @@ Route::resource('eventos', 'EventosController');
 Route::get('especialidades/index/{id}', 'EspecialidadesController@index');
 Route::get('especialidades/create/{id_usuario}', 'EspecialidadesController@create');
 Route::post('especialidades/', 'EspecialidadesController@store');
+Route::get('especialidades/edit/{id}/{id_usuario}', 'EspecialidadesController@edit');
+Route::put('especialidades/{id}', 'EspecialidadesController@update');
+Route::get('especialidades/delete/{id}/{id_usuario}', 'EspecialidadesController@destroy');
+Route::get('especialidades/show/{id}/{id_usuario}', 'EspecialidadesController@show');
 
+Route::get('classes/index/{id}', 'ClassesController@index');
+Route::get('classes/create/{id_usuario}', 'ClassesController@create');
+Route::post('classes/', 'ClassesController@store');
+Route::get('classes/edit/{id}/{id_usuario}', 'ClassesController@edit');
+Route::put('classes/{id}', 'ClassesController@update');
+Route::get('classes/delete/{id}/{id_usuario}', 'ClassesController@destroy');
+Route::get('classes/show/{id}/{id_usuario}', 'ClassesController@show');
 
 Route::get('/home', 'HomeController@index')->name('home');

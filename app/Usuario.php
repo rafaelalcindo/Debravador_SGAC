@@ -56,6 +56,11 @@ class Usuario extends Authenticatable
         return $this->hasMany('App\Especialidade');
     }
 
+    public function classes()
+    {
+        return $this->hasMany('App\Classe');
+    }
+
     public function pontosAcumulado()
     {
         $pontos = PontoIndividual::select('pontos')->where('usuario_id',$this->id)->sum('pontos');

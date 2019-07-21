@@ -43,7 +43,7 @@ class UsuariosController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {        
+    {
         Usuario::create($request->all());
         return redirect('/usuarios')->with('success','Desbravador cadastrado com Sucesso!');;
     }
@@ -82,7 +82,7 @@ class UsuariosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $usuario = Usuario::find($id);        
+        $usuario = Usuario::find($id);
         $usuario->update($request->all());
         return redirect('usuarios')->with('success','Atualizado Desbravador com Sucesso!');
     }
@@ -91,6 +91,7 @@ class UsuariosController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  int  $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
@@ -98,4 +99,6 @@ class UsuariosController extends Controller
         $usuario = Usuario::whereId($id)->delete();
         return redirect('usuarios')->with('success','Desbravador Deletado com Sucesso!');
     }
+
+
 }

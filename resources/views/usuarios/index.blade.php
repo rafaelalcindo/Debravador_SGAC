@@ -55,6 +55,7 @@
                                                 <a href="{{ url('responsaveis/index/'.$desbravador->id) }}" class="btn btn-primary" >Responsaveis</a>
                                                 <a href="{{ url('ficha-medicas/index/'.$desbravador->id) }}" class="btn btn-primary" >Ficha Médica</a>
                                                 <a href="{{ url('especialidades/index/'.$desbravador->id) }}" class="btn btn-primary" >Especialidades</a>
+                                                <a href="{{ url('classes/index/'.$desbravador->id) }}" class="btn btn-primary" >Classes</a>
                                             </td>
                                         </tr>
                                     @endforeach
