@@ -12,7 +12,13 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    if(Auth::user())
+    {
+        return view('home');
+    } else {
+        return view('auth.login');
+    }
+
 });
 
 Auth::routes();
