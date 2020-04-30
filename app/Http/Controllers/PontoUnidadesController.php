@@ -8,6 +8,7 @@ use App\Unidade;
 use App\Usuario;
 use App\DesbravadorResponsavel;
 use App\PontoUnidade;
+use App\Classes\FormataData;
 
 class PontoUnidadesController extends Controller
 {
@@ -29,7 +30,9 @@ class PontoUnidadesController extends Controller
     }
 
     public function store(Request $request)
-    {        
+    {
+        $formataData = new FormataData($request['data_pontos']);
+        $request['data_pontos'] = $formataData->pegarNovaData();
         PontoUnidade::create($request->all());
         return redirect('/ponto-unidades')->with('success','Pontos da Unidade cadastrado com Sucesso!');
     }
@@ -59,5 +62,5 @@ class PontoUnidadesController extends Controller
         $pontoUnidade = PontoUnidade::find($id);
         return view('ponto_unidades.show', compact('pontoUnidade'));
     }
-    
+
 }

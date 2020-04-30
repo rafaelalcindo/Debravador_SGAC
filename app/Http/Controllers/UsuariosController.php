@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Usuario;
 use App\Unidade;
+use App\Classes\FormataData;
 
 class UsuariosController extends Controller
 {
@@ -44,6 +45,8 @@ class UsuariosController extends Controller
      */
     public function store(Request $request)
     {
+        $formataData = new FormataData($request['data_nasc']);
+        $request['data_nasc'] = $formataData->pegarNovaData();
         Usuario::create($request->all());
         return redirect('/usuarios')->with('success','Desbravador cadastrado com Sucesso!');;
     }

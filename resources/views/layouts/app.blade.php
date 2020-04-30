@@ -10,18 +10,22 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>    
+    <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('js/jquery.mask.js') }}" defer></script>
 
     <script src="{{ asset('js/geral/geralMacara.js') }}" defer></script>
     <script src="{{ asset('js/geralApi.js') }}" defer></script>
     <script src="{{ asset('js/bootstrap-datepicker.min.js') }}" defer></script>
     <script src="{{ asset('js/bootstrap-datepicker.pt-BR.min.js') }}" defer></script>
+    <script src="{{ asset('js/raphael.min.js') }}" defer></script>
+    <script src="{{ asset('js/morris.min.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
     <link href="{{ asset('css/bootstrap-datepicker.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('css/morris.css') }}" rel="stylesheet" type="text/css">
+    <!-- <link href="{{ asset('css/bootstrap-datepicker.css') }}" rel="stylesheet" type="text/css"> -->
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -71,7 +75,7 @@
                                 <li class="nav-item active">
                                     <a class="nav-link" href="{{ url('usuarios') }}">Usuários <span class="sr-only">(current)</span></a>
                                 </li>
-                                                         
+
                             </ul>
                         </div>
                             <li class="nav-item dropdown">
