@@ -20,135 +20,71 @@
             </div>
           </div>
 
-          <canvas class="my-4 w-100 chartjs-render-monitor" id="myChart" width="1522" height="642" style="display: block; height: 514px; width: 1218px;"></canvas>
+          <!-- ============================  Parte de Gráficos ======================== -->
+          <div class="row">
+            <div class="col-md-6">
+                <div id="grafico_desbravadores" ></div>
+            </div>
+            <div class="col-md-6">
+                <div id="grafico_unidades" ></div>
+            </div>
+          </div>
 
-          <h2>Título da seção</h2>
+          <h2>Lista de Desbravadores</h2>
           <div class="table-responsive">
             <table class="table table-striped table-sm">
               <thead>
+
                 <tr>
-                  <th>#</th>
-                  <th>Cabeçalho</th>
-                  <th>Cabeçalho</th>
-                  <th>Cabeçalho</th>
-                  <th>Cabeçalho</th>
+                  <th>Nome</th>
+                  <th>Unidade</th>
+                  <th>Pontos</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>1,001</td>
-                  <td>Lorem</td>
-                  <td>ipsum</td>
-                  <td>dolor</td>
-                  <td>sit</td>
-                </tr>
-                <tr>
-                  <td>1,002</td>
-                  <td>amet</td>
-                  <td>consectetur</td>
-                  <td>adipiscing</td>
-                  <td>elit</td>
-                </tr>
-                <tr>
-                  <td>1,003</td>
-                  <td>Integer</td>
-                  <td>nec</td>
-                  <td>odio</td>
-                  <td>Praesent</td>
-                </tr>
-                <tr>
-                  <td>1,003</td>
-                  <td>libero</td>
-                  <td>Sed</td>
-                  <td>cursus</td>
-                  <td>ante</td>
-                </tr>
-                <tr>
-                  <td>1,004</td>
-                  <td>dapibus</td>
-                  <td>diam</td>
-                  <td>Sed</td>
-                  <td>nisi</td>
-                </tr>
-                <tr>
-                  <td>1,005</td>
-                  <td>Nulla</td>
-                  <td>quis</td>
-                  <td>sem</td>
-                  <td>at</td>
-                </tr>
-                <tr>
-                  <td>1,006</td>
-                  <td>nibh</td>
-                  <td>elementum</td>
-                  <td>imperdiet</td>
-                  <td>Duis</td>
-                </tr>
-                <tr>
-                  <td>1,007</td>
-                  <td>sagittis</td>
-                  <td>ipsum</td>
-                  <td>Praesent</td>
-                  <td>mauris</td>
-                </tr>
-                <tr>
-                  <td>1,008</td>
-                  <td>Fusce</td>
-                  <td>nec</td>
-                  <td>tellus</td>
-                  <td>sed</td>
-                </tr>
-                <tr>
-                  <td>1,009</td>
-                  <td>augue</td>
-                  <td>semper</td>
-                  <td>porta</td>
-                  <td>Mauris</td>
-                </tr>
-                <tr>
-                  <td>1,010</td>
-                  <td>massa</td>
-                  <td>Vestibulum</td>
-                  <td>lacinia</td>
-                  <td>arcu</td>
-                </tr>
-                <tr>
-                  <td>1,011</td>
-                  <td>eget</td>
-                  <td>nulla</td>
-                  <td>Class</td>
-                  <td>aptent</td>
-                </tr>
-                <tr>
-                  <td>1,012</td>
-                  <td>taciti</td>
-                  <td>sociosqu</td>
-                  <td>ad</td>
-                  <td>litora</td>
-                </tr>
-                <tr>
-                  <td>1,013</td>
-                  <td>torquent</td>
-                  <td>per</td>
-                  <td>conubia</td>
-                  <td>nostra</td>
-                </tr>
-                <tr>
-                  <td>1,014</td>
-                  <td>per</td>
-                  <td>inceptos</td>
-                  <td>himenaeos</td>
-                  <td>Curabitur</td>
-                </tr>
-                <tr>
-                  <td>1,015</td>
-                  <td>sodales</td>
-                  <td>ligula</td>
-                  <td>in</td>
-                  <td>libero</td>
+                @foreach ($desbravadores as $desbravador)
+                    <tr>
+                        <td>
+                            {{ $desbravador->nome }}
+                            <input type="hidden" value="{{ $desbravador->pontosAcumulado() }}" nomeDesbrava="{{ $desbravador->nome }}" id="id_lista_desbravadores_{{ $desbravador->id }}" class="lista_desbravadores" />
+                        </td>
+                        <td>{{ $desbravador->unidade->nome }}</td>
+                        <td>
+                            {{ $desbravador->pontosAcumulado() }}
+                            <input type="hidden" value="{{ $desbravador->pontosAcumulado() }}" id="id_lista_desbravadores_{{ $desbravador->pontosAcumulado() }}" class="lista_pontos_desbravadores" />
+                        </td>
+                    </tr>
+                 @endforeach
                 </tr>
               </tbody>
             </table>
+          </div>
+          <div class="row">
+              <div class="col-md-12">
+                <h2>Lista de Unidades</h2>
+                <table class="table table-striped table-sm">
+                    <thead>
+
+                        <tr>
+                            <th>Nome</th>
+                            <th>Pontos</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($unidades as $unidade)
+                            <tr>
+
+                                <td>
+                                    {{ $unidade->nome }}
+                                    <input type="hidden" value="{{ $unidade->pontosAcumulado() }}" nomeUnidade="{{ $unidade->nome }}" id="id_lista_unidades_{{ $unidade->id }}" class="lista_unidades" />
+                                </td>
+                                <td>{{ $unidade->pontosAcumulado() }}</td>
+                            </tr>
+                        @endforeach
+                        </tr>
+                    </tbody>
+                </table>
+              </div>
           </div>
         </main>
       </div>
@@ -177,3 +113,7 @@
 </div> -->
 
 @endsection
+
+@push('scripts')
+    <script src="{{ asset('js/home/home.js') }}" defer></script>
+@endpush

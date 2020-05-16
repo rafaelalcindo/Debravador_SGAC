@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Repositories\HomeRepository;
 
 class HomeController extends Controller
 {
+
     /**
      * Create a new controller instance.
      *
@@ -14,7 +16,9 @@ class HomeController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->repository = new HomeRepository();
     }
+
 
     /**
      * Show the application dashboard.
@@ -23,6 +27,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $desbravadores = $this->repository->pegarListaDesbravadores();
+        $unidades = $this->repository->pegarListaUnidades();
+
+        return view('home', compact('desbravadores', 'unidades'));
     }
 }

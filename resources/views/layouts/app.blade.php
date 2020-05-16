@@ -11,14 +11,17 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/jquery.js') }}" defer></script>
     <script src="{{ asset('js/jquery.mask.js') }}" defer></script>
 
-    <script src="{{ asset('js/geral/geralMacara.js') }}" defer></script>
-    <script src="{{ asset('js/geralApi.js') }}" defer></script>
+
     <script src="{{ asset('js/bootstrap-datepicker.min.js') }}" defer></script>
     <script src="{{ asset('js/bootstrap-datepicker.pt-BR.min.js') }}" defer></script>
     <script src="{{ asset('js/raphael.min.js') }}" defer></script>
     <script src="{{ asset('js/morris.min.js') }}" defer></script>
+
+    <script src="{{ asset('js/geral/geralMacara.js') }}" defer></script>
+    <script src="{{ asset('js/geralApi.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -35,7 +38,7 @@
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    SGAC
+                    <img  src="{{ asset('assets/imagens/aguias.png') }}" alt="" width="40" height="40">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
