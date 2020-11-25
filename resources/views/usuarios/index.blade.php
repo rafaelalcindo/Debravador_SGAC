@@ -49,13 +49,28 @@
                                             <td>{{ $desbravador->pontosAcumulado() }}</td>
                                             <td>{{ $desbravador->nivel }}</td>
                                             <td>
-                                                <a href="{{ route('usuarios.edit',$desbravador->id) }}" class="btn btn-warning" >Editar</a>
+                                                <div class="btn-group">
+                                                    <a href="{{ route('usuarios.edit',$desbravador->id) }}"  class="btn btn-info">Editar</a>
+                                                    <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <span class="sr-only">Toggle Dropdown</span>
+                                                    </button>
+                                                    <div class="dropdown-menu">
+                                                        <a class="dropdown-item" href="{{ url('/usuarios/'.$desbravador->id.'/delete') }}">Deletar</a>
+                                                        <a class="dropdown-item" href="{{ route('usuarios.show', $desbravador->id) }}">Visualizar</a>
+                                                        <a class="dropdown-item" href="{{ url('responsaveis/index/'.$desbravador->id) }}">Responsáveis</a>
+                                                        <a class="dropdown-item" href="{{ url('ficha-medicas/index/'.$desbravador->id) }}">Ficha Médica</a>
+                                                        <a class="dropdown-item" href="{{ url('especialidades/index/'.$desbravador->id) }}">Especialidades</a>
+                                                        <a class="dropdown-item" href="{{ url('classes/index/'.$desbravador->id) }}">Classes</a>
+
+                                                    </div>
+                                                </div>
+                                                <!-- <a href="{{ route('usuarios.edit',$desbravador->id) }}" class="btn btn-warning" >Editar</a>
                                                 <a href="{{ url('/usuarios/'.$desbravador->id.'/delete') }}" class="btn btn-danger">Deletar</a>
                                                 <a href="{{ route('usuarios.show', $desbravador->id) }}" class="btn btn-info" >Vizualizar</a>
                                                 <a href="{{ url('responsaveis/index/'.$desbravador->id) }}" class="btn btn-primary" >Responsaveis</a>
                                                 <a href="{{ url('ficha-medicas/index/'.$desbravador->id) }}" class="btn btn-primary" >Ficha Médica</a>
                                                 <a href="{{ url('especialidades/index/'.$desbravador->id) }}" class="btn btn-primary" >Especialidades</a>
-                                                <a href="{{ url('classes/index/'.$desbravador->id) }}" class="btn btn-primary" >Classes</a>
+                                                <a href="{{ url('classes/index/'.$desbravador->id) }}" class="btn btn-primary" >Classes</a> -->
                                             </td>
                                         </tr>
                                     @endforeach

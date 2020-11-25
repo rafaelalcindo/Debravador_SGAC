@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Usuario;
 use App\Unidade;
+use App\Classes\FormataData;
 
 class UsuariosController extends Controller
 {
@@ -22,7 +23,7 @@ class UsuariosController extends Controller
     public function index()
     {
         $desbravadores = Usuario::paginate(20);
-        return view('usuarios.index',compact('desbravadores'));
+        return view('usuarios.index', compact('desbravadores'));
     }
 
     /**
@@ -44,8 +45,11 @@ class UsuariosController extends Controller
      */
     public function store(Request $request)
     {
+        $formataData = new FormataData($request['data_nasc']);
+        $request['data_nasc'] = $formataData->pegarNovaData();
+
         Usuario::create($request->all());
-        return redirect('/usuarios')->with('success','Desbravador cadastrado com Sucesso!');;
+        return redirect('/usuarios')->with('success', 'Desbravador cadastrado com Sucesso!');;
     }
 
     /**
@@ -70,7 +74,8 @@ class UsuariosController extends Controller
     {
         $usuario = Usuario::find($id);
         $unidades = Unidade::all();
-        return view('usuarios.edit', compact('usuario','unidades'));
+
+        return view('usuarios.edit', compact('usuario', 'unidades'));
     }
 
     /**
@@ -83,8 +88,12 @@ class UsuariosController extends Controller
     public function update(Request $request, $id)
     {
         $usuario = Usuario::find($id);
+
+        $formataData = new FormataData($request['data_nasc']);
+        $request['data_nasc'] = $formataData->pegarNovaData();
+
         $usuario->update($request->all());
-        return redirect('usuarios')->with('success','Atualizado Desbravador com Sucesso!');
+        return redirect('usuarios')->with('success', 'Atualizado Desbravador com Sucesso!');
     }
 
     /**
@@ -97,8 +106,6 @@ class UsuariosController extends Controller
     public function destroy($id)
     {
         $usuario = Usuario::whereId($id)->delete();
-        return redirect('usuarios')->with('success','Desbravador Deletado com Sucesso!');
+        return redirect('usuarios')->with('success', 'Desbravador Deletado com Sucesso!');
     }
-
-
 }

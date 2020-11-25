@@ -30,14 +30,15 @@
                                 <a href="{{ url('/ponto-unidades/create') }}" class="btn btn-primary">Adicionar +</a>
                             </div>
                             <hr/>
-                            
+
                         </div>
                         <div class="lista_index ">
                             <table class="table table-hover">
                                 <thead>
-                                    <tr>                                        
+                                    <tr>
                                         <th scope="col">Pontos</th>
                                         <th scope="col">Descricao</th>
+                                        <th scope="col">Ação</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -48,10 +49,10 @@
                                             <td>
                                                 <a href="{{ route('ponto-unidades.edit',$pontoUnidade->id) }}" class="btn btn-warning">Editar</a>
                                                 <a href="{{ url('/ponto-unidades/'.$pontoUnidade->id.'/delete') }}" class="btn btn-danger">Deletar</a>
-                                                <a href="{{ route('ponto-unidades.show', $pontoUnidade->id) }}" class="btn btn-info" >Vizualizar</a> 
+                                                <a href="{{ route('ponto-unidades.show', $pontoUnidade->id) }}" class="btn btn-info" >Vizualizar</a>
                                             </td>
                                         </tr>
-                                    @endforeach                                    
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
@@ -61,7 +62,7 @@
 
         </div>
 
-        
+
     </div>
 
     </div>

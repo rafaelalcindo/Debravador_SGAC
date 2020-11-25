@@ -6,6 +6,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\PontoIndividual;
+use Carbon\Carbon;
 
 class Usuario extends Authenticatable
 {
@@ -20,9 +21,9 @@ class Usuario extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'nome', 'sobrenome','login', 'password','endereco','ativo','nivel',
-        'cep','endereco','complemento','cidade','estado','tel','cel','data_nasc',
-        'rg','cpf','tamanho_camisa','unidade_id'
+        'nome', 'sobrenome', 'login', 'password', 'endereco', 'ativo', 'nivel',
+        'cep', 'endereco', 'complemento', 'cidade', 'estado', 'tel', 'cel', 'data_nasc',
+        'rg', 'cpf', 'tamanho_camisa', 'unidade_id'
     ];
 
     /**
@@ -34,20 +35,24 @@ class Usuario extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function unidade(){
+    public function unidade()
+    {
         return $this->belongsTo('App\Unidade');
     }
 
-    public function responsaveis(){
-        return $this->belongsToMany('App\Responsavel','desbravador_responsavel', 'usuario_id', 'responsavel_id')->withTimestamps();
+    public function responsaveis()
+    {
+        return $this->belongsToMany('App\Responsavel', 'desbravador_responsavel', 'usuario_id', 'responsavel_id')->withTimestamps();
     }
 
-    public function eventos(){
-        return $this->belongsToMany('App\Evento','desbravador_evento', 'usuario_id', 'evento_id')->withTimestamps();
+    public function eventos()
+    {
+        return $this->belongsToMany('App\Evento', 'desbravador_evento', 'usuario_id', 'evento_id')->withTimestamps();
     }
 
 
-    public function fichaMedica(){
+    public function fichaMedica()
+    {
         return $this->hasMany('App\FichaMedica');
     }
 
@@ -63,8 +68,18 @@ class Usuario extends Authenticatable
 
     public function pontosAcumulado()
     {
-        $pontos = PontoIndividual::select('pontos')->where('usuario_id',$this->id)->sum('pontos');
-        return $pontos? $pontos : 0;
+        $pontos = PontoIndividual::select('pontos')->where('usuario_id', $this->id)->sum('pontos');
+        return $pontos ? $pontos : 0;
     }
 
+    /**
+     * Atributtes
+     *
+     */
+    public function getDataNascAttribute()
+    {
+        if ($this->attributes['data_nasc']) {
+            return (new Carbon($this->attributes['data_nasc']))->format('d/m/Y');
+        }
+    }
 }

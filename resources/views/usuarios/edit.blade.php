@@ -158,12 +158,12 @@
                                 <select id="unidade" name="unidade_id" value="{{ $usuario->unidade_id }}" class="form-control" >
                                     @foreach($unidades as $unidade)
                                         <option value="{{ $unidade->id }}" >{{ $unidade->nome }}</option>
-                                    @endforeach                                
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
 
-                    
+
 
                     </div>
                     <div class="row">
@@ -175,7 +175,7 @@
                 </form>
 
             </div>
-        </div>       
+        </div>
     </div>
 
     </div>
