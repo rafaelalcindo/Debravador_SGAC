@@ -25,7 +25,7 @@
                         <div class="parte_filtro">
                             <h2 class="titulo_lista" >Lista de Desbravadores</h2>
                             <div class="botao_add" >
-                                <a href="{{ url('/usuarios/create') }}" class="btn btn-primary">Adicionar +</a>
+                                <a href="{{ url('/usuarios/create') }}" class="btn btn-primary">Adicionar <i class="fa fa-plus" aria-hidden="true"></i></a>
                             </div>
                             <hr/>
 
@@ -50,18 +50,18 @@
                                             <td>{{ $desbravador->nivel }}</td>
                                             <td>
                                                 <div class="btn-group">
-                                                    <a href="{{ route('usuarios.edit',$desbravador->id) }}"  class="btn btn-info">Editar</a>
+                                                    <a href="{{ route('usuarios.edit',$desbravador->id) }}"  class="btn btn-info"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                                                     <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                         <span class="sr-only">Toggle Dropdown</span>
                                                     </button>
                                                     <div class="dropdown-menu">
-                                                        <a class="dropdown-item" href="{{ url('/usuarios/'.$desbravador->id.'/delete') }}">Deletar</a>
-                                                        <a class="dropdown-item" href="{{ route('usuarios.show', $desbravador->id) }}">Visualizar</a>
+                                                        <a class="dropdown-item" href="{{ url('/usuarios/'.$desbravador->id.'/delete') }}">Deletar <i class="fa fa-times-circle" aria-hidden="true"></i></a>
+                                                        <a class="dropdown-item" href="{{ route('usuarios.show', $desbravador->id) }}">Visualizar <i class="fa fa-eye" aria-hidden="true"></i> </a>
                                                         <a class="dropdown-item" href="{{ url('responsaveis/index/'.$desbravador->id) }}">Responsáveis</a>
                                                         <a class="dropdown-item" href="{{ url('ficha-medicas/index/'.$desbravador->id) }}">Ficha Médica</a>
                                                         <a class="dropdown-item" href="{{ url('especialidades/index/'.$desbravador->id) }}">Especialidades</a>
                                                         <a class="dropdown-item" href="{{ url('classes/index/'.$desbravador->id) }}">Classes</a>
-                                                        <a class="dropdown-item" href="{{ url('usuarios/'.$desbravador->id.'/qr_code') }}">QR Code</a>
+                                                        <a class="dropdown-item" href="{{ url('usuarios/'.$desbravador->id.'/qr_code') }}">QR Code <i class="fa fa-qrcode" aria-hidden="true"></i></a>
 
                                                     </div>
                                                 </div>
