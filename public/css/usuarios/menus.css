@@ -10512,6 +10512,11 @@ a.text-dark:focus {
   font-weight: 500;
 }
 
+.required_field::before {
+  content: "*";
+  color: red;
+}
+
 .index_conteudo {
   margin: 30px;
   padding: 20px;

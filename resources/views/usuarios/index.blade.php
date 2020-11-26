@@ -61,6 +61,7 @@
                                                         <a class="dropdown-item" href="{{ url('ficha-medicas/index/'.$desbravador->id) }}">Ficha Médica</a>
                                                         <a class="dropdown-item" href="{{ url('especialidades/index/'.$desbravador->id) }}">Especialidades</a>
                                                         <a class="dropdown-item" href="{{ url('classes/index/'.$desbravador->id) }}">Classes</a>
+                                                        <a class="dropdown-item" href="{{ url('usuarios/'.$desbravador->id.'/qr_code') }}">QR Code</a>
 
                                                     </div>
                                                 </div>

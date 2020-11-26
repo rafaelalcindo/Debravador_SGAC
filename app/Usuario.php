@@ -23,7 +23,7 @@ class Usuario extends Authenticatable
     protected $fillable = [
         'nome', 'sobrenome', 'login', 'password', 'endereco', 'ativo', 'nivel',
         'cep', 'endereco', 'complemento', 'cidade', 'estado', 'tel', 'cel', 'data_nasc',
-        'rg', 'cpf', 'tamanho_camisa', 'unidade_id'
+        'rg', 'cpf', 'tamanho_camisa', 'unidade_id', 'qr_code'
     ];
 
     /**
