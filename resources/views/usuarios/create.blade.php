@@ -7,7 +7,25 @@
         @include('usuarios.cadastros.menuLateral')
 
         <!-- Table de Listagem de Usuários -->
+
+        <br/>
+
+
+
         <div class="col-md-10" >
+
+            @if ($errors->any())
+
+                @foreach ($errors->all() as $error)
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            {{ $error }}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                @endforeach
+
+            @endif
 
             <div class="index_conteudo">
                 <div class="row">
@@ -22,63 +40,63 @@
                 <!-- Formulario de Cadastro -->
                 <form method="post" name="form_desbravador" id="form_desbravador" action="/usuarios" >
                     {{ csrf_field() }}
-                    
+
 
                     <div class="row">
                         <div class="col-sm-3">
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Nome</label>
-                                <input type="text" class="form-control" id="nome" name="nome" aria-describedby="nome" placeholder="Nome">
+                                <label for="nome" class="required_field">Nome</label>
+                                <input type="text" required="true" class="form-control" id="nome" name="nome" aria-describedby="nome" placeholder="Nome">
                             </div>
                         </div>
 
                         <div class="col-sm-3">
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Sobrenome</label>
-                                <input type="text" class="form-control" id="sobrenome" name="sobrenome" aria-describedby="Sobrenome" placeholder="Sobrenome">
+                                <label for="sobrenome" class="required_field">Sobrenome</label>
+                                <input type="text" required="true" class="form-control" id="sobrenome" name="sobrenome" aria-describedby="Sobrenome" placeholder="Sobrenome">
                             </div>
                         </div>
 
                         <div class="col-sm-3">
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Login</label>
-                                <input type="text" class="form-control" id="login" name="login" aria-describedby="Login" placeholder="Login">
+                                <label for="login"  class="required_field">Login</label>
+                                <input type="text" required="true" class="form-control" id="login" name="login" aria-describedby="Login" placeholder="Login">
                             </div>
                         </div>
 
                         <div class="col-sm-3">
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Senha</label>
-                                <input type="password" class="form-control" id="password" name="password" aria-describedby="password" >
+                                <label for="password" class="required_field">Senha</label>
+                                <input type="password" required="true" class="form-control" id="password" name="password" aria-describedby="password" >
                             </div>
                         </div>
                         <!-- linha de baixo -->
 
                         <div class="col-sm-3">
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Cep</label>
-                                <input type="text" class="form-control" id="cep" name="cep" aria-describedby="Cep" >
+                                <label for="cep" class="required_field">Cep</label>
+                                <input type="text" required="true" class="form-control" id="cep" name="cep" aria-describedby="Cep" >
                             </div>
                         </div>
 
                         <div class="col-sm-3">
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Endereço</label>
-                                <input type="text" class="form-control" id="endereco" name="endereco" aria-describedby="Endereço" placeholder="Endereço" >
+                                <label for="exampleInputEmail1" class="required_field">Endereço</label>
+                                <input type="text" required="true" class="form-control" id="endereco" name="endereco" aria-describedby="Endereço" placeholder="Endereço" >
                             </div>
                         </div>
 
                         <div class="col-sm-3">
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Complemento</label>
+                                <label for="complemento" class="required_field">Complemento</label>
                                 <input type="text" class="form-control" id="complemento" name="complemento" aria-describedby="Complemento" placeholder="Complemento" >
                             </div>
                         </div>
 
                         <div class="col-sm-3">
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Cidade</label>
-                                <input type="text" class="form-control" id="cidade" name="cidade" aria-describedby="Cidade" placeholder="Cidade" >
+                                <label for="cidade" class="required_field">Cidade</label>
+                                <input type="text" required="true" class="form-control" id="cidade" name="cidade" aria-describedby="Cidade" placeholder="Cidade" >
                             </div>
                         </div>
 
@@ -86,29 +104,33 @@
 
                         <div class="col-sm-3">
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Estado</label>
-                                <input type="text" class="form-control" id="estado" name="estado" aria-describedby="Estado" placeholder="Estado" >
+                                <label for="estado" class="required_field">Estado</label>
+                                <input type="text" required="true" class="form-control" id="estado" name="estado" aria-describedby="Estado" placeholder="Estado" >
                             </div>
                         </div>
 
                         <div class="col-sm-3">
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Telefone</label>
+                                <label for="tel" class="required_field">Telefone</label>
                                 <input type="text" class="form-control" id="telefone" name="tel" aria-describedby="Telefone" placeholder="Telefone" >
                             </div>
                         </div>
 
                         <div class="col-sm-3">
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Celular</label>
+                                <label for="cel" class="required_field">Celular</label>
                                 <input type="text" class="form-control" id="celular" name="cel" aria-describedby="Celular" placeholder="Celular" >
                             </div>
                         </div>
 
                         <div class="col-sm-3">
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Ativo</label>
-                                <input type="text" class="form-control" id="ativo" name="ativo" aria-describedby="Ativo" placeholder="Ativo" >
+                                <label for="ativo">Ativo</label>
+                                <select id="ativo" required="true" name="ativo" class="form-control" >
+                                    <option value="{{true}}" >Ativo</option>
+                                    <option value="{{false}}" >False</option>
+                                </select>
+
                             </div>
                         </div>
 
@@ -116,9 +138,9 @@
 
                         <div class="col-sm-3">
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Data Nascimento</label>                                
-                                <div class="input-group date" data-provide="datepicker">
-                                    <input type="text" class="form-control date" id="data_nasc" name="data_nasc" aria-describedby="Data Nascimento" placeholder="Data Nascimento" >    
+                                <label for="exampleInputEmail1">Data Nascimento</label>
+                                <div class="input-group date" required="true" data-provide="datepicker">
+                                    <input type="text" class="form-control date" id="data_nasc" name="data_nasc" aria-describedby="Data Nascimento" placeholder="Data Nascimento" >
                                     <div class="input-group-addon">
                                         <span class="glyphicon glyphicon-th"></span>
                                     </div>
@@ -129,7 +151,7 @@
                         <div class="col-sm-3">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">RG</label>
-                                <input type="text" class="form-control" id="rg" name="rg" aria-describedby="RG" placeholder="RG" >
+                                <input type="text" required="true" class="form-control" id="rg" name="rg" aria-describedby="RG" placeholder="RG" >
                             </div>
                         </div>
 
@@ -143,7 +165,7 @@
                         <div class="col-sm-3">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Tamanho da camisa</label>
-                                <input type="text" class="form-control" id="tamanho_camisa" name="tamanho_camisa" aria-describedby="Tamanho da Camisa" placeholder="Tamanho da Camisa" >
+                                <input type="text"  class="form-control" id="tamanho_camisa" name="tamanho_camisa" aria-describedby="Tamanho da Camisa" placeholder="Tamanho da Camisa" >
                             </div>
                         </div>
 
@@ -151,8 +173,14 @@
 
                         <div class="col-sm-3">
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Nível</label>
-                                <input type="text" class="form-control" id="nivel" name="nivel" aria-describedby="Nivel" placeholder="Nível" >
+                                <label for="nivel">Nível</label>
+                                <select id="nivel" name="nivel" class="form-control" >
+                                    <option value="1" >Administrativo</option>
+                                    <option value="2" >Secretaria</option>
+                                    <option value="3" >Conselheiros</option>
+                                    <option value="4" >Desbravadores</option>
+                                </select>
+
                             </div>
                         </div>
 
@@ -163,12 +191,12 @@
                                 <select id="unidade" name="unidade_id" class="form-control" >
                                     @foreach($unidades as $unidade)
                                         <option value="{{ $unidade->id }}" >{{ $unidade->nome }}</option>
-                                    @endforeach                                
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
 
-                    
+
 
                     </div>
                     <div class="row">
@@ -180,7 +208,7 @@
                 </form>
 
             </div>
-        </div>       
+        </div>
     </div>
 
     </div>

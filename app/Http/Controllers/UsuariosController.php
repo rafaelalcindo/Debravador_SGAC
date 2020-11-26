@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use App\Usuario;
 use App\Unidade;
 use App\Classes\FormataData;
+
 
 class UsuariosController extends Controller
 {
@@ -45,8 +47,22 @@ class UsuariosController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate(
+            [
+                'nome' => 'required|max:100',
+                'sobrenome' => 'required|max:100',
+                'login' => 'required|max:100',
+                'password' => 'required',
+                'endereco' => 'required|max:80',
+                'complemento' => 'required|max:100',
+                'tamanho_camisa' => 'required|max:10',
+
+            ]
+        );
+
         $formataData = new FormataData($request['data_nasc']);
         $request['data_nasc'] = $formataData->pegarNovaData();
+        $request['password'] = Hash::make($request['password']);
 
         Usuario::create($request->all());
         return redirect('/usuarios')->with('success', 'Desbravador cadastrado com Sucesso!');;
@@ -87,10 +103,28 @@ class UsuariosController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+        $request->validate(
+            [
+                'nome' => 'required|max:100',
+                'sobrenome' => 'required|max:100',
+                'login' => 'required|max:100',
+                'endereco' => 'required|max:80',
+                'complemento' => 'required|max:100',
+                'tamanho_camisa' => 'required|max:10'
+            ]
+        );
+
         $usuario = Usuario::find($id);
 
         $formataData = new FormataData($request['data_nasc']);
         $request['data_nasc'] = $formataData->pegarNovaData();
+
+        if (!empty($request['password'])) {
+            $request['password'] = Hash::make($request['password']);
+        } else {
+            unset($request['password']);
+        }
 
         $usuario->update($request->all());
         return redirect('usuarios')->with('success', 'Atualizado Desbravador com Sucesso!');
