@@ -61,7 +61,7 @@
 
                         <div class="col-sm-3">
                             <div class="form-group">
-                                <label for="password" class="required_field">Senha</label>
+                                <label for="password">Senha</label>
                                 <input type="password" class="form-control" id="password" name="password" value="" aria-describedby="password" >
                             </div>
                         </div>

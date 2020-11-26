@@ -12,19 +12,18 @@
 */
 
 Route::get('/', function () {
-    if(Auth::user())
-    {
+    if (Auth::user()) {
         return redirect()->route('home');
     } else {
         return view('auth.login');
     }
-
 });
 
 Auth::routes();
 
 Route::resource('usuarios', 'UsuariosController');
 Route::get('usuarios/{id}/delete', 'UsuariosController@destroy');
+Route::get('usuarios/{id}/qr_code', 'UsuariosController@qrCodeUsuario');
 
 Route::resource('unidades', 'UnidadesController');
 Route::get('unidades/{id}/delete', 'UnidadesController@destroy');
