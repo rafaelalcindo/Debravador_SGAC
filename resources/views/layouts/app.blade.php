@@ -64,33 +64,37 @@
                             @endif
                         @else
                         <div class="collapse navbar-collapse" id="navbarNav">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Eventos
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="{{ url('eventos') }}">Eventos</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                            </div>
-                        </li>
-                            <ul class="navbar-nav">
-                                <li class="nav-item active">
-                                    <a class="nav-link" href="{{ url('usuarios') }}">Usuários <span class="sr-only">(current)</span></a>
-                                </li>
 
-                            </ul>
                         </div>
                             <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Eventos
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+
+                                    <a class="dropdown-item" href="{{ url('home') }}"><i class="fa fa-bar-chart" aria-hidden="true"></i> Dashboard </a>
+                                    <a class="dropdown-item" href="{{ url('/usuarios') }}"><i class="fa fa-address-card" aria-hidden="true"></i> Usuários</a>
+                                    <a class="dropdown-item" href="{{ url('/unidades') }}"><i class="fa fa-users" aria-hidden="true"></i> Unidades</a>
+                                    <a class="dropdown-item" href="{{ url('/ponto-unidades') }}"><i class="fa fa-money" aria-hidden="true"></i> Pontos de Unidade</a>
+                                    <a class="dropdown-item" href="{{ url('/ponto_individuals') }}"><i class="fa fa-money" aria-hidden="true"></i> Pontos Individuais</a>
+                                    <a class="dropdown-item" href="{{ url('/usuarios') }}"><i class="fa fa-clone" aria-hidden="true"></i> Integração</a>
+
+                                </div>
+                            </li>
+
+
+                            <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                    Opções
                                 </a>
 
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
+                                        <i class="fa fa-power-off" aria-hidden="true"></i>
                                         {{ __('Logout') }}
+
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

@@ -28,7 +28,7 @@
                         <h2>Editar Desbravadores: {{ $usuario->nome }}</h2>
                     </div>
                     <div class="col-sm-2">
-                        <a href="{{ url('/usuarios') }}" class="btn btn-primary">Voltar</a>
+                        <a href="{{ url('/usuarios') }}" class="btn btn-primary"><i class="fa fa-arrow-left" aria-hidden="true"></i> Voltar</a>
                     </div>
                 </div>
                 <hr/>
