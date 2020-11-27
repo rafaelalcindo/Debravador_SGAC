@@ -20,7 +20,7 @@ class PontoUnidadesController extends Controller
     public function index()
     {
         $pontoUnidades = PontoUnidade::paginate(50);
-        return view('ponto_unidades.index',compact('pontoUnidades'));
+        return view('ponto_unidades.index', compact('pontoUnidades'));
     }
 
     public function create()
@@ -34,7 +34,7 @@ class PontoUnidadesController extends Controller
         $formataData = new FormataData($request['data_pontos']);
         $request['data_pontos'] = $formataData->pegarNovaData();
         PontoUnidade::create($request->all());
-        return redirect('/ponto-unidades')->with('success','Pontos da Unidade cadastrado com Sucesso!');
+        return redirect('/ponto-unidades')->with('success', 'Pontos da Unidade cadastrado com Sucesso!');
     }
 
     public function edit($id)
@@ -47,14 +47,18 @@ class PontoUnidadesController extends Controller
     public function update(Request $request, $id)
     {
         $pontoUnidade = PontoUnidade::find($id);
+
+        $formataData = new FormataData($request['data_pontos']);
+        $request['data_pontos'] = $formataData->pegarNovaData();
+
         $pontoUnidade->update($request->all());
-        return redirect('/ponto-unidades')->with('success','Pontos da Unidade Editado com Sucesso!');
+        return redirect('/ponto-unidades')->with('success', 'Pontos da Unidade Editado com Sucesso!');
     }
 
     public function destroy($id)
     {
         $pontoUnidade = PontoUnidade::whereId($id)->delete();
-        return redirect('/ponto-unidades')->with('success','Pontos da Unidade Deletado com Sucesso!');
+        return redirect('/ponto-unidades')->with('success', 'Pontos da Unidade Deletado com Sucesso!');
     }
 
     public function show($id)
@@ -62,5 +66,4 @@ class PontoUnidadesController extends Controller
         $pontoUnidade = PontoUnidade::find($id);
         return view('ponto_unidades.show', compact('pontoUnidade'));
     }
-
 }

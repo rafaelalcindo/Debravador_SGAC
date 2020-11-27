@@ -27,15 +27,15 @@
                         <div class="parte_filtro">
                             <h2 class="titulo_lista" >Lista de Unidades</h2>
                             <div class="botao_add" >
-                                <a href="{{ url('/unidades/create') }}" class="btn btn-primary">Adicionar +</a>
+                                <a href="{{ url('/unidades/create') }}" class="btn btn-primary">Adicionar <i class="fa fa-plus" aria-hidden="true"></i></a>
                             </div>
                             <hr/>
-                            
+
                         </div>
                         <div class="lista_index ">
                             <table class="table table-hover">
                                 <thead>
-                                    <tr>                                        
+                                    <tr>
                                         <th scope="col">Nome</th>
                                         <th scope="col">Equipamentos</th>
                                         <th scope="col">Pontos Acumulado</th>
@@ -48,12 +48,18 @@
                                             <td>{{ $unidade->equipamentos }}</td>
                                             <td>{{ $unidade->pontosAcumulado() }}</td>
                                             <td>
-                                                <a href="{{ route('unidades.edit',$unidade->id) }}" class="btn btn-warning">Editar</a>
-                                                <a href="{{ url('/unidades/'.$unidade->id.'/delete') }}" class="btn btn-danger">Deletar</a>
-                                                <a href="{{ route('unidades.show', $unidade->id) }}" class="btn btn-info" >Vizualizar</a>
+                                                <a href="{{ route('unidades.edit',$unidade->id) }}" class="btn btn-warning">
+                                                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                                </a>
+                                                <a href="{{ url('/unidades/'.$unidade->id.'/delete') }}" class="btn btn-danger">
+                                                    <i class="fa fa-times-circle" aria-hidden="true"></i>
+                                                </a>
+                                                <a href="{{ route('unidades.show', $unidade->id) }}" class="btn btn-info" >
+                                                    <i class="fa fa-eye" aria-hidden="true"></i>
+                                                </a>
                                             </td>
                                         </tr>
-                                    @endforeach                                    
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
@@ -63,7 +69,7 @@
 
         </div>
 
-        
+
     </div>
 
     </div>
