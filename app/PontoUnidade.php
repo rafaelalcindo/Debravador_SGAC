@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class PontoUnidade extends Model
 {
@@ -20,8 +21,15 @@ class PontoUnidade extends Model
         'unidade_id'
     ];
 
-    public function unidade(){
+    public function unidade()
+    {
         return $this->belongsTo('App\Unidade');
     }
 
+    public function getDataPontosAttribute()
+    {
+        if ($this->attributes['data_pontos']) {
+            return (new Carbon($this->attributes['data_pontos']))->format('d/m/Y');
+        }
+    }
 }

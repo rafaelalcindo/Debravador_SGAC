@@ -15,7 +15,7 @@
                         <h2>Editar Pontos Unidade </h2>
                     </div>
                     <div class="col-sm-2">
-                        <a href="{{ url('/ponto-unidades') }}" class="btn btn-primary">Voltar</a>
+                        <a href="{{ url('/ponto-unidades') }}" class="btn btn-primary"> <i class="fa fa-arrow-left" aria-hidden="true"></i>Voltar</a>
                     </div>
                 </div>
                 <hr/>
@@ -27,14 +27,14 @@
                     <div class="row">
                             <div class="col-sm-3">
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">Pontos</label>
-                                    <input type="text" class="form-control" value="{{ $pontoUnidade->pontos }}" id="pontos" name="pontos" aria-describedby="pontos" placeholder="pontos">
+                                    <label for="pontos" class="required_field">Pontos</label>
+                                    <input type="text" required class="form-control" value="{{ $pontoUnidade->pontos }}" id="pontos" name="pontos" aria-describedby="pontos" placeholder="pontos">
                                 </div>
                             </div>
 
                             <div class="col-sm-3">
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">Descrição</label>
+                                    <label for="descricao" class="required_field">Descrição</label>
                                     <input type="text" class="form-control" value="{{ $pontoUnidade->descricao }}"  id="descricao" name="descricao" aria-describedby="descricao" placeholder="descricao">
                                 </div>
                             </div>
@@ -43,18 +43,18 @@
 
                             <div class="col-sm-3">
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">Data Pontos</label>
-                                    <input type="text" class="form-control" value="{{ $pontoUnidade->data_pontos }}" id="data_pontos" name="data_pontos" aria-describedby="data_pontos" >
+                                    <label for="data_pontos" class="required_field">Data Pontos</label>
+                                    <input type="text" class="form-control date" value="{{ $pontoUnidade->data_pontos }}" id="data_pontos" name="data_pontos" aria-describedby="data_pontos" >
                                 </div>
                             </div>
 
                             <div class="col-sm-3">
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">Unidade</label>
+                                    <label for="unidade" class="required_field">Unidade</label>
                                     <select id="unidade" value="{{ $pontoUnidade->unidade_id }}" name="unidade_id" class="form-control" >
                                         @foreach($unidades as $unidade)
                                             <option value="{{ $unidade->id }}" >{{ $unidade->nome }}</option>
-                                        @endforeach                                
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
@@ -69,7 +69,7 @@
                 </form>
 
             </div>
-        </div>       
+        </div>
     </div>
 
     </div>

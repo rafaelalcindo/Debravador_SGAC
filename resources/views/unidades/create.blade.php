@@ -15,26 +15,26 @@
                         <h2>Cadastrar Unidade</h2>
                     </div>
                     <div class="col-sm-2">
-                        <a href="{{ url('/unidades') }}" class="btn btn-primary">Voltar</a>
+                        <a href="{{ url('/unidades') }}" class="btn btn-primary"><i class="fa fa-arrow-left" aria-hidden="true"></i> Voltar</a>
                     </div>
                 </div>
                 <hr/>
                 <!-- Formulario de Cadastro -->
                 <form method="post" name="form_unidade" id="form_unidade" action="/unidades" >
                     {{ csrf_field() }}
-                    
+
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Nome</label>
-                                <input type="text" class="form-control" id="nome" name="nome" aria-describedby="nome" placeholder="Nome">
+                                <label for="nome" class="required_field">Nome</label>
+                                <input type="text" required="true" class="form-control" id="nome" name="nome" aria-describedby="nome" placeholder="Nome">
                             </div>
                         </div>
 
                         <div class="col-sm-12">
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Equipamentos</label>
-                                <textarea name="equipamentos" id="equipamentos" class="form-control"  rows="3"></textarea>
+                                <label for="equipamentos" class="required_field">Equipamentos</label>
+                                <textarea required name="equipamentos" id="equipamentos" class="form-control"  rows="3"></textarea>
                             </div>
                         </div>
                     </div>
@@ -47,7 +47,7 @@
                 </form>
 
             </div>
-        </div>       
+        </div>
     </div>
 
     </div>

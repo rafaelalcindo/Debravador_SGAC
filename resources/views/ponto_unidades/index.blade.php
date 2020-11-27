@@ -27,7 +27,7 @@
                         <div class="parte_filtro">
                             <h2 class="titulo_lista" >Lista de Pontos de Unidade</h2>
                             <div class="botao_add" >
-                                <a href="{{ url('/ponto-unidades/create') }}" class="btn btn-primary">Adicionar +</a>
+                                <a href="{{ url('/ponto-unidades/create') }}" class="btn btn-primary">Adicionar <i class="fa fa-plus" aria-hidden="true"></i></a>
                             </div>
                             <hr/>
 
@@ -47,9 +47,15 @@
                                             <td>{{ $pontoUnidade->pontos }} </td>
                                             <td>{{ $pontoUnidade->descricao }}</td>
                                             <td>
-                                                <a href="{{ route('ponto-unidades.edit',$pontoUnidade->id) }}" class="btn btn-warning">Editar</a>
-                                                <a href="{{ url('/ponto-unidades/'.$pontoUnidade->id.'/delete') }}" class="btn btn-danger">Deletar</a>
-                                                <a href="{{ route('ponto-unidades.show', $pontoUnidade->id) }}" class="btn btn-info" >Vizualizar</a>
+                                                <a href="{{ route('ponto-unidades.edit',$pontoUnidade->id) }}" class="btn btn-warning">
+                                                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                                </a>
+                                                <a href="{{ url('/ponto-unidades/'.$pontoUnidade->id.'/delete') }}" class="btn btn-danger">
+                                                    <i class="fa fa-times-circle" aria-hidden="true"></i>
+                                                </a>
+                                                <a href="{{ route('ponto-unidades.show', $pontoUnidade->id) }}" class="btn btn-info" >
+                                                    <i class="fa fa-eye" aria-hidden="true"></i>
+                                                </a>
                                             </td>
                                         </tr>
                                     @endforeach
