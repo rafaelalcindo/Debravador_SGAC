@@ -6,18 +6,21 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Unidade;
 use App\PontoUnidade;
+use App\Repositories\UnidadesRepository;
 
 class UnidadesController extends Controller
 {
     public function __construct()
     {
         $this->middleware('auth');
+        $this->repository = new UnidadesRepository();
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $unidades = Unidade::paginate(20);
-        return view('unidades.index', compact('unidades'));
+        $unidades = $this->repository->filtroIndex($request);
+        $filtro = $request->query();
+        return view('unidades.index', compact('unidades', 'filtro'));
     }
 
     public function create()

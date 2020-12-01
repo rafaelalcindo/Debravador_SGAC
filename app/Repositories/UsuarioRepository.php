@@ -20,6 +20,24 @@ class UsuarioRepository
         $this->model = new Usuario();
     }
 
+    public function filtroIndex($request)
+    {
+        $desbravadores = $this->model;
+        // ->leftJoin('unidades', 'unidades.id', '=', 'usuarios.unidade_id');
+
+        if (!empty($request->query)) {
+            $query = $request->query();
+
+            if (isset($query['search'])) {
+                $desbravadores = $desbravadores
+                    ->orWhere('sobrenome', 'like', '%' . $query['search'] . '%')
+                    ->orWhere('usuarios.nome', 'like', '%' . $query['search'] . '%');
+            }
+        }
+
+        return $desbravadores->paginate(20);
+    }
+
     public function atualizarQrCodeUsuario($id, $nomeQrcode)
     {
         $usuario = $this->model::find($id);

@@ -24,10 +24,12 @@ class UsuariosController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $desbravadores = Usuario::paginate(20);
-        return view('usuarios.index', compact('desbravadores'));
+        $desbravadores = $this->repository->filtroIndex($request);
+        $filtro = $request->query();
+
+        return view('usuarios.index', compact('desbravadores', 'filtro'));
     }
 
     /**

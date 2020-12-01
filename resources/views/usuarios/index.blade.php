@@ -28,7 +28,8 @@
                                 <a href="{{ url('/usuarios/create') }}" class="btn btn-primary">Adicionar <i class="fa fa-plus" aria-hidden="true"></i></a>
                             </div>
                             <hr/>
-
+                                @include('usuarios.filtro.filtro')
+                            <hr/>
                         </div>
                         <div class="lista_index ">
                             <table class="table table-hover">

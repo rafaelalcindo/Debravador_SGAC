@@ -6,10 +6,11 @@ $(document).ready(function(){
         procurarEndereco(cep);
     });
 
+
 });
 
 function procurarEndereco (cep)
-{   
+{
     cep = cep.replace('-','');
     $.ajax({
         method: 'GET',
@@ -24,3 +25,4 @@ function procurarEndereco (cep)
         $('#estado').val(data.uf);
     });
 }
+

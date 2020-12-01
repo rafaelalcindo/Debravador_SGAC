@@ -30,7 +30,8 @@
                                 <a href="{{ url('/ponto-unidades/create') }}" class="btn btn-primary">Adicionar <i class="fa fa-plus" aria-hidden="true"></i></a>
                             </div>
                             <hr/>
-
+                            @include('ponto_unidades.filtro.filtro')
+                            <hr/>
                         </div>
                         <div class="lista_index ">
                             <table class="table table-hover">
@@ -38,6 +39,7 @@
                                     <tr>
                                         <th scope="col">Pontos</th>
                                         <th scope="col">Descricao</th>
+                                        <th scope="col">Unidade</th>
                                         <th scope="col">Ação</th>
                                     </tr>
                                 </thead>
@@ -46,6 +48,7 @@
                                         <tr>
                                             <td>{{ $pontoUnidade->pontos }} </td>
                                             <td>{{ $pontoUnidade->descricao }}</td>
+                                            <td>{{ $pontoUnidade->unidade->nome }}</td>
                                             <td>
                                                 <a href="{{ route('ponto-unidades.edit',$pontoUnidade->id) }}" class="btn btn-warning">
                                                     <i class="fa fa-pencil-square-o" aria-hidden="true"></i>

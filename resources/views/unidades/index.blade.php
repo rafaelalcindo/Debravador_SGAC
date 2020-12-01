@@ -30,7 +30,8 @@
                                 <a href="{{ url('/unidades/create') }}" class="btn btn-primary">Adicionar <i class="fa fa-plus" aria-hidden="true"></i></a>
                             </div>
                             <hr/>
-
+                                @include('unidades.filtro.filtro')
+                            <hr/>
                         </div>
                         <div class="lista_index ">
                             <table class="table table-hover">

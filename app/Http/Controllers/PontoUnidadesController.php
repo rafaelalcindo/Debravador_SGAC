@@ -3,24 +3,24 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use App\Unidade;
-use App\Usuario;
-use App\DesbravadorResponsavel;
 use App\PontoUnidade;
 use App\Classes\FormataData;
+use App\Repositories\PontoUnidadesRepository;
 
 class PontoUnidadesController extends Controller
 {
     public function __construct()
     {
         $this->middleware('auth');
+        $this->repository = new PontoUnidadesRepository();
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $pontoUnidades = PontoUnidade::paginate(50);
-        return view('ponto_unidades.index', compact('pontoUnidades'));
+        $pontoUnidades = $this->repository->filtroIndex($request);
+        $filtro = $request->query();
+        return view('ponto_unidades.index', compact('pontoUnidades', 'filtro'));
     }
 
     public function create()
