@@ -24,6 +24,36 @@ Route::group([
     Route::get('me', 'AuthController@me');
 });
 
+Route::group([
+    'middleware' => 'api',
+    'prefix' => 'unidade'
+], function ($router) {
+    Route::get('/', 'UnidadesApiController@index');
+    Route::get('/{id}', 'UnidadesApiController@show');
+});
+
+Route::group([
+    'middleware' => 'api',
+    'prefix' => 'pontousuario'
+], function ($router) {
+    Route::get('/', 'PontoIndividuaisApiController@index');
+    Route::get('/{id}', 'PontoIndividuaisApiController@show');
+    Route::post('/', 'PontoIndividuaisApiController@store');
+    Route::put('/{id}', 'PontoIndividuaisApiController@update');
+    Route::delete('/{id}', 'PontoIndividuaisApiController@destroy');
+});
+
+Route::group([
+    'middleware' => 'api',
+    'prefix' => 'pontounidade'
+], function ($router) {
+    Route::get('/', 'PontoUnidadesApiController@index');
+    Route::get('/{id}', 'PontoUnidadesApiController@show');
+    Route::post('/', 'PontoUnidadesApiController@store');
+    Route::put('/{id}', 'PontoUnidadesApiController@update');
+    Route::delete('/{id}', 'PontoUnidadesApiController@destroy');
+});
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
