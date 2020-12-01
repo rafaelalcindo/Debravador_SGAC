@@ -8,12 +8,12 @@ use App\Unidade;
 use App\PontoUnidade;
 use App\Repositories\UnidadesRepository;
 
-class UnidadesController extends Controller
+class UnidadesApiController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
-        // $this->middleware('auth:api');
+        $this->middleware('auth:api');
+
         $this->repository = new UnidadesRepository();
     }
 
@@ -21,7 +21,7 @@ class UnidadesController extends Controller
     {
         $unidades = $this->repository->filtroIndex($request);
         $filtro = $request->query();
-        return view('unidades.index', compact('unidades', 'filtro'));
+        return response()->json($unidades);
     }
 
     public function create()
@@ -46,7 +46,7 @@ class UnidadesController extends Controller
     {
         $unidade = Unidade::find($id);
         //dd($unidade);
-        return view('unidades.edit', compact('unidade'));
+        return response()->json($unidade);
     }
 
     public function update(Request $request, $id)
@@ -60,20 +60,20 @@ class UnidadesController extends Controller
 
         $unidade = Unidade::find($id);
         $unidade->update($request->all());
-        return redirect('unidades')->with('success', 'Unidade Atualizado com Sucesso!');;
+        return response()->json($unidade);
     }
 
     public function destroy($id)
     {
         $unidade = Unidade::whereId($id)->delete();
-        return redirect('/unidades')->with('success', 'Unidade Deletado com Sucesso!');;
+        return redirect('/unidades')->with('success', 'Unidade Deletado com Sucesso!');
     }
 
     public function show($id)
     {
         $unidade = Unidade::find($id);
 
-        return view('unidades.show', compact('unidade'));
+        return response()->json($unidade);
     }
 
     /**
