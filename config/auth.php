@@ -42,7 +42,7 @@ return [
         ],
 
         'api' => [
-            'driver' => 'token',
+            'driver' => 'jwt',
             'provider' => 'usuarios',
         ],
         'usuario' => [
@@ -102,7 +102,7 @@ return [
             'table' => 'password_resets',
             'expire' => 60,
         ],
-        
+
     ],
 
 ];

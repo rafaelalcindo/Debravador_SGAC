@@ -5,10 +5,11 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Tymon\JWTAuth\Contracts\JWTSubject;
 use App\PontoIndividual;
 use Carbon\Carbon;
 
-class Usuario extends Authenticatable
+class Usuario extends Authenticatable implements JWTSubject
 {
     use Notifiable;
 
@@ -44,6 +45,23 @@ class Usuario extends Authenticatable
         3 => 'Conselheiros',
         4 => 'Desbravadores'
     ];
+
+    /**
+     * Função JWT
+     */
+    public function getJWTIdentifier()
+    {
+        return $this->getKey();
+    }
+
+    public function getJWTCustomClaims()
+    {
+        return [];
+    }
+
+    /**
+     * Fim da Função JWT
+     */
 
     public function unidade()
     {
