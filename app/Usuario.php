@@ -5,10 +5,11 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Tymon\JWTAuth\Contracts\JWTSubject;
 use App\PontoIndividual;
 use Carbon\Carbon;
 
-class Usuario extends Authenticatable
+class Usuario extends Authenticatable implements JWTSubject
 {
     use Notifiable;
 
@@ -34,6 +35,33 @@ class Usuario extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * Criação de atributos
+     */
+    private $_arrayNivel = [
+        1 => 'Administrativo',
+        2 => 'Secretaria',
+        3 => 'Conselheiros',
+        4 => 'Desbravadores'
+    ];
+
+    /**
+     * Função JWT
+     */
+    public function getJWTIdentifier()
+    {
+        return $this->getKey();
+    }
+
+    public function getJWTCustomClaims()
+    {
+        return [];
+    }
+
+    /**
+     * Fim da Função JWT
+     */
 
     public function unidade()
     {
@@ -81,5 +109,10 @@ class Usuario extends Authenticatable
         if ($this->attributes['data_nasc']) {
             return (new Carbon($this->attributes['data_nasc']))->format('d/m/Y');
         }
+    }
+
+    public function getNivelAttribute()
+    {
+        return $this->_arrayNivel[$this->attributes['nivel']];
     }
 }

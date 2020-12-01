@@ -28,10 +28,20 @@ class UsuarioRepository
         if (!empty($request->query)) {
             $query = $request->query();
 
+            if (isset($query['ativo'])) {
+                $desbravadores = $desbravadores
+                    ->where('ativo', $query['ativo']);
+            } else {
+                $desbravadores = $desbravadores
+                    ->where('ativo', true);
+            }
+
             if (isset($query['search'])) {
                 $desbravadores = $desbravadores
-                    ->orWhere('sobrenome', 'like', '%' . $query['search'] . '%')
-                    ->orWhere('usuarios.nome', 'like', '%' . $query['search'] . '%');
+                    ->where(function ($q)  use ($query) {
+                        $q->where('nome', 'like', '%' . $query['search'] . '%')
+                            ->orWhere('sobrenome', 'like', '%' . $query['search'] . '%');
+                    });
             }
         }
 
