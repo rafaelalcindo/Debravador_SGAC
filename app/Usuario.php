@@ -6,6 +6,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Tymon\JWTAuth\Contracts\JWTSubject;
+use Illuminate\Support\Facades\Storage;
 use App\PontoIndividual;
 use Carbon\Carbon;
 
@@ -114,5 +115,12 @@ class Usuario extends Authenticatable implements JWTSubject
     public function getNivelAttribute()
     {
         return $this->_arrayNivel[$this->attributes['nivel']];
+    }
+
+    public function getQrCodeAttribute()
+    {
+        if ($this->attributes['qr_code']) {
+            return Storage::url('public/QrCode/' . $this->attributes['qr_code']);
+        }
     }
 }
