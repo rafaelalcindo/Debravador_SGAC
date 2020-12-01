@@ -30,6 +30,8 @@
                                 <a href="{{ url('/ponto_individuals/create') }}" class="btn btn-primary">Adicionar <i class="fa fa-plus" aria-hidden="true"></i></a>
                             </div>
                             <hr/>
+                                @include('ponto_individuals.filtro.filtro')
+                            <hr/>
 
                         </div>
                         <div class="lista_index ">
@@ -38,6 +40,7 @@
                                     <tr>
                                         <th scope="col">Pontos</th>
                                         <th scope="col">Descricao</th>
+                                        <th scope="col">Desbravador</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -45,6 +48,7 @@
                                         <tr>
                                             <td>{{ $pontoIndividua->pontos }} </td>
                                             <td>{{ $pontoIndividua->descricao }}</td>
+                                            <td>{{ $pontoIndividua->usuario->nome .' '. $pontoIndividua->usuario->sobrenome }}</td>
                                             <td>
                                                 <a href="{{ route('ponto_individuals.edit',$pontoIndividua->id) }}" class="btn btn-warning">
                                                     <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
