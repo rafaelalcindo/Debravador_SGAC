@@ -124,7 +124,7 @@
                                 <label for="ativo">Ativo</label>
                                 <select id="ativo" name="ativo" class="form-control" >
                                     <option value="{{true}}" {{$usuario->ativo? "selected" : ''}} >Ativo</option>
-                                    <option value="{{false}}" {{$usuario->ativo? '' : 'selected'}} >False</option>
+                                    <option value="0" {{$usuario->ativo? '' : 'selected'}} >Não ativo</option>
                                 </select>
 
                             </div>

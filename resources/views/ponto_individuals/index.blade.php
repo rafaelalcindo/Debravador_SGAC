@@ -35,6 +35,7 @@
 
                         </div>
                         <div class="lista_index ">
+                            <?php $totalPontos = 0; ?>
                             <table class="table table-hover">
                                 <thead>
                                     <tr>
@@ -61,7 +62,16 @@
                                                 </a>
                                             </td>
                                         </tr>
+                                        <?php $totalPontos += $pontoIndividua->pontos; ?>
                                     @endforeach
+                                    <tr class="table-primary">
+                                        <td>
+                                            <h4>Total de Pontos:</h4>
+                                        </td>
+                                        <td colspan="3">
+                                            <h4>{{ $totalPontos }}</h4>
+                                        </td>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>

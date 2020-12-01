@@ -35,6 +35,16 @@ class Usuario extends Authenticatable
         'password', 'remember_token',
     ];
 
+    /**
+     * Criação de atributos
+     */
+    private $_arrayNivel = [
+        1 => 'Administrativo',
+        2 => 'Secretaria',
+        3 => 'Conselheiros',
+        4 => 'Desbravadores'
+    ];
+
     public function unidade()
     {
         return $this->belongsTo('App\Unidade');
@@ -81,5 +91,10 @@ class Usuario extends Authenticatable
         if ($this->attributes['data_nasc']) {
             return (new Carbon($this->attributes['data_nasc']))->format('d/m/Y');
         }
+    }
+
+    public function getNivelAttribute()
+    {
+        return $this->_arrayNivel[$this->attributes['nivel']];
     }
 }

@@ -137,7 +137,7 @@ class UsuariosController extends Controller
         $request['qr_code'] = $this->repository->criarQrcode($usuario);
 
         $usuario->update($request->all());
-        return redirect('usuarios')->with('success', 'Atualizado Desbravador com Sucesso!');
+        return redirect('usuarios')->with('success', 'Desbravador Atualizado com Sucesso!');
     }
 
     /**

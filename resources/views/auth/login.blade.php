@@ -12,7 +12,8 @@
 
             @if ($errors->has('login'))
                 <span class="invalid-feedback" role="alert">
-                    <strong>{{ $errors->first('login') }}</strong>
+                    {{-- <strong>{{ $errors->first('login') }}</strong> --}}
+                    <strong>Login Invalido, por favor digite o login corretamente!</strong>
                 </span>
             @endif
 
@@ -21,7 +22,8 @@
 
                     @if ($errors->has('password'))
                         <span class="invalid-feedback" role="alert">
-                            <strong>{{ $errors->first('password') }}</strong>
+                            {{-- <strong>{{ $errors->first('password') }}</strong> --}}
+                            <strong>Senha Inválida, por favor digite a senha corretamente!</strong>
                         </span>
                     @endif
             <div class="checkbox mb-3">
