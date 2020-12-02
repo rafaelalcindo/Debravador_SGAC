@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Http\JsonResponse;
+use App\Repositories\AuthRepository;
+use App\Usuario;
 
 
 class AuthController extends Controller
@@ -18,6 +20,7 @@ class AuthController extends Controller
     public function __construct()
     {
         $this->middleware('auth:api', ['except' => ['login']]);
+        $this->repository = new AuthRepository();
     }
 
     /**
@@ -33,7 +36,7 @@ class AuthController extends Controller
 
             $return = [
                 'token'      => $this->respondWithToken($token)->original,
-                'user'       => auth('api')->user(),
+                'user'       => $this->repository->pegarUsuarioDetalhes(auth('api')->user()->id),
                 'expires_in' => auth('api')->factory()->getTTL(),
             ];
 
@@ -101,6 +104,8 @@ class AuthController extends Controller
 
     public function me()
     {
-        return response()->json(auth('api')->user());
+        $usuario = $this->repository->pegarUsuarioDetalhes(auth('api')->user()->id);
+
+        return response()->json($usuario);
     }
 }
