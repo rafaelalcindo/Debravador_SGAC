@@ -25,7 +25,7 @@ class Usuario extends Authenticatable implements JWTSubject
     protected $fillable = [
         'nome', 'sobrenome', 'login', 'password', 'endereco', 'ativo', 'nivel',
         'cep', 'endereco', 'complemento', 'cidade', 'estado', 'tel', 'cel', 'data_nasc',
-        'rg', 'cpf', 'tamanho_camisa', 'unidade_id', 'qr_code'
+        'rg', 'cpf', 'tamanho_camisa', 'unidade_id', 'qr_code', 'foto_perfil'
     ];
 
     /**
@@ -121,6 +121,13 @@ class Usuario extends Authenticatable implements JWTSubject
     {
         if ($this->attributes['qr_code']) {
             return Storage::url('public/QrCode/' . $this->attributes['qr_code']);
+        }
+    }
+
+    public function getFotoPerfilAttribute()
+    {
+        if ($this->attributes['foto_perfil']) {
+            return Storage::url('public/image/' . $this->attributes['foto_perfil']);
         }
     }
 }

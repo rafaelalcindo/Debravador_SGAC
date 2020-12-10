@@ -68,6 +68,16 @@ class UsuariosController extends Controller
         $request['data_nasc'] = $formataData->pegarNovaData();
         $request['password'] = Hash::make($request['password']);
 
+        if ($request->hasFile('foto_perfil_upload')) {
+            $image = $request->file('foto_perfil_upload');
+            $nameFile = md5(uniqid(microtime(), true)) . '.' . $image->getClientOriginalExtension();
+            $destinationPath = public_path('/storage/image');
+
+            $image->move($destinationPath, $nameFile);
+
+            $request['foto_perfil'] = $nameFile;
+        }
+
         $usuario = Usuario::create($request->all());
 
         $nome_arquivo = $this->repository->criarQrcode($usuario);
@@ -127,6 +137,16 @@ class UsuariosController extends Controller
 
         $formataData = new FormataData($request['data_nasc']);
         $request['data_nasc'] = $formataData->pegarNovaData();
+
+        if ($request->hasFile('foto_perfil_upload')) {
+            $image = $request->file('foto_perfil_upload');
+            $nameFile = md5(uniqid(microtime(), true)) . '.' . $image->getClientOriginalExtension();
+            $destinationPath = public_path('/storage/image');
+
+            $image->move($destinationPath, $nameFile);
+
+            $request['foto_perfil'] = $nameFile;
+        }
 
         if (!empty($request['password'])) {
             $request['password'] = Hash::make($request['password']);
