@@ -10552,3 +10552,12 @@ a.text-dark:focus {
   margin-top: 29px;
 }
 
+.imagem_perfil {
+  height: 120px;
+  width: 110px;
+  border: 2px solid #b3b3b3;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+

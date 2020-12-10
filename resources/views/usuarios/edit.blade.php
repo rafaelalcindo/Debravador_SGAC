@@ -33,9 +33,16 @@
                 </div>
                 <hr/>
                 <!-- Formulario de Cadastro -->
-                <form method="post" name="form_desbravador" id="form_desbravador" action="/usuarios/{{ $usuario->id }}" >
+                <form method="post" name="form_desbravador" id="form_desbravador" action="/usuarios/{{ $usuario->id }}" enctype="multipart/form-data" >
                     {{ csrf_field() }}
                     <input type="hidden" name="_method" value="PUT" />
+
+                    <div class="row">
+                        <div class="col-md-3">
+                            <img src="{{ $usuario->foto_perfil? $usuario->foto_perfil : asset('assets/imagens/user_icon.png') }}" class="imagem_perfil" name="foto_imagem" id="foto_imagem" />
+                            <input id="foto_perfil_upload"  accept="image/*" onchange="carregarImagem(event)" type="file" name="foto_perfil_upload" style="display:none"/>
+                        </div>
+                    </div>
 
                     <div class="row">
                         <div class="col-sm-3">
@@ -209,4 +216,8 @@
 
     <link href="{{ asset('css/usuarios/menus.css') }}" rel="stylesheet">
 
+@endpush
+
+@push('scripts')
+    <script src="{{ asset('js/usuarios/cadastro.js') }}" defer></script>
 @endpush
