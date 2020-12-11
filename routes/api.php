@@ -38,6 +38,7 @@ Route::group([
 ], function ($router) {
     Route::get('/', 'PontoIndividuaisApiController@index');
     Route::get('/{id}', 'PontoIndividuaisApiController@show');
+    Route::get('/usuario/{id_usuario}', 'PontoIndividuaisApiController@getUserPoints');
     Route::post('/', 'PontoIndividuaisApiController@store');
     Route::put('/{id}', 'PontoIndividuaisApiController@update');
     Route::delete('/{id}', 'PontoIndividuaisApiController@destroy');

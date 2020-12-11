@@ -69,6 +69,8 @@ class UsuariosController extends Controller
         $request['password'] = Hash::make($request['password']);
 
         if ($request->hasFile('foto_perfil_upload')) {
+
+
             $image = $request->file('foto_perfil_upload');
             $nameFile = md5(uniqid(microtime(), true)) . '.' . $image->getClientOriginalExtension();
             $destinationPath = public_path('/storage/image');
@@ -139,6 +141,12 @@ class UsuariosController extends Controller
         $request['data_nasc'] = $formataData->pegarNovaData();
 
         if ($request->hasFile('foto_perfil_upload')) {
+
+            if (isset($usuario->foto_perfil)) {
+                $pathFile = public_path() . '' . $usuario->foto_perfil;
+                $this->repository->removeFileDir($pathFile);
+            }
+
             $image = $request->file('foto_perfil_upload');
             $nameFile = md5(uniqid(microtime(), true)) . '.' . $image->getClientOriginalExtension();
             $destinationPath = public_path('/storage/image');
