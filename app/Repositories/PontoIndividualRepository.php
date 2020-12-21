@@ -36,4 +36,12 @@ class PontoIndividualRepository
 
         return $pontos->paginate(20);
     }
+
+    public function pegarPontosUsuario($id_usuario)
+    {
+        return $this->model
+            ->where('usuario_id', '=', $id_usuario)
+            ->orderBy('data_pontos', 'asc')
+            ->get();
+    }
 }

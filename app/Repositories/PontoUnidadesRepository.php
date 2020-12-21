@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 use App\PontoUnidade;
 use App\Unidade;
+use App\Usuario;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -35,5 +36,16 @@ class PontoUnidadesRepository
         }
 
         return $pontos->paginate(20);
+    }
+
+    public function pegarPontosUsuarioUnidade($id_usuario)
+    {
+        $usuario = Usuario::find($id_usuario);
+        $unidade_id = $usuario->unidade_id;
+
+        return $this->model
+            ->where('unidade_id', '=', $unidade_id)
+            ->orderBy('data_pontos', 'asc')
+            ->get();
     }
 }

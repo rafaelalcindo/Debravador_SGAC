@@ -91,4 +91,11 @@ class UsuarioRepository
     {
         return Storage::download('public/QrCode/' . $usuario->qr_code, 'QrCode ' . $usuario->nome . ' ' . $usuario->sobrenome . '.png');
     }
+
+    public function removeFileDir($nameFile)
+    {
+        if (file_exists($nameFile)) {
+            unlink($nameFile);
+        }
+    }
 }

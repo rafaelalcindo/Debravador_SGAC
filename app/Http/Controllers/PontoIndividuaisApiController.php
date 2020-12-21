@@ -62,8 +62,14 @@ class PontoIndividuaisApiController extends Controller
 
     public function show($id)
     {
-        $pontoIndividual = PontoIndividual::find($id)
-            ->with(['usuario'])->get();
+        $pontoIndividual = PontoIndividual::find($id);
         return response()->json($pontoIndividual);
+    }
+
+    public function getUserPoints($id_usuario)
+    {
+        $pontos = $this->repository->pegarPontosUsuario($id_usuario);
+
+        return response()->json($pontos);
     }
 }

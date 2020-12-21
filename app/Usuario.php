@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 use Illuminate\Support\Facades\Storage;
 use App\PontoIndividual;
+use App\DesbravadorEvento;
 use Carbon\Carbon;
 
 class Usuario extends Authenticatable implements JWTSubject
@@ -79,7 +80,6 @@ class Usuario extends Authenticatable implements JWTSubject
         return $this->belongsToMany('App\Evento', 'desbravador_evento', 'usuario_id', 'evento_id')->withTimestamps();
     }
 
-
     public function fichaMedica()
     {
         return $this->hasMany('App\FichaMedica');
@@ -99,6 +99,21 @@ class Usuario extends Authenticatable implements JWTSubject
     {
         $pontos = PontoIndividual::select('pontos')->where('usuario_id', $this->id)->sum('pontos');
         return $pontos ? $pontos : 0;
+    }
+
+    /**
+     * Checar se o Usuário participou do evento
+     */
+    public function verificarParticipacaoEvento($user_id, $event_id)
+    {
+        $event = DesbravadorEvento::where('usuario_id', $user_id)
+            ->where('evento_id', $event_id)
+            ->first();
+
+        if (empty($event)) {
+            return false;
+        }
+        return true;
     }
 
     /**

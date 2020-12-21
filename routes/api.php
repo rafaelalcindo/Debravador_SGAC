@@ -38,6 +38,7 @@ Route::group([
 ], function ($router) {
     Route::get('/', 'PontoIndividuaisApiController@index');
     Route::get('/{id}', 'PontoIndividuaisApiController@show');
+    Route::get('/usuario/{id_usuario}', 'PontoIndividuaisApiController@getUserPoints');
     Route::post('/', 'PontoIndividuaisApiController@store');
     Route::put('/{id}', 'PontoIndividuaisApiController@update');
     Route::delete('/{id}', 'PontoIndividuaisApiController@destroy');
@@ -49,9 +50,26 @@ Route::group([
 ], function ($router) {
     Route::get('/', 'PontoUnidadesApiController@index');
     Route::get('/{id}', 'PontoUnidadesApiController@show');
+    Route::get('/usuario/{id_usuario}', 'PontoUnidadesApiController@getUserUnitPoints');
     Route::post('/', 'PontoUnidadesApiController@store');
     Route::put('/{id}', 'PontoUnidadesApiController@update');
     Route::delete('/{id}', 'PontoUnidadesApiController@destroy');
+});
+
+Route::group([
+    'middleware' => 'api',
+    'prefix' => 'eventos'
+], function ($router) {
+    Route::get('/', 'EventosApiController@index');
+    Route::get('/add/desbravador', 'EventosApiController@addDebravadorEvento');
+    Route::get('/lista/desbravador', 'EventosApiController@getDesbravadoresEvento');
+});
+
+Route::group([
+    'middleware' => 'api',
+    'prefix' => 'especialidades'
+], function ($router) {
+    Route::get('/lista/{id_usuario}', 'EspecialidadesApiController@especialidadeUsuario');
 });
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
