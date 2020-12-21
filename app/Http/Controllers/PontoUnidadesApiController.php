@@ -63,8 +63,15 @@ class PontoUnidadesApiController extends Controller
 
     public function show($id)
     {
-        $pontoUnidade = PontoUnidade::find($id)
-            ->with('unidade')->get();
+        $pontoUnidade = PontoUnidade::find($id);
+
         return response()->json($pontoUnidade);
+    }
+
+    public function getUserUnitPoints($id_usuario)
+    {
+        $pontosUnidade = $this->repository->pegarPontosUsuarioUnidade($id_usuario);
+
+        return response()->json($pontosUnidade);
     }
 }

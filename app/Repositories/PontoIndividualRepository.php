@@ -41,6 +41,7 @@ class PontoIndividualRepository
     {
         return $this->model
             ->where('usuario_id', '=', $id_usuario)
+            ->orderBy('data_pontos', 'asc')
             ->get();
     }
 }

@@ -77,7 +77,9 @@
                                     <a class="dropdown-item" href="{{ url('/unidades') }}"><i class="fa fa-users" aria-hidden="true"></i> Unidades</a>
                                     <a class="dropdown-item" href="{{ url('/ponto-unidades') }}"><i class="fa fa-money" aria-hidden="true"></i> Pontos de Unidade</a>
                                     <a class="dropdown-item" href="{{ url('/ponto_individuals') }}"><i class="fa fa-money" aria-hidden="true"></i> Pontos Individuais</a>
+                                    <a class="dropdown-item" href="{{ url('/eventos') }}"><i class="fa fa-calendar" aria-hidden="true"></i> Eventos</a>
                                     <a class="dropdown-item" href="{{ url('/usuarios') }}"><i class="fa fa-clone" aria-hidden="true"></i> Integração</a>
+
 
                                 </div>
                             </li>
