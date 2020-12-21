@@ -43,4 +43,13 @@ class EventosApiController extends Controller
 
         return response()->json($evento);
     }
+
+    public function adicionarDesbravadorEventoPonto(Request $request)
+    {
+        $resu = $this->repository->addDesbravaPontos($request);
+        if ($resu) {
+            return response()->json(['sucesso' => 'ponto adicionado com sucesso!']);
+        }
+        return response()->json(['erro' => 'tivemos um erro em adicionar a pontuação']);
+    }
 }

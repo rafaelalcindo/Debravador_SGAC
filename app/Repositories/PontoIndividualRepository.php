@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use chillerlan\QRCode\QRCode;
 use chillerlan\QRCode\QROptions;
+use Carbon\Carbon;
+
 
 
 class PontoIndividualRepository
@@ -43,5 +45,24 @@ class PontoIndividualRepository
             ->where('usuario_id', '=', $id_usuario)
             ->orderBy('data_pontos', 'asc')
             ->get();
+    }
+
+    public function adicionarPontoUsuario($id_usuario, $descricao, $pontos)
+    {
+        $data = new Carbon();
+
+        $dados = [
+            'pontos' => $pontos,
+            'descricao' => $descricao,
+            'usuario_id' => $id_usuario,
+            'data_pontos' => $data
+        ];
+
+        $resu = PontoIndividual::create($dados);
+        if ($resu) {
+            return true;
+        }
+
+        return false;
     }
 }

@@ -63,6 +63,7 @@ Route::group([
     Route::get('/', 'EventosApiController@index');
     Route::get('/add/desbravador', 'EventosApiController@addDebravadorEvento');
     Route::get('/lista/desbravador', 'EventosApiController@getDesbravadoresEvento');
+    Route::get('/add/pontos/desbravador', 'EventosApiController@adicionarDesbravadorEventoPonto');
 });
 
 Route::group([
