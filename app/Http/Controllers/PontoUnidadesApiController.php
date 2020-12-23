@@ -37,13 +37,6 @@ class PontoUnidadesApiController extends Controller
         return response()->json(['message' => 'ponto cadastrado com sucesso!']);
     }
 
-    // public function edit($id)
-    // {
-    //     $pontoUnidade = PontoUnidade::find($id);
-    //     $unidades     = Unidade::all();
-    //     return view('ponto_unidades.edit', compact('pontoUnidade', 'unidades'));
-    // }
-
     public function update(Request $request, $id)
     {
         $pontoUnidade = PontoUnidade::find($id);
