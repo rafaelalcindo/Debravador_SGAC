@@ -89,7 +89,8 @@ class UsuarioRepository
 
     public function pegarQrCodePath($usuario)
     {
-        return Storage::download('public/QrCode/' . $usuario->qr_code, 'QrCode ' . $usuario->nome . ' ' . $usuario->sobrenome . '.png');
+
+        return Storage::download('public/QrCode/' . $usuario->getQRCodeName(), 'QrCode ' . $usuario->nome . ' ' . $usuario->sobrenome . '.png');
     }
 
     public function removeFileDir($nameFile)

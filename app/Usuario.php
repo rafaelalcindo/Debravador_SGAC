@@ -145,4 +145,9 @@ class Usuario extends Authenticatable implements JWTSubject
             return Storage::url('public/image/' . $this->attributes['foto_perfil']);
         }
     }
+
+    public function getQRCodeName()
+    {
+        return $this->attributes['qr_code'];
+    }
 }
