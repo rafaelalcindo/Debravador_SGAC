@@ -29,7 +29,26 @@
                             <div class="col-sm-3">
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Nome</label>
-                                    <input type="text" class="form-control" id="nome" name="nome" value="{{ $classe->nome }}" aria-describedby="nome" placeholder="Nome">
+                                    <select id="nome" name="nome" class="form-control" >
+                                        <option value="amigo" {{ ($classe->nome == 'amigo')? 'selected' : '' }} >Amigo</option>
+                                        <option value="companheiro" {{ ($classe->nome == 'companheiro')? 'selected' : '' }} >Companheiro</option>
+                                        <option value="pesquisador" {{ ($classe->nome == 'pesquisador')? 'selected' : '' }} >Pesquisador</option>
+                                        <option value="pioneiro" {{ ($classe->nome == 'pioneiro')? 'selected' : '' }} >Pioneiro</option>
+                                        <option value="excurcionista" {{ ($classe->nome == 'excurcionista')? 'selected' : '' }} >Excurcinista</option>
+                                        <option value="guia" {{ ($classe->nome == 'guia')? 'selected' : '' }}  >Guia</option>
+
+                                        <option value="amigo_avancado" {{ ($classe->nome == 'amigo_avancado')? 'selected' : '' }} >Amigo Avançado</option>
+                                        <option value="companheiro_avancado" {{ ($classe->nome == 'companheiro_avancado')? 'selected' : '' }} >Companheiro Avançado</option>
+                                        <option value="pesquisador_avancado" {{ ($classe->nome == 'pesquisador_avancado')? 'selected' : '' }} >Pesquisador Avançado</option>
+                                        <option value="pioneiro_avancado" {{ ($classe->nome == 'pioneiro_avancado')? 'selected' : '' }} >Pioneiro Avançado</option>
+                                        <option value="excurcionista_avancado" {{ ($classe->nome == 'excurcionista_avancado')? 'selected' : '' }} >Excurcinista Avançado</option>
+                                        <option value="guia_avancado" {{ ($classe->nome == 'guia_avancado')? 'selected' : '' }} >Guia Avançado</option>
+
+                                        <option value="lider" {{ ($classe->nome == 'lider')? 'selected' : '' }} >Lider</option>
+                                        <option value="lider_master" {{ ($classe->nome == 'lider_master')? 'selected' : '' }} >Lider Master</option>
+                                        <option value="lider_master_avancado" {{ ($classe->nome == 'lider_master_avancado')? 'selected' : '' }} >Lider Master Avançado</option>
+                                    </select>
+                                    {{-- <input type="text" class="form-control" id="nome" name="nome" value="{{ $classe->nome }}" aria-describedby="nome" placeholder="Nome"> --}}
                                 </div>
                             </div>
 
@@ -46,7 +65,7 @@
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Conclusão</label>
                                     <div class="input-group date" data-provide="datepicker">
-                                    <input type="text" class="form-control date" id="data_conclusao" name="data_conclusao" value="{{ $classe->data_conclusao }}" aria-describedby="data_conclusao" placeholder="Conclusão" >
+                                    <input type="text" class="form-control date date_mask" id="data_conclusao" name="data_conclusao" value="{{ $classe->data_conclusao }}" aria-describedby="data_conclusao" placeholder="Conclusão" >
                                     <div class="input-group-addon">
                                         <span class="glyphicon glyphicon-th"></span>
                                     </div>

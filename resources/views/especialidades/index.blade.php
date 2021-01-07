@@ -25,6 +25,7 @@
                         <div class="parte_filtro">
                             <h2 class="titulo_lista" >Lista de Especialidades</h2>
                             <div class="botao_add" >
+                                <a href="{{ url('/usuarios') }}" class="btn btn-primary"><i class="fa fa-arrow-left" aria-hidden="true"></i> Voltar</a>
                                 <a href="{{ url('/especialidades/create/'.$id_usuario) }}" class="btn btn-primary">Adicionar +</a>
                             </div>
                             <hr/>
