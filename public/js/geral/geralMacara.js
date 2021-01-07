@@ -6,6 +6,8 @@ $(document).ready(function() {
     $('#rg').mask('00.000.000-#0' );
     $('#cpf').mask('000.000.000-#0');
 
+    $('.date_mask').mask('00/00/0000');
+
     $('form').submit(function(){
         $('#cep').unmask();
         $('#telefone').unmask();

@@ -25,17 +25,18 @@
                         <div class="parte_filtro">
                             <h2 class="titulo_lista" >Lista de Ficha Técnica</h2>
                             <div class="botao_add" >
-                                @if(!isset( $fichaMedicas[0]->id) ) 
+                                <a href="{{ url('/usuarios') }}" class="btn btn-primary"><i class="fa fa-arrow-left" aria-hidden="true"></i> Voltar</a>
+                                @if(!isset( $fichaMedicas[0]->id) )
                                     <a href="{{ url('/ficha-medicas/create/'.$id_usuario) }}" class="btn btn-primary">Adicionar +</a>
                                 @else
                                     <a href="{{ url('/ficha-medicas/edit/'.$fichaMedicas[0]->id.'/'.$id_usuario) }}" class="btn btn-success">Editar</a>
                                 @endif
                             </div>
                             <hr/>
-                            
+
                         </div>
                         <div class="lista_index ">
-                            <table class="table">                    
+                            <table class="table">
                                 <tbody>
                                     <tr>
                                         <td> <h5>Id: </h5></td>
@@ -51,7 +52,7 @@
                                         <td> <h5>Doença que teve: </h5></td>
                                         <td>@isset($fichaMedicas[0]->doenc_teve) {{  $fichaMedicas[0]->doenc_teve }} @endisset </td>
                                     </tr>
-                                    
+
                                     <tr>
                                         <td> <h5>Problema de Saúde: </h5></td>
                                         <td>@isset($fichaMedicas[0]->problema_saude) {{  $fichaMedicas[0]->problema_saude }} @endisset </td>
@@ -65,8 +66,8 @@
                                     <tr>
                                         <td> <h5>Tipo Sanguineo: </h5></td>
                                         <td>@isset($fichaMedicas[0]->tipo_sanguineo) {{  $fichaMedicas[0]->tipo_sanguineo }} @endisset </td>
-                                    </tr>                                    
-                                    
+                                    </tr>
+
                                 </tbody>
                             </table>
                         </div>
@@ -76,7 +77,7 @@
 
         </div>
 
-        
+
     </div>
 
     </div>

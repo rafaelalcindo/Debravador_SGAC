@@ -25,6 +25,16 @@ class EventosApiController extends Controller
         return response()->json($eventos);
     }
 
+    public function store(Request $request)
+    {
+        $data_formatada =  new FormataData($request['data_evento']);
+        $request['data_evento'] = $data_formatada->pegarNovaData();
+
+        $eventoId = Evento::create($request->all())->id;
+
+        return response()->json(['success' => 'Evento cadastrado com sucesso']);
+    }
+
     public function addDebravadorEvento(Request $request)
     {
         $id_debravador = $request['desbravador_id'];
@@ -42,6 +52,13 @@ class EventosApiController extends Controller
         $evento = $this->repository->pegarDesbravadorDentroEvento($id);
 
         return response()->json($evento);
+    }
+
+    public function getDesbravadoresNaoEvento($id)
+    {
+        $usuarios = $this->repository->pegarDesbravadorForaEvento($id);
+
+        return response()->json($usuarios);
     }
 
     public function adicionarDesbravadorEventoPonto(Request $request)

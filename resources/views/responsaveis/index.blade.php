@@ -25,15 +25,16 @@
                         <div class="parte_filtro">
                             <h2 class="titulo_lista" >Lista de Responsaveis</h2>
                             <div class="botao_add" >
+                                <a href="{{ url('/usuarios') }}" class="btn btn-primary"><i class="fa fa-arrow-left" aria-hidden="true"></i> Voltar</a>
                                 <a href="{{ url('/responsaveis/create/'.$id_usuario) }}" class="btn btn-primary">Adicionar +</a>
                             </div>
                             <hr/>
-                            
+
                         </div>
                         <div class="lista_index ">
                             <table class="table table-hover">
                                 <thead>
-                                    <tr>                                        
+                                    <tr>
                                         <th scope="col">Nome</th>
                                         <th scope="col"> Ações </th>
                                     </tr>
@@ -60,7 +61,7 @@
 
         </div>
 
-        
+
     </div>
 
     </div>

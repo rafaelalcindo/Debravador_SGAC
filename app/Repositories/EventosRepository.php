@@ -5,6 +5,7 @@ namespace App\Repositories;
 use App\Evento;
 use App\Usuario;
 use App\Repositories\PontoIndividualRepository;
+use Illuminate\Support\Facades\DB;
 
 class EventosRepository
 {
@@ -20,6 +21,7 @@ class EventosRepository
     {
         return $this->model
             ->whereYear('data_evento', '=', $ano)
+            ->orderBy('data_evento', 'DESC')
             ->get();
     }
 
@@ -28,6 +30,22 @@ class EventosRepository
         return $this->model
             ->where('id', '=', $id_evento)
             ->with('usuarios')
+            ->first();
+    }
+
+    public function pegarDesbravadorForaEvento($id_evento)
+    {
+        $lista_ids = [];
+        $desbra_eventos = DB::table('desbravador_evento')
+            ->where('evento_id', '=', $id_evento)
+            ->get();
+
+        foreach ($desbra_eventos as $idx => $pivot) {
+            $lista_ids[] = $pivot->usuario_id;
+        }
+
+        return DB::table('usuarios')
+            ->whereNotIn('id', $lista_ids)
             ->get();
     }
 

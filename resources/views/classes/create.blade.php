@@ -29,7 +29,26 @@
                             <div class="col-sm-3">
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Nome</label>
-                                    <input type="text" class="form-control" id="nome" name="nome" aria-describedby="nome" placeholder="Nome">
+                                    <select id="nome" name="nome" class="form-control" >
+                                        <option value="amigo" >Amigo</option>
+                                        <option value="companheiro" >Companheiro</option>
+                                        <option value="pesquisador" >Pesquisador</option>
+                                        <option value="pioneiro" >Pioneiro</option>
+                                        <option value="excurcionista" >Excurcinista</option>
+                                        <option value="guia" >Guia</option>
+
+                                        <option value="amigo_avancado" >Amigo Avançado</option>
+                                        <option value="companheiro_avancado" >Companheiro Avançado</option>
+                                        <option value="pesquisador_avancado" >Pesquisador Avançado</option>
+                                        <option value="pioneiro_avancado" >Pioneiro Avançado</option>
+                                        <option value="excurcionista_avancado" >Excurcinista Avançado</option>
+                                        <option value="guia_avancado" >Guia Avançado</option>
+
+                                        <option value="lider" >Lider</option>
+                                        <option value="lider_master" >Lider Master</option>
+                                        <option value="lider_master_avancado" >Lider Master Avançado</option>
+                                    </select>
+                                    {{-- <input type="text" class="form-control" id="nome" name="nome" aria-describedby="nome" placeholder="Nome"> --}}
                                 </div>
                             </div>
 
@@ -44,7 +63,7 @@
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Conclusão</label>
                                     <div class="input-group date" data-provide="datepicker">
-                                    <input type="text" class="form-control date" id="data_conclusao" name="data_conclusao" aria-describedby="data_conclusao" placeholder="Conclusão" >
+                                    <input type="text" class="form-control date date_mask" id="data_conclusao" name="data_conclusao" aria-describedby="data_conclusao" placeholder="Conclusão" >
                                     <div class="input-group-addon">
                                         <span class="glyphicon glyphicon-th"></span>
                                     </div>
