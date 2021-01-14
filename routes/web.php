@@ -67,4 +67,13 @@ Route::put('classes/{id}', 'ClassesController@update');
 Route::get('classes/delete/{id}/{id_usuario}', 'ClassesController@destroy');
 Route::get('classes/show/{id}/{id_usuario}', 'ClassesController@show');
 
+Route::get('hora_da_entrada', 'HoraDaEntradaController@index');
+Route::get('hora_da_entrada/create', 'HoraDaEntradaController@create');
+Route::post('hora_da_entrada', 'HoraDaEntradaController@store');
+Route::get('hora_da_entrada/edit/{id}', 'HoraDaEntradaController@edit');
+Route::put('hora_da_entrada/{id}', 'HoraDaEntradaController@update');
+Route::get('hora_da_entrada/delete/{id}', 'HoraDaEntradaController@destroy');
+
+Route::get('hora_da_entrada/seleciona_usuario/{id}', 'HoraDaEntradaController@selecionaUsuario');
+
 Route::get('/home', 'HomeController@index')->name('home');

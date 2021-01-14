@@ -7,12 +7,22 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    <link rel="shortcut icon" href="{{ asset('assets/imagens/aguias.png') }}" />
+
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+
     <script src="{{ asset('js/jquery.js') }}" defer></script>
+
+
+    <script src="{{ asset('js/popper.js') }}" defer></script>
+    <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('js/jquery.mask.js') }}" defer></script>
+
+    <link href="{{ asset('css/select2.min.css') }}" rel="stylesheet" type="text/css">
+    <script src="{{ asset('js/select2.min.js') }}" defer></script>
+    {{-- <script src="{{ asset('js/bootstrap.min.js') }}" defer></script> --}}
 
 
     <script src="{{ asset('js/bootstrap-datepicker.min.js') }}" defer></script>
@@ -28,6 +38,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
     <link href="{{ asset('css/bootstrap-datepicker.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('css/morris.css') }}" rel="stylesheet" type="text/css">
+
     <!-- <link href="{{ asset('css/bootstrap-datepicker.css') }}" rel="stylesheet" type="text/css"> -->
 
     <!-- Styles -->
@@ -78,7 +89,7 @@
                                     <a class="dropdown-item" href="{{ url('/ponto-unidades') }}"><i class="fa fa-money" aria-hidden="true"></i> Pontos de Unidade</a>
                                     <a class="dropdown-item" href="{{ url('/ponto_individuals') }}"><i class="fa fa-money" aria-hidden="true"></i> Pontos Individuais</a>
                                     <a class="dropdown-item" href="{{ url('/eventos') }}"><i class="fa fa-calendar" aria-hidden="true"></i> Eventos</a>
-                                    <a class="dropdown-item" href="{{ url('/usuarios') }}"><i class="fa fa-clone" aria-hidden="true"></i> Integração</a>
+                                    <a class="dropdown-item" href="{{ url('/hora_da_entrada') }}"><i class="fa fa-clone" aria-hidden="true"></i> Integração</a>
 
 
                                 </div>

@@ -66,13 +66,7 @@
 
                                                     </div>
                                                 </div>
-                                                <!-- <a href="{{ route('usuarios.edit',$desbravador->id) }}" class="btn btn-warning" >Editar</a>
-                                                <a href="{{ url('/usuarios/'.$desbravador->id.'/delete') }}" class="btn btn-danger">Deletar</a>
-                                                <a href="{{ route('usuarios.show', $desbravador->id) }}" class="btn btn-info" >Vizualizar</a>
-                                                <a href="{{ url('responsaveis/index/'.$desbravador->id) }}" class="btn btn-primary" >Responsaveis</a>
-                                                <a href="{{ url('ficha-medicas/index/'.$desbravador->id) }}" class="btn btn-primary" >Ficha Médica</a>
-                                                <a href="{{ url('especialidades/index/'.$desbravador->id) }}" class="btn btn-primary" >Especialidades</a>
-                                                <a href="{{ url('classes/index/'.$desbravador->id) }}" class="btn btn-primary" >Classes</a> -->
+
                                             </td>
                                         </tr>
                                     @endforeach

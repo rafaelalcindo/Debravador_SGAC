@@ -80,6 +80,11 @@ class Usuario extends Authenticatable implements JWTSubject
         return $this->belongsToMany('App\Evento', 'desbravador_evento', 'usuario_id', 'evento_id')->withTimestamps();
     }
 
+    public function horaPontos()
+    {
+        return $this->belongsToMany('App\HoraPonto', 'desbravador_hora_pontos', 'usuario_id', 'hora_ponto_id')->withTimestamps();
+    }
+
     public function fichaMedica()
     {
         return $this->hasMany('App\FichaMedica');
