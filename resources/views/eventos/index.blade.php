@@ -30,14 +30,15 @@
                                 <a href="{{ url('/eventos/create') }}" class="btn btn-primary">Adicionar +</a>
                             </div>
                             <hr/>
-                            
+
                         </div>
                         <div class="lista_index ">
                             <table class="table table-hover">
                                 <thead>
-                                    <tr>                                        
+                                    <tr>
                                         <th scope="col">Titulo do Evento</th>
                                         <th scope="col">Descricao</th>
+                                        <th scope="col">Pontos</th>
                                         <th scope="col">Data do Eventos</th>
                                         <th scope="col">Ação</th>
                                     </tr>
@@ -47,11 +48,12 @@
                                         <tr>
                                             <td>{{ $evento->titulo }} </td>
                                             <td>{{ $evento->descricao }}</td>
+                                            <td>{{ $evento->ponto_evento }}</td>
                                             <td>{{ $evento->data_evento }}</td>
                                             <td>
-                                                <a href="{{ route('eventos.edit',$evento->id) }}" class="btn btn-warning">Editar</a>
-                                                <a href="{{ url('/eventos/'.$evento->id.'/delete') }}" class="btn btn-danger">Deletar</a>
-                                                <a href="{{ route('eventos.show', $evento->id) }}" class="btn btn-info" >Vizualizar</a> 
+                                                <a href="{{ route('eventos.edit',$evento->id) }}" class="btn btn-warning"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                                <a href="{{ url('/eventos/'.$evento->id.'/delete') }}" class="btn btn-danger"><i class="fa fa-times-circle" aria-hidden="true"></i></a>
+
                                             </td>
                                         </tr>
                                     @endforeach
@@ -64,7 +66,7 @@
 
         </div>
 
-        
+
     </div>
 
     </div>
