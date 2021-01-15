@@ -75,5 +75,6 @@ Route::put('hora_da_entrada/{id}', 'HoraDaEntradaController@update');
 Route::get('hora_da_entrada/delete/{id}', 'HoraDaEntradaController@destroy');
 
 Route::get('hora_da_entrada/seleciona_usuario/{id}', 'HoraDaEntradaController@selecionaUsuario');
+Route::get('hora_da_entrada/adicionar_usuario_horario/', 'HoraDaEntradaController@adicionarUsuarioHorario');
 
 Route::get('/home', 'HomeController@index')->name('home');

@@ -65,8 +65,14 @@ class HoraDaEntradaController extends Controller
 
     public function selecionaUsuario($id)
     {
-        $horaPontos = HoraPonto::whereId($id);
+        $horaPontos = HoraPonto::find($id);
         $usuarios = $this->repository->pegarDesbravadorForaHora($id);
         return view('hora_da_entrada.layout_modal.seleciona_usuario', compact('horaPontos', 'usuarios'));
+    }
+
+    public function adicionarUsuarioHorario(Request $request)
+    {
+        $resu = $this->repository->diferencaDeData($request);
+        return response()->json(['resultado' => $resu]);
     }
 }

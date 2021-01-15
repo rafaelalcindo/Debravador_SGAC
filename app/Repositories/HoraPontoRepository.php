@@ -7,7 +7,8 @@ use App\Usuario;
 use App\HoraPonto;
 use App\Classes\FormataData;
 use App\Repositories\PontoIndividualRepository;
-
+use App\Repositories\DesbravadorHoraPontoRepository;
+use DateTime;
 use Illuminate\Support\Facades\DB;
 
 class HoraPontoRepository
@@ -18,6 +19,7 @@ class HoraPontoRepository
     {
         $this->model = new HoraPonto();
         $this->pontoIndividualRepository = new PontoIndividualRepository();
+        $this->desbravadorHoraPontoRepository = new DesbravadorHoraPontoRepository();
     }
 
     public function criarHoraPonto($request)
@@ -55,5 +57,50 @@ class HoraPontoRepository
         return DB::table('usuarios')
             ->whereNotIn('id', $lista_ids)
             ->get();
+    }
+
+    public function diferencaDeData($request)
+    {
+        $query = $request->query();
+        $hora_ponto_id = $query['hora_ponto_id'];
+        $usuario_id = $query['usuario_id'];
+
+        $horaPonto = HoraPonto::find($hora_ponto_id);
+        $usuario = Usuario::find($usuario_id);
+
+        $startDate = new DateTime($this->formataData($horaPonto->data_programacao) . ' ' . $horaPonto->hora_programacao);
+        $endDate = new DateTime();
+
+        if ($startDate->format('Y-m-d') == $endDate->format('Y-m-d')) {
+            $interval = $startDate->diff($endDate);
+            $hours = $interval->format('%h');
+            $minutes = $interval->format('%i');
+
+            $total = ($hours * 60 + $minutes);
+            if ($total < 10) {
+                $pontos = $horaPonto->pontos;
+            } else if ($total <= 40) {
+                $pontos = $horaPonto->pontos / 2;
+            } else {
+                $pontos = $horaPonto->pontos / 3;
+            }
+
+
+            $this->desbravadorHoraPontoRepository->adicionarDesbravadorHoraPonto($usuario_id, $hora_ponto_id, $endDate);
+            $this->pontoIndividualRepository->adicionarPontoUsuario($usuario_id, 'Ponto de Chegada', $pontos);
+            return true;
+        }
+
+        return false;
+    }
+
+    private function formataData($data)
+    {
+        $data = str_replace('/', '', $data);
+        $dia = substr($data, 0, 2);
+        $mes = substr($data, 2, 2);
+        $ano = substr($data, 4, 4);
+        $data = $ano . '-' . $mes . '-' . $dia;
+        return $data;
     }
 }

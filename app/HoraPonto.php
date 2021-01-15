@@ -15,6 +15,7 @@ class HoraPonto extends Model
         'descricao',
         'data_programacao',
         'hora_programacao',
+        'pontos',
         'created_at',
         'updated_at'
     ];
