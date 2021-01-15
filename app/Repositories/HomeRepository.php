@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Repositories;
 
 use App\Usuario;
@@ -17,7 +18,7 @@ class HomeRepository
 
     public function pegarListaDesbravadores()
     {
-        $debravadores = Usuario::get()->sortByDesc(function($query){
+        $debravadores = Usuario::get()->where('nivel', 'Desbravadores')->sortByDesc(function ($query) {
             if (isset($query->unidade)) {
                 return $query->pontosAcumulado();
             }
@@ -26,14 +27,25 @@ class HomeRepository
         return $debravadores;
     }
 
+    public function pegarListaDiretorias()
+    {
+        $diretorias = Usuario::get()
+            ->whereIn('nivel', ['Conselheiros', 'Secretaria', 'Administrativo'])
+            ->sortByDesc(function ($query) {
+                if (isset($query->unidade)) {
+                    return $query->pontosAcumulado();
+                }
+            });
+
+        return $diretorias;
+    }
+
     public function pegarListaUnidades()
     {
-        $unidades = Unidade::get()->sortByDesc(function($query){
+        $unidades = Unidade::get()->sortByDesc(function ($query) {
             return $query->pontosAcumulado();
         });
 
         return $unidades;
     }
-
 }
-

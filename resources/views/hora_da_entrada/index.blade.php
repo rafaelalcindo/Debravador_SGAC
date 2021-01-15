@@ -39,6 +39,7 @@
                                         <th scope="col">Descrição</th>
                                         <th scope="col">Data</th>
                                         <th scope="col" >Hora</th>
+                                        <th scope="col" >Pontos</th>
                                         <th scope="col"> Ações </th>
                                     </tr>
                                 </thead>
@@ -48,6 +49,7 @@
                                             <td>{{ $horaPonto->descricao }}</td>
                                             <td>{{ $horaPonto->data_programacao }}</td>
                                             <td>{{ $horaPonto->hora_programacao }}</td>
+                                            <td>{{ $horaPonto->pontos }}</td>
                                             <td>
                                                 <div class="btn-group">
                                                     <a href="{{ url('hora_da_entrada/edit/'.$horaPonto->id) }}"  class="btn btn-info"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>

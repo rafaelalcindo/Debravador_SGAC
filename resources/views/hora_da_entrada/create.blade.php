@@ -68,6 +68,14 @@
                             </div>
                         </div>
 
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label for="pontos" class="required_field">Pontos</label>
+                                <input type="number" required="true" class="form-control" id="pontos" name="pontos" aria-describedby="pontos" placeholder="pontos">
+                            </div>
+
+                        </div>
+
                         <!-- outra linha -->
 
                     </div>
