@@ -1,5 +1,6 @@
 $(document).ready(function(){
     let desbraGraficoValor = [];
+    let diretoriaGraficoValor = [];
     let unidadeGraficoValor = [];
 
     $('.lista_desbravadores').each(function(){
@@ -16,9 +17,16 @@ $(document).ready(function(){
         })
     })
 
-    console.log(desbraGraficoValor)
+    $('.lista_diretorias').each(function(){
+        diretoriaGraficoValor.push({
+            y: $(this).attr('nomeDiretoria'),
+            a: $(this).val()
+        })
+    })
+
     carregarGraficoDesbravador(desbraGraficoValor)
     carregarGraficoUnidade(unidadeGraficoValor)
+    carregarGraficoDiretoria(diretoriaGraficoValor)
 })
 
 
@@ -45,6 +53,20 @@ function carregarGraficoUnidade(unidadeValore)
         ykeys: ['a'],
         labels: ['Unidades'],
         barColors: ['rgb(60, 0, 240)'],
+        hideHover: 'auto',
+        resize: true
+    });
+}
+
+function carregarGraficoDiretoria(diretoriaGraficoValor)
+{
+    Morris.Bar({
+        element: 'grafico_diretoria',
+        data: diretoriaGraficoValor,
+        xkey: 'y',
+        ykeys: ['a'],
+        labels: ['Diretoria'],
+        barColors: ['rgb(255, 77, 77)'],
         hideHover: 'auto',
         resize: true
     });

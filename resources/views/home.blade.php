@@ -22,10 +22,13 @@
 
           <!-- ============================  Parte de Gráficos ======================== -->
           <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <div id="grafico_desbravadores" ></div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-4">
+                <div id="grafico_diretoria" ></div>
+            </div>
+            <div class="col-md-4">
                 <div id="grafico_unidades" ></div>
             </div>
           </div>
@@ -59,6 +62,37 @@
               </tbody>
             </table>
           </div>
+
+          <h2>Lista de Diretoria</h2>
+          <div class="table-responsive">
+            <table class="table table-striped table-sm">
+              <thead>
+
+                <tr>
+                  <th>Nome</th>
+                  <th>Unidade</th>
+                  <th>Pontos</th>
+                </tr>
+              </thead>
+              <tbody>
+                @foreach ($diretorias as $diretoria)
+                    <tr>
+                        <td>
+                            {{ $diretoria->nome }}
+                            <input type="hidden" value="{{ $diretoria->pontosAcumulado() }}" nomeDiretoria="{{ $diretoria->nome }}" id="id_lista_diretorias_{{ $diretoria->id }}" class="lista_diretorias" />
+                        </td>
+                        <td>{{ $diretoria->unidade->nome }}</td>
+                        <td>
+                            {{ $diretoria->pontosAcumulado() }}
+                            <input type="hidden" value="{{ $diretoria->pontosAcumulado() }}" id="id_lista_diretorias_{{ $diretoria->pontosAcumulado() }}" class="lista_pontos_diretorias" />
+                        </td>
+                    </tr>
+                 @endforeach
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
           <div class="row">
               <div class="col-md-12">
                 <h2>Lista de Unidades</h2>

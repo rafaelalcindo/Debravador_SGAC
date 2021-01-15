@@ -18,6 +18,8 @@
             <thead>
               <tr>
                 <th scope="col">Nome</th>
+                <th scope="col">Data</th>
+                <th scope="col">Hora</th>
 
               </tr>
             </thead>
@@ -25,6 +27,8 @@
                 @foreach ($horaPontos->usuarios as $usuario)
                     <tr>
                         <td>{{ $usuario->nome }} {{ $usuario->sobrenome }}</td>
+                        <td>{{ $usuario->horaPontos[0]->pivot->data_chegada }} </td>
+                        <td>{{ $usuario->horaPontos[0]->pivot->hora_chegada }} </td>
                     </tr>
                 @endforeach
             </tbody>
