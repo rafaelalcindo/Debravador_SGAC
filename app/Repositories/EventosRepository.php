@@ -17,6 +17,15 @@ class EventosRepository
         $this->pontoIndividualRepository = new PontoIndividualRepository();
     }
 
+    public function atualizarPersonalizado($evento_id, $dados = [])
+    {
+        $evento = Evento::find($evento_id);
+        if ($evento->update($dados)) {
+            return true;
+        }
+        return false;
+    }
+
     public function pegarEventoAno($ano)
     {
         return $this->model
@@ -61,5 +70,26 @@ class EventosRepository
         $usuario->eventos()->attach($event_id);
 
         return $this->pontoIndividualRepository->adicionarPontoUsuario($user_id, $descricao, $pontos);
+    }
+
+    public function adicionarPontosEventos($request)
+    {
+        $query = $request->query();
+        $id_evento = $query['evento_id'];
+
+        $desbra_eventos = DB::table('desbravador_evento')
+            ->where('evento_id', '=', $id_evento)
+            ->get();
+
+        $evento = Evento::find($id_evento);
+        foreach ($desbra_eventos as $idx => $pivot) {
+            $this->pontoIndividualRepository->adicionarPontoUsuario($pivot->usuario_id, $evento->descricao, $evento->ponto_evento);
+        }
+
+        $dados = [
+            'pontos_adicionados' => true
+        ];
+
+        return $this->atualizarPersonalizado($id_evento, $dados);
     }
 }

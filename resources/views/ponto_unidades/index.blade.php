@@ -74,6 +74,7 @@
                                     </tr>
                                 </tbody>
                             </table>
+                            {{ $pontoUnidades->onEachSide(5)->links() }}
                         </div>
                     </div>
                 </div>

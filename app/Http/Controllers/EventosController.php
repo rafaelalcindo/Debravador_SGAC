@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Usuario;
 use App\Evento;
 use App\Classes\FormataData;
+use App\Repositories\EventosRepository;
 use Carbon\Carbon;
 
 class EventosController extends Controller
@@ -14,6 +15,7 @@ class EventosController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->repository = new EventosRepository();
     }
 
     public function index()
@@ -78,5 +80,11 @@ class EventosController extends Controller
         }
 
         return redirect('/eventos')->with('success', 'Evento editado com sucesso');
+    }
+
+    public function adicionarPontosEventos(Request $request)
+    {
+        $resu = $this->repository->adicionarPontosEventos($request);
+        return response()->json(['message' => $resu]);
     }
 }

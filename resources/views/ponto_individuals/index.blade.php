@@ -74,6 +74,7 @@
                                     </tr>
                                 </tbody>
                             </table>
+                            {{ $pontoIndividuals->onEachSide(5)->links() }}
                         </div>
                     </div>
                 </div>

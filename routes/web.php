@@ -49,7 +49,10 @@ Route::get('ponto-unidades/{id}/delete', 'PontoUnidadesController@destroy');
 Route::resource('ponto_individuals', 'PontoIndividuaisController');
 Route::get('ponto_individuals/{id}/delete', 'PontoIndividuaisController@destroy');
 
+Route::get('eventos/adicionar_pontos_eventos', 'EventosController@adicionarPontosEventos');
 Route::resource('eventos', 'EventosController');
+
+
 
 Route::get('especialidades/index/{id}', 'EspecialidadesController@index');
 Route::get('especialidades/create/{id_usuario}', 'EspecialidadesController@create');
