@@ -53,7 +53,7 @@
                                     <label for="unidade" class="required_field">Unidade</label>
                                     <select id="unidade" value="{{ $pontoUnidade->unidade_id }}" name="unidade_id" class="form-control" >
                                         @foreach($unidades as $unidade)
-                                            <option value="{{ $unidade->id }}" >{{ $unidade->nome }}</option>
+                                            <option value="{{ $unidade->id }}" {{ ($unidade->id == $pontoUnidade->unidade_id)? 'selected' : '' }} >{{ $unidade->nome }}</option>
                                         @endforeach
                                     </select>
                                 </div>

@@ -45,6 +45,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+
                                     @foreach ($pontoIndividuals as $pontoIndividua)
                                         <tr>
                                             <td>{{ $pontoIndividua->pontos }} </td>

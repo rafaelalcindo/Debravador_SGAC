@@ -24,6 +24,17 @@ class PontoUnidadesRepository
     public function filtroIndex($request)
     {
         $pontos = $this->model
+            ->select(
+                'ponto_unidades.id as id',
+                'pontos',
+                'descricao',
+                'data_pontos',
+                'unidade_id',
+                'ponto_unidades.created_at',
+                'ponto_unidades.updated_at',
+                'nome',
+                'equipamentos'
+            )
             ->leftJoin('unidades', 'unidades.id', '=', 'ponto_unidades.unidade_id');
 
         if (!empty($request->query)) {
@@ -32,6 +43,11 @@ class PontoUnidadesRepository
             if (isset($query['search'])) {
                 $pontos = $pontos
                     ->orWhere('unidades.nome', 'like', '%' . $query['search'] . '%');
+            }
+
+            if (isset($query['search_descricao'])) {
+                $pontos = $pontos
+                    ->orWhere('descricao', 'like', '%' . $query['search_descricao'] . '%');
             }
         }
 

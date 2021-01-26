@@ -72,11 +72,13 @@ class HoraPontoRepository
         $endDate = new DateTime();
 
         if ($startDate->format('Y-m-d') == $endDate->format('Y-m-d')) {
-            $interval = $startDate->diff($endDate);
+            $interval = $endDate->diff($startDate);
+
             $hours = $interval->format('%h');
-            $minutes = $interval->format('%i');
+            $minutes = $interval->format('%r%i');
 
             $total = ($hours * 60 + $minutes);
+
             if ($total < 10) {
                 $pontos = $horaPonto->pontos;
             } else if ($total <= 40) {
@@ -84,7 +86,6 @@ class HoraPontoRepository
             } else {
                 $pontos = $horaPonto->pontos / 3;
             }
-
 
             $this->desbravadorHoraPontoRepository->adicionarDesbravadorHoraPonto($usuario_id, $hora_ponto_id, $endDate);
             $this->pontoIndividualRepository->adicionarPontoUsuario($usuario_id, 'Ponto de Chegada', $pontos);
