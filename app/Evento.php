@@ -16,6 +16,7 @@ class Evento extends Model
         'descricao',
         'data_evento',
         'ponto_evento',
+        'pontos_adicionados',
         'created_at',
         'updated_at'
     ];

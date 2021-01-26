@@ -25,6 +25,17 @@ class PontoIndividualRepository
     public function filtroIndex($request)
     {
         $pontos = $this->model
+            ->select(
+                'ponto_individuals.id as id',
+                'pontos',
+                'descricao',
+                'data_pontos',
+                'usuario_id',
+                'ponto_individuals.created_at as created_at',
+                'ponto_individuals.updated_at as updated_at',
+                'nome',
+                'sobrenome'
+            )
             ->leftJoin('usuarios', 'usuarios.id', '=', 'ponto_individuals.usuario_id');
 
         if (!empty($request->query)) {
@@ -33,6 +44,11 @@ class PontoIndividualRepository
             if (isset($query['search'])) {
                 $pontos = $pontos
                     ->orWhere('usuarios.nome', 'like', '%' . $query['search'] . '%');
+            }
+
+            if (isset($query['search_descricao'])) {
+                $pontos = $pontos
+                    ->orWhere('descricao', 'like', '%' . $query['search_descricao'] . '%');
             }
         }
 

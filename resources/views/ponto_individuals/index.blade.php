@@ -45,6 +45,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+
                                     @foreach ($pontoIndividuals as $pontoIndividua)
                                         <tr>
                                             <td>{{ $pontoIndividua->pontos }} </td>
@@ -74,6 +75,7 @@
                                     </tr>
                                 </tbody>
                             </table>
+                            {{ $pontoIndividuals->onEachSide(5)->links() }}
                         </div>
                     </div>
                 </div>

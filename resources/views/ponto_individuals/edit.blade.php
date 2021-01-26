@@ -57,9 +57,9 @@
                             <div class="col-sm-3">
                                 <div class="form-group">
                                     <label for="unidade" class="required_field">Unidade</label>
-                                    <select id="usuario" required value="{{ $pontoIndividual->usuario_id }}" name="usuario_id" class="form-control" >
+                                    <select id="usuario" required  name="usuario_id" class="form-control" >
                                         @foreach($usuarios as $usuario)
-                                            <option value="{{ $usuario->id }}" >{{ $usuario->nome }}</option>
+                                            <option value="{{ $usuario->id }}" {{ ($usuario->id == $pontoIndividual->usuario_id)? 'selected' : '' }} >{{ $usuario->nome }}</option>
                                         @endforeach
                                     </select>
                                 </div>

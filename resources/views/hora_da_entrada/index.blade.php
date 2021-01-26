@@ -69,6 +69,7 @@
                                     @endforeach
                                 </tbody>
                             </table>
+                            {{ $horaPontos->onEachSide(5)->links() }}
                         </div>
 
                     </div>

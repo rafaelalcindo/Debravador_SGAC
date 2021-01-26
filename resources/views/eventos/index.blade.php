@@ -54,6 +54,10 @@
                                                 <a href="{{ route('eventos.edit',$evento->id) }}" class="btn btn-warning"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                                                 <a href="{{ url('/eventos/'.$evento->id.'/delete') }}" class="btn btn-danger"><i class="fa fa-times-circle" aria-hidden="true"></i></a>
 
+                                                @if(!$evento->pontos_adicionados)
+                                                    <button onclick="adicionarPontoGeral({{$evento->id}})" id="adicionar_evento_{{ $evento->id }}" class="btn btn-info"><i class="fa fa-money" aria-hidden="true"></i></button>
+                                                @endif
+
                                             </td>
                                         </tr>
                                     @endforeach
@@ -76,4 +80,8 @@
 
     <link href="{{ asset('css/usuarios/menus.css') }}" rel="stylesheet">
 
+@endpush
+
+@push('scripts')
+    <script src="{{ asset('js/eventos/eventosIndex.js') }}" defer></script>
 @endpush
