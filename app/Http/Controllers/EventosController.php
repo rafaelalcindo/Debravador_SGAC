@@ -18,10 +18,34 @@ class EventosController extends Controller
         $this->repository = new EventosRepository();
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $eventos = Evento::paginate(20);
-        return view('eventos.index', compact('eventos'));
+        $eventos = Evento::orderBy('created_at', 'desc');
+        $filtro = $request->query();
+
+        if (isset($filtro['search_titulo'])) {
+            $eventos = $eventos
+                ->orWhere('titulo', 'like', '%' . $filtro['search_titulo'] . '%');
+        }
+
+        if (isset($filtro['search_descricao'])) {
+            $eventos = $eventos
+                ->orWhere('descricao', 'like', '%' . $filtro['search_descricao'] . '%');
+        }
+
+        if (isset($filtro['search_data']) && !empty($filtro['search_data'])) {
+            $dataResu = $this->_ajusteFiltroData($filtro['search_data']);
+
+            $data_inicio =  new FormataData($dataResu['inicio']);
+            $data_final =  new FormataData($dataResu['final']);
+
+            $eventos = $eventos
+                ->where('data_evento', '>=', $data_inicio->pegarNovaData())
+                ->where('data_evento', '<=', $data_final->pegarNovaData());
+        }
+
+        $eventos = $eventos->paginate(20);
+        return view('eventos.index', compact('eventos', 'filtro'));
     }
 
     public function create()
@@ -86,5 +110,33 @@ class EventosController extends Controller
     {
         $resu = $this->repository->adicionarPontosEventos($request);
         return response()->json(['message' => $resu]);
+    }
+
+    public function selecionaUsuario($id)
+    {
+        $eventos = Evento::find($id);
+        $usuarios = $this->repository->pegarDesbravadorForaEvento($id);
+        return view('eventos.layout_modal.seleciona_usuario', compact('eventos', 'usuarios'));
+    }
+
+    public function adicionarUsuarioEvento(Request $request)
+    {
+        $resu = $this->repository->adicionarDesbravadorEvento($request);
+        return response()->json(['resultado' => $resu]);
+    }
+
+    public function removerUsuarioEvento(Request $request)
+    {
+        $resu = $this->repository->removerDesbravadorEvento($request);
+        return response()->json(['resultado' => $resu]);
+    }
+
+    private function _ajusteFiltroData($dataGeral)
+    {
+        $dataMandar = [];
+        $data = explode(" - ", $dataGeral);
+        $dataMandar['inicio'] = $data[0];
+        $dataMandar['final'] = $data[1];
+        return $dataMandar;
     }
 }

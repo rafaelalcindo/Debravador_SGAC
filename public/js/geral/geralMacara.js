@@ -27,4 +27,20 @@ $(document).ready(function() {
         language: 'pt-BR'
     });
 
+    $('.datarange').daterangepicker({
+        autoUpdateInput: false,
+        locale: {
+            format: 'DD/MM/YYYY',
+            cancelLabel: 'Cancelar'
+        }
+    });
+
+    $('.datarange').on('apply.daterangepicker', function(ev, picker) {
+        $(this).val(picker.startDate.format('DD/MM/YYYY') + ' - ' + picker.endDate.format('DD/MM/YYYY'));
+    });
+
+    $('.datarange').on('cancel.daterangepicker', function(ev, picker) {
+        $(this).val('');
+    });
+
 });

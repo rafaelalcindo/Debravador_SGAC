@@ -30,6 +30,8 @@
                                 <a href="{{ url('/eventos/create') }}" class="btn btn-primary">Adicionar +</a>
                             </div>
                             <hr/>
+                                @include('eventos.filtro.filtro')
+                            <hr/>
 
                         </div>
                         <div class="lista_index ">
@@ -54,6 +56,8 @@
                                                 <a href="{{ route('eventos.edit',$evento->id) }}" class="btn btn-warning"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                                                 <a href="{{ url('/eventos/'.$evento->id.'/delete') }}" class="btn btn-danger"><i class="fa fa-times-circle" aria-hidden="true"></i></a>
 
+                                                <a onclick="selecionarUsuarioNoEvento({{ $evento->id }})" style="cursor: pointer;" class="btn btn-info"><i class="fa fa-clipboard" aria-hidden="true"></i></a>
+
                                                 @if(!$evento->pontos_adicionados)
                                                     <button onclick="adicionarPontoGeral({{$evento->id}})" id="adicionar_evento_{{ $evento->id }}" class="btn btn-info"><i class="fa fa-money" aria-hidden="true"></i></button>
                                                 @endif
@@ -74,6 +78,8 @@
     </div>
 
     </div>
+
+    @include('components.modal.modal')
 @endsection
 
 @push('styles')
