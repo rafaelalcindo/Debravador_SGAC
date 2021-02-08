@@ -45,7 +45,7 @@ class UsuarioRepository
             }
         }
 
-        return $desbravadores->paginate(20);
+        return $desbravadores->orderBy('nome', 'asc')->paginate(20);
     }
 
     public function atualizarQrCodeUsuario($id, $nomeQrcode)

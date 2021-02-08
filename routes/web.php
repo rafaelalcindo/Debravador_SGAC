@@ -50,6 +50,10 @@ Route::resource('ponto_individuals', 'PontoIndividuaisController');
 Route::get('ponto_individuals/{id}/delete', 'PontoIndividuaisController@destroy');
 
 Route::get('eventos/adicionar_pontos_eventos', 'EventosController@adicionarPontosEventos');
+Route::get('eventos/seleciona_usuario/{id}', 'EventosController@selecionaUsuario');
+Route::get('eventos/adicionar_usuario_evento/', 'EventosController@adicionarUsuarioEvento');
+Route::get('eventos/remover_usuario/', 'EventosController@removerUsuarioEvento');
+
 Route::resource('eventos', 'EventosController');
 
 

@@ -42,6 +42,28 @@ class EventosRepository
             ->first();
     }
 
+    public function adicionarDesbravadorEvento($request)
+    {
+        $query = $request->query();
+
+        $usuario = Usuario::find($query['usuario_id']);
+
+        $usuario->eventos()->attach($query['evento_id']);
+
+        return true;
+    }
+
+    public function removerDesbravadorEvento($request)
+    {
+        $query = $request->query();
+
+        $usuario = Usuario::find($query['usuario_id']);
+
+        $usuario->eventos()->detach($query['evento_id']);
+
+        return true;
+    }
+
     public function pegarDesbravadorForaEvento($id_evento)
     {
         $lista_ids = [];

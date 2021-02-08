@@ -26,7 +26,7 @@ class HoraDaEntradaController extends Controller
      */
     public function index()
     {
-        $horaPontos = HoraPonto::paginate(20);
+        $horaPontos = HoraPonto::orderBy('created_at', 'desc')->paginate(20);
 
         return view('hora_da_entrada.index', compact('horaPontos'));
     }

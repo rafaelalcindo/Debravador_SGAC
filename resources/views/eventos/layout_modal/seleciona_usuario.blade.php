@@ -1,4 +1,3 @@
-
 <div class="row">
     <div class="col-md-6">
         <select class="js-example-basic-single" id="usuarios_selecao" name="state">
@@ -8,7 +7,7 @@
         </select>
     </div>
     <div class="col-md-6">
-        <button type="button" class="btn btn-primary" onclick="adicionarUsuario({{ $horaPontos->id }})">Adicionar</button>
+        <button type="button" class="btn btn-primary" onclick="adicionarUsuario({{ $eventos->id }})">Adicionar</button>
     </div>
 </div>
 
@@ -18,17 +17,16 @@
             <thead>
               <tr>
                 <th scope="col">Nome</th>
-                <th scope="col">Data</th>
-                <th scope="col">Hora</th>
-
+                <th scope="col">Ações</th>
               </tr>
             </thead>
             <tbody>
-                @foreach ($horaPontos->usuarios as $usuario)
+                @foreach ($eventos->usuarios as $usuario)
                     <tr>
                         <td>{{ $usuario->nome }} {{ $usuario->sobrenome }}</td>
-                        <td>{{ $usuario->horaPontos[0]->pivot->data_chegada }} </td>
-                        <td>{{ $usuario->horaPontos[0]->pivot->hora_chegada }} </td>
+                        <td>
+                            <button type="button" class="btn btn-danger" onclick="removerUsuario({{ $eventos->id }}, {{ $usuario->id }})">Remover</button>
+                        </td>
                     </tr>
                 @endforeach
             </tbody>

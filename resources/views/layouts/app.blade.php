@@ -30,6 +30,10 @@
     <script src="{{ asset('js/raphael.min.js') }}" defer></script>
     <script src="{{ asset('js/morris.min.js') }}" defer></script>
 
+    <script src="{{ asset('js/moment.min.js') }}" defer></script>
+
+    <script src="{{ asset('js/daterangepicker.js') }}" defer></script>
+
     <script src="{{ asset('js/geral/geralMacara.js') }}" defer></script>
     <script src="{{ asset('js/geralApi.js') }}" defer></script>
 
@@ -38,6 +42,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
     <link href="{{ asset('css/bootstrap-datepicker.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('css/morris.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('css/daterangepicker.css') }}" rel="stylesheet" type="text/css">
 
     <!-- <link href="{{ asset('css/bootstrap-datepicker.css') }}" rel="stylesheet" type="text/css"> -->
 
