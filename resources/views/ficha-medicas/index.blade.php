@@ -16,7 +16,7 @@
                     </button>
                 </div>
             @endif
-            <div class="index_conteudo">
+            <div class=" index_conteudo">
                 <div class="row">
 
                 </div>

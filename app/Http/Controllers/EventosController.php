@@ -36,8 +36,8 @@ class EventosController extends Controller
         if (isset($filtro['search_data']) && !empty($filtro['search_data'])) {
             $dataResu = $this->_ajusteFiltroData($filtro['search_data']);
 
-            $data_inicio =  new FormataData($dataResu['inicio']);
-            $data_final =  new FormataData($dataResu['final']);
+            $data_inicio = new FormataData($dataResu['inicio']);
+            $data_final = new FormataData($dataResu['final']);
 
             $eventos = $eventos
                 ->where('data_evento', '>=', $data_inicio->pegarNovaData())

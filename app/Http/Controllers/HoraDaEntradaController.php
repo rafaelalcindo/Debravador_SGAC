@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Repositories\HoraPontoRepository;
+use App\Classes\FormataData;
 use App\HoraPonto;
 
 class HoraDaEntradaController extends Controller
@@ -24,11 +25,29 @@ class HoraDaEntradaController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Request $request)
     {
-        $horaPontos = HoraPonto::orderBy('created_at', 'desc')->paginate(20);
+        $horaPontos = HoraPonto::orderBy('created_at', 'desc');
+        $filtro = $request->query();
 
-        return view('hora_da_entrada.index', compact('horaPontos'));
+        if (isset($filtro['search_descricao'])) {
+            $horaPontos = $horaPontos
+                ->orWhere('descricao', 'like', '%' . $filtro['search_descricao'] . '%');
+        }
+
+        if (isset($filtro['search_data']) && !empty($filtro['search_data'])) {
+            $dataResu = $this->_ajusteFiltroData($filtro['search_data']);
+
+            $data_inicio = new FormataData($dataResu['inicio']);
+            $data_final = new FormataData($dataResu['final']);
+
+            $horaPontos = $horaPontos
+                ->where('data_programacao', '>=', $data_inicio->pegarNovaData())
+                ->where('data_programacao', '<=', $data_final->pegarNovaData());
+        }
+
+        $horaPontos = $horaPontos->paginate(20);
+        return view('hora_da_entrada.index', compact('horaPontos', 'filtro'));
     }
 
     public function create()
@@ -74,5 +93,14 @@ class HoraDaEntradaController extends Controller
     {
         $resu = $this->repository->diferencaDeData($request);
         return response()->json(['resultado' => $resu]);
+    }
+
+    private function _ajusteFiltroData($dataGeral)
+    {
+        $dataMandar = [];
+        $data = explode(" - ", $dataGeral);
+        $dataMandar['inicio'] = $data[0];
+        $dataMandar['final'] = $data[1];
+        return $dataMandar;
     }
 }
