@@ -1,9 +1,7 @@
-<form method="get" name="form_filtro_evento" id="form_filtro_evento" action="/eventos" >
+<form method="get" name="form_filtro_evento" id="form_filtro_evento" action="/hora_da_entrada" >
     <div class="row">
 
-        <div class="col-md-1">
-
-        </div>
+        <div class="col-md-4"></div>
 
         <div class="col-md-3">
             <div class="form-group">
@@ -19,16 +17,8 @@
             </div>
         </div>
 
-        <div class="col-md-3">
-            <div class="form-group">
-                <label for="search_titulo" class="required_field">Título</label>
-                <input type="text" value="{{ ($filtro['search_titulo'] ?? '') }}" class="form-control" id="search_titulo" name="search_titulo" aria-describedby="search_titulo" placeholder="Título " >
-            </div>
-        </div>
-
         <div class="col-md-2">
             <button type="submit" class="btn btn-outline-primary btn_filtro">Filtro</button>
         </div>
-
     </div>
 </form>

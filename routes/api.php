@@ -75,6 +75,20 @@ Route::group([
     Route::get('/lista/{id_usuario}', 'EspecialidadesApiController@especialidadeUsuario');
 });
 
+Route::group(
+    [
+        'middleware' => 'api',
+        'prefix' => 'hora_pontos'
+    ],
+    function ($router) {
+        Route::get('/pegar_datas', 'HoraDaEntradaApiController@carregarLista');
+        Route::get('/detalhes/{id}', 'HoraDaEntradaApiController@selecionaUsuario');
+        Route::get('/desbravador/forahoraponto/{id}', 'HoraDaEntradaApiController@selecionaUsuarioNaoMarcado');
+        Route::get('/add/hora/desbravador', 'HoraDaEntradaApiController@adicionarUsuarioHorario');
+        Route::post('/add/hora_ponto', 'HoraDaEntradaApiController@store');
+    }
+);
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });

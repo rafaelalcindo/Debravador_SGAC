@@ -28,7 +28,7 @@
                                 <a href="{{ url('/hora_da_entrada/create') }}" class="btn btn-primary">Adicionar <i class="fa fa-plus" aria-hidden="true"></i></a>
                             </div>
                             <hr/>
-                                {{-- @include('usuarios.filtro.filtro') --}}
+                                @include('hora_da_entrada.filtro.filtro')
                             <hr/>
                         </div>
 

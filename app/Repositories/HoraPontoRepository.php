@@ -2,7 +2,7 @@
 
 namespace App\Repositories;
 
-use App\Evento;
+use Illuminate\Http\Request;
 use App\Usuario;
 use App\HoraPonto;
 use App\Classes\FormataData;
@@ -22,12 +22,36 @@ class HoraPontoRepository
         $this->desbravadorHoraPontoRepository = new DesbravadorHoraPontoRepository();
     }
 
+    public function carregarLista(Request $request)
+    {
+        $horaPontos = HoraPonto::orderBy('created_at', 'desc');
+        $filtro = $request->query();
+
+        if (isset($filtro['search_descricao'])) {
+            $horaPontos = $horaPontos
+                ->orWhere('descricao', 'like', '%' . $filtro['search_descricao'] . '%');
+        }
+
+        if (isset($filtro['search_data']) && !empty($filtro['search_data'])) {
+            $dataResu = $this->_ajusteFiltroData($filtro['search_data']);
+
+            $data_inicio = new FormataData($dataResu['inicio']);
+            $data_final = new FormataData($dataResu['final']);
+
+            $horaPontos = $horaPontos
+                ->where('data_programacao', '>=', $data_inicio->pegarNovaData())
+                ->where('data_programacao', '<=', $data_final->pegarNovaData());
+        }
+
+        return $horaPontos->get();
+    }
+
     public function criarHoraPonto($request)
     {
         $data_formatada =  new FormataData($request['data_programacao']);
         $request['data_programacao'] = $data_formatada->pegarNovaData();
 
-        $horaPonto = HoraPonto::create($request->all())->id ?? null;
+        $horaPonto = HoraPonto::create($request->all()) ?? null;
 
         return $horaPonto;
     }
@@ -66,7 +90,6 @@ class HoraPontoRepository
         $usuario_id = $query['usuario_id'];
 
         $horaPonto = HoraPonto::find($hora_ponto_id);
-        $usuario = Usuario::find($usuario_id);
 
         $startDate = new DateTime($this->formataData($horaPonto->data_programacao) . ' ' . $horaPonto->hora_programacao);
         $endDate = new DateTime();
@@ -103,5 +126,14 @@ class HoraPontoRepository
         $ano = substr($data, 4, 4);
         $data = $ano . '-' . $mes . '-' . $dia;
         return $data;
+    }
+
+    private function _ajusteFiltroData($dataGeral)
+    {
+        $dataMandar = [];
+        $data = explode(" - ", $dataGeral);
+        $dataMandar['inicio'] = $data[0];
+        $dataMandar['final'] = $data[1];
+        return $dataMandar;
     }
 }

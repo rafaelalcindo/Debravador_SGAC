@@ -49,6 +49,12 @@
     }
 }
 
+@media (min-width: 120px) and (max-width: 599px) {
+    .lista_index {
+        overflow-y: auto;
+    }
+}
+
 .table {
     th {
         border-top: 1px solid #76afe7;
