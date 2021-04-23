@@ -56,7 +56,8 @@ Route::get('eventos/remover_usuario/', 'EventosController@removerUsuarioEvento')
 
 Route::resource('eventos', 'EventosController');
 
-
+Route::resource('quarentenas', 'QuarentenasController');
+Route::get('quarentenas/{id}/delete', 'QuarentenasController@destroy');
 
 Route::get('especialidades/index/{id}', 'EspecialidadesController@index');
 Route::get('especialidades/create/{id_usuario}', 'EspecialidadesController@create');
