@@ -31,6 +31,9 @@ class HomeController extends Controller
         $unidades = $this->repository->pegarListaUnidades();
         $diretorias = $this->repository->pegarListaDiretorias();
 
-        return view('home', compact('desbravadores', 'unidades', 'diretorias'));
+        $desbravadorQuarentenas = $this->repository->pegarListaDesbravadoresQuarentena(true);
+        $diretoriaQuarentenas = $this->repository->pegarListaDesbravadoresQuarentena(false);
+
+        return view('home', compact('desbravadores', 'unidades', 'diretorias', 'desbravadorQuarentenas', 'diretoriaQuarentenas'));
     }
 }

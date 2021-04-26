@@ -40,6 +40,24 @@ class HomeRepository
         return $diretorias;
     }
 
+    public function pegarListaDesbravadoresQuarentena($desbravadores)
+    {
+        $nivel = ['Conselheiros', 'Secretaria', 'Administrativo'];
+        if ($desbravadores) {
+            $nivel = ['Desbravadores'];
+        }
+
+        $desbravadores = Usuario::get()
+            ->whereIn('nivel', $nivel)
+            ->sortByDesc(function ($query) {
+                if (isset($query->unidade)) {
+                    return $query->pontosQuarentenaAcumulado();
+                }
+            });
+
+        return $desbravadores;
+    }
+
     public function pegarListaUnidades()
     {
         $unidades = Unidade::get()->sortByDesc(function ($query) {

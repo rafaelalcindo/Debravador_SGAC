@@ -120,6 +120,80 @@
                 </table>
               </div>
           </div>
+
+          <hr />
+
+          <div class="row">
+            <div class="col-md-4">
+                <div id="grafico_desbravadores_quarentena" ></div>
+            </div>
+
+            <div class="col-md-4">
+                <div id="grafico_diretoria_quarentena" ></div>
+            </div>
+          </div>
+
+          <h2>Lista de Desbravadores na quarentena</h2>
+          <div class="table-responsive">
+            <table class="table table-striped table-sm">
+              <thead>
+
+                <tr>
+                  <th>Nome</th>
+                  <th>Unidade</th>
+                  <th>Pontos</th>
+                </tr>
+              </thead>
+              <tbody>
+                @foreach ($desbravadorQuarentenas as $desbravador)
+                    <tr>
+                        <td>
+                            {{ $desbravador->nome }}
+                            <input type="hidden" value="{{ $desbravador->pontosQuarentenaAcumulado() }}" nomeDesbrava="{{ $desbravador->nome }}" id="id_lista_desbravadores_{{ $desbravador->id }}" class="lista_desbravadores_quarentena" />
+                        </td>
+                        <td>{{ $desbravador->unidade->nome }}</td>
+                        <td>
+                            {{ $desbravador->pontosQuarentenaAcumulado() }}
+                            <input type="hidden" value="{{ $desbravador->pontosQuarentenaAcumulado() }}" id="id_lista_desbravadores_quarentena_{{ $desbravador->pontosQuarentenaAcumulado() }}" class="lista_pontos_desbravadores_quarentena" />
+                        </td>
+                    </tr>
+                 @endforeach
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2>Lista de Diretoria</h2>
+          <div class="table-responsive">
+            <table class="table table-striped table-sm">
+              <thead>
+
+                <tr>
+                  <th>Nome</th>
+                  <th>Unidade</th>
+                  <th>Pontos</th>
+                </tr>
+              </thead>
+              <tbody>
+                @foreach ($diretoriaQuarentenas as $diretoria)
+                    <tr>
+                        <td>
+                            {{ $diretoria->nome }}
+                            <input type="hidden" value="{{ $diretoria->pontosQuarentenaAcumulado() }}" nomeDiretoria="{{ $diretoria->nome }}" id="id_lista_diretorias_{{ $diretoria->id }}" class="lista_diretorias_quarentena" />
+                        </td>
+                        <td>{{ $diretoria->unidade->nome }}</td>
+                        <td>
+                            {{ $diretoria->pontosQuarentenaAcumulado() }}
+                            <input type="hidden" value="{{ $diretoria->pontosQuarentenaAcumulado() }}" id="id_lista_diretorias_quarentena_{{ $diretoria->pontosQuarentenaAcumulado() }}" class="lista_pontos_diretorias_quarentena" />
+                        </td>
+                    </tr>
+                 @endforeach
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+
         </main>
       </div>
     </div>

@@ -95,7 +95,7 @@
                                     <a class="dropdown-item" href="{{ url('/ponto_individuals') }}"><i class="fa fa-money" aria-hidden="true"></i> Pontos Individuais</a>
                                     <a class="dropdown-item" href="{{ url('/eventos') }}"><i class="fa fa-calendar" aria-hidden="true"></i> Eventos</a>
                                     <a class="dropdown-item" href="{{ url('/hora_da_entrada') }}"><i class="fa fa-clone" aria-hidden="true"></i> Integração</a>
-
+                                    <a class="dropdown-item" href="{{ url('/quarentenas') }}"><i class="fa fa-laptop" aria-hidden="true"></i> Quarentena</a>
 
                                 </div>
                             </li>
