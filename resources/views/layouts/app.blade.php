@@ -34,6 +34,21 @@
 
     <script src="{{ asset('js/daterangepicker.js') }}" defer></script>
 
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <!-- <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-app.js"></script> -->
+    {{-- <script src="https://www.gstatic.com/firebasejs/8.4.0/firebase-app.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/8.4.0/firebase-messaging.js"></script>
+
+    <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+    <script src="https://www.gstatic.com/firebasejs/8.4.0/firebase-analytics.js"></script>
+
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/8.4.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.0/firebase-firestore.js"></script>
+
+    <script src="{{ asset('js/firebase-config.js') }}" defer></script> --}}
+
     <script src="{{ asset('js/geral/geralMacara.js') }}" defer></script>
     <script src="{{ asset('js/geralApi.js') }}" defer></script>
 
@@ -84,9 +99,9 @@
                         </div>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Eventos
+                                    <i class="fa fa-bars" aria-hidden="true"></i>
                                 </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <div class="dropdown-menu"   aria-labelledby="navbarDropdownMenuLink">
 
                                     <a class="dropdown-item" href="{{ url('home') }}"><i class="fa fa-bar-chart" aria-hidden="true"></i> Dashboard </a>
                                     <a class="dropdown-item" href="{{ url('/usuarios') }}"><i class="fa fa-address-card" aria-hidden="true"></i> Usuários</a>
@@ -103,7 +118,7 @@
 
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    Opções
+                                    <i class="fa fa-power-off" aria-hidden="true"></i>
                                 </a>
 
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
