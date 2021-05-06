@@ -12,7 +12,7 @@
         "chillerlan/php-qrcode": "^3.4",
         "doctrine/dbal": "*",
         "fideloper/proxy": "^4.0",
-        "laravel/framework": "5.7.*",
+        "laravel/framework": "6.18.*",
         "laravel/tinker": "^1.0",
         "lcobucci/jwt": "3.3",
         "tymon/jwt-auth": "^1.0"
