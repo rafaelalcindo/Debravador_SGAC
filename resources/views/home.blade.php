@@ -9,21 +9,21 @@
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
             <h1 class="h2">Dashboard</h1>
             <div class="btn-toolbar mb-2 mb-md-0">
-              <div class="btn-group mr-2">
+              {{-- <div class="btn-group mr-2">
                 <button class="btn btn-sm btn-outline-secondary">Compartilhar</button>
                 <button class="btn btn-sm btn-outline-secondary">Exportar</button>
               </div>
               <button class="btn btn-sm btn-outline-secondary dropdown-toggle">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
                 Esta semana
-              </button>
+              </button> --}}
             </div>
           </div>
 
           <!-- ============================  Parte de Gráficos ======================== -->
           <div class="row">
-            <div class="col-md-4">
-                <div id="grafico_desbravadores" ></div>
+            <div class="col-md-4" class="" >
+                <div id="grafico_desbravadores"  ></div>
             </div>
             <div class="col-md-4">
                 <div id="grafico_diretoria" ></div>
@@ -34,7 +34,7 @@
           </div>
 
           <h2>Lista de Desbravadores</h2>
-          <div class="table-responsive">
+          <div class="table-responsive animacaoInLeft">
             <table class="table table-striped table-sm">
               <thead>
 
@@ -120,6 +120,80 @@
                 </table>
               </div>
           </div>
+
+          <hr />
+
+          <div class="row">
+            <div class="col-md-4">
+                <div id="grafico_desbravadores_quarentena" ></div>
+            </div>
+
+            <div class="col-md-4">
+                <div id="grafico_diretoria_quarentena" ></div>
+            </div>
+          </div>
+
+          <h2>Lista de Desbravadores na quarentena</h2>
+          <div class="table-responsive">
+            <table class="table table-striped table-sm">
+              <thead>
+
+                <tr>
+                  <th>Nome</th>
+                  <th>Unidade</th>
+                  <th>Pontos</th>
+                </tr>
+              </thead>
+              <tbody>
+                @foreach ($desbravadorQuarentenas as $desbravador)
+                    <tr>
+                        <td>
+                            {{ $desbravador->nome }}
+                            <input type="hidden" value="{{ $desbravador->pontosQuarentenaAcumulado() }}" nomeDesbrava="{{ $desbravador->nome }}" id="id_lista_desbravadores_{{ $desbravador->id }}" class="lista_desbravadores_quarentena" />
+                        </td>
+                        <td>{{ $desbravador->unidade->nome }}</td>
+                        <td>
+                            {{ $desbravador->pontosQuarentenaAcumulado() }}
+                            <input type="hidden" value="{{ $desbravador->pontosQuarentenaAcumulado() }}" id="id_lista_desbravadores_quarentena_{{ $desbravador->pontosQuarentenaAcumulado() }}" class="lista_pontos_desbravadores_quarentena" />
+                        </td>
+                    </tr>
+                 @endforeach
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2>Lista de Diretoria</h2>
+          <div class="table-responsive">
+            <table class="table table-striped table-sm">
+              <thead>
+
+                <tr>
+                  <th>Nome</th>
+                  <th>Unidade</th>
+                  <th>Pontos</th>
+                </tr>
+              </thead>
+              <tbody>
+                @foreach ($diretoriaQuarentenas as $diretoria)
+                    <tr>
+                        <td>
+                            {{ $diretoria->nome }}
+                            <input type="hidden" value="{{ $diretoria->pontosQuarentenaAcumulado() }}" nomeDiretoria="{{ $diretoria->nome }}" id="id_lista_diretorias_{{ $diretoria->id }}" class="lista_diretorias_quarentena" />
+                        </td>
+                        <td>{{ $diretoria->unidade->nome }}</td>
+                        <td>
+                            {{ $diretoria->pontosQuarentenaAcumulado() }}
+                            <input type="hidden" value="{{ $diretoria->pontosQuarentenaAcumulado() }}" id="id_lista_diretorias_quarentena_{{ $diretoria->pontosQuarentenaAcumulado() }}" class="lista_pontos_diretorias_quarentena" />
+                        </td>
+                    </tr>
+                 @endforeach
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+
         </main>
       </div>
     </div>

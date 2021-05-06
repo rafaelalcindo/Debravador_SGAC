@@ -2,6 +2,8 @@ $(document).ready(function(){
     let desbraGraficoValor = [];
     let diretoriaGraficoValor = [];
     let unidadeGraficoValor = [];
+    let desbraGraficoQuarenValor = [];
+    let diretoriaGraficoQuarenValor = [];
 
     $('.lista_desbravadores').each(function(){
         desbraGraficoValor.push({
@@ -24,9 +26,25 @@ $(document).ready(function(){
         })
     })
 
+    $('.lista_desbravadores_quarentena').each(function(){
+        desbraGraficoQuarenValor.push({
+            y: $(this).attr('nomeDesbrava'),
+            a: $(this).val()
+        })
+    })
+
+    $('.lista_diretorias_quarentena').each(function(){
+        diretoriaGraficoQuarenValor.push({
+            y: $(this).attr('nomeDiretoria'),
+            a: $(this).val()
+        })
+    })
+
     carregarGraficoDesbravador(desbraGraficoValor)
     carregarGraficoUnidade(unidadeGraficoValor)
     carregarGraficoDiretoria(diretoriaGraficoValor)
+    carregarGraficoDesbravadorQuarentena(desbraGraficoQuarenValor)
+    carregarGraficoDiretoriaQuarentena(diretoriaGraficoQuarenValor)
 })
 
 
@@ -63,6 +81,34 @@ function carregarGraficoDiretoria(diretoriaGraficoValor)
     Morris.Bar({
         element: 'grafico_diretoria',
         data: diretoriaGraficoValor,
+        xkey: 'y',
+        ykeys: ['a'],
+        labels: ['Diretoria'],
+        barColors: ['rgb(255, 77, 77)'],
+        hideHover: 'auto',
+        resize: true
+    });
+}
+
+function carregarGraficoDesbravadorQuarentena(desbraGraficoQuarenValor)
+{
+    Morris.Bar({
+        element: 'grafico_desbravadores_quarentena',
+        data: desbraGraficoQuarenValor,
+        xkey: 'y',
+        ykeys: ['a'],
+        labels: ['Desbravador'],
+        barColors: ['rgb(40, 180, 160)', 'rgb(60, 0, 240)'],
+        hideHover: 'auto',
+        resize: true
+    });
+}
+
+function carregarGraficoDiretoriaQuarentena(DiretoriaGraficoQuarenValor)
+{
+    Morris.Bar({
+        element: 'grafico_diretoria_quarentena',
+        data: DiretoriaGraficoQuarenValor,
         xkey: 'y',
         ykeys: ['a'],
         labels: ['Diretoria'],

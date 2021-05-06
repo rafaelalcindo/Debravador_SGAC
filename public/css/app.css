@@ -13549,3 +13549,113 @@ a.text-dark:focus {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
+.form-control {
+  border-radius: 0rem !important;
+}
+
+.btn {
+  border-radius: 0rem !important;
+}
+
+.check_login {
+  margin-left: 21px;
+}
+
+.espaco_bottom_input {
+  margin-bottom: 10px;
+}
+
+.navbar-laravel {
+  background-image: linear-gradient(to bottom right, #4c4ce4, #ff3333) !important;
+}
+
+.dropdown-menu {
+  border-radius: 0rem !important;
+}
+
+.index_conteudo {
+  -webkit-animation: moveInUp 0.6s ease-out;
+          animation: moveInUp 0.6s ease-out;
+}
+
+.animacaoInLeft {
+  -webkit-animation: moveInLeft 0.6s ease-out;
+          animation: moveInLeft 0.6s ease-out;
+}
+
+@-webkit-keyframes moveInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(70px);
+            transform: translateY(70px);
+  }
+
+  80% {
+    -webkit-transform: translateY(10px);
+            transform: translateY(10px);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translate(0);
+            transform: translate(0);
+  }
+}
+
+@keyframes moveInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(70px);
+            transform: translateY(70px);
+  }
+
+  80% {
+    -webkit-transform: translateY(10px);
+            transform: translateY(10px);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translate(0);
+            transform: translate(0);
+  }
+}
+
+@-webkit-keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(70px);
+            transform: translateX(70px);
+  }
+
+  80% {
+    -webkit-transform: translateX(10px);
+            transform: translateX(10px);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translate(0);
+            transform: translate(0);
+  }
+}
+
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(70px);
+            transform: translateX(70px);
+  }
+
+  80% {
+    -webkit-transform: translateX(10px);
+            transform: translateX(10px);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translate(0);
+            transform: translate(0);
+  }
+}
+

@@ -87,6 +87,13 @@ class UsuarioRepository
         return $nome_arquivo;
     }
 
+    public function verificarSeDesbravador($usuario_id)
+    {
+        $usuario = $this->model::find($usuario_id);
+
+        return ($usuario->nivel == 'Desbravadores') ? true : false;
+    }
+
     public function pegarQrCodePath($usuario)
     {
 

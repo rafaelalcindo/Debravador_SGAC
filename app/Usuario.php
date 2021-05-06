@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 use Illuminate\Support\Facades\Storage;
 use App\PontoIndividual;
+use App\Quarentena;
 use App\DesbravadorEvento;
 use Carbon\Carbon;
 
@@ -103,6 +104,12 @@ class Usuario extends Authenticatable implements JWTSubject
     public function pontosAcumulado()
     {
         $pontos = PontoIndividual::select('pontos')->where('usuario_id', $this->id)->sum('pontos');
+        return $pontos ? $pontos : 0;
+    }
+
+    public function pontosQuarentenaAcumulado()
+    {
+        $pontos = Quarentena::select('pontos')->where('usuario_id', $this->id)->sum('pontos');
         return $pontos ? $pontos : 0;
     }
 
