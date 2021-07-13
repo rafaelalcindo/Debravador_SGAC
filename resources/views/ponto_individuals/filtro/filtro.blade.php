@@ -1,7 +1,19 @@
 <form method="get" name="form_filtro_unidade" id="form_filtro_unidade" action="/ponto_individuals" >
     <div class="row">
 
-            <div class="col-md-4"></div>
+            <div class="col-md-1"></div>
+
+            <div class="col-md-3">
+                <div class="col-md-6">
+                    <label for="usuarios_selecao" class="required_field">Desbravador</label>
+                    <select class="js-example-basic-single select2" id="usuarios_selecao"  name="usuarios_selecao" style="width: 220%;">
+                        <option value=""  > selecione </option>
+                        @foreach ($usuarios as $usuario)
+                            <option value="{{ $usuario->id }}" {{ (isset($filtro['usuarios_selecao']) && $filtro['usuarios_selecao'] == $usuario->id)? 'selected' : '' }} > {{ $usuario->nome }} {{ $usuario->sobrenome }} </option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
 
             <div class="col-md-3">
                 <div class="form-group">

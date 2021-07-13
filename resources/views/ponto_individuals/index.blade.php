@@ -52,7 +52,7 @@
                                             <td>{{ $pontoIndividua->descricao }}</td>
                                             <td>{{ $pontoIndividua->usuario->nome .' '. $pontoIndividua->usuario->sobrenome }}</td>
                                             <td>
-                                                <a href="{{ route('ponto_individuals.edit',$pontoIndividua->id) }}" class="btn btn-warning">
+                                                <a href="{{ route('ponto_individuals.edit',$pontoIndividua->id) }}" class="btn btn-warning edit_part">
                                                     <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                                                 </a>
                                                 <a href="{{ url('/ponto_individuals/'.$pontoIndividua->id.'/delete') }}" class="btn btn-danger">
@@ -75,7 +75,12 @@
                                     </tr>
                                 </tbody>
                             </table>
-                            {{ $pontoIndividuals->onEachSide(5)->links() }}
+                            {{
+                                $pontoIndividuals
+                                    ->appends($filtro)
+                                    ->onEachSide(5)
+                                    ->links()
+                            }}
                         </div>
                     </div>
                 </div>
@@ -94,3 +99,4 @@
     <link href="{{ asset('css/usuarios/menus.css') }}" rel="stylesheet">
 
 @endpush
+

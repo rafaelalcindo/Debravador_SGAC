@@ -28,7 +28,7 @@
                         <h2>Cadastrar Desbravadores</h2>
                     </div>
                     <div class="col-sm-2">
-                        <a href="{{ url('/hora_da_entrada') }}" class="btn btn-primary"><i class="fa fa-arrow-left" aria-hidden="true"></i> Voltar</a>
+                        <a href="{{ url('/hora_da_entrada') }}" class="btn btn-primary voltar_btn"><i class="fa fa-arrow-left" aria-hidden="true"></i> Voltar</a>
                     </div>
                 </div>
                 <hr/>

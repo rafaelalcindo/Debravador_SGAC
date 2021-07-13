@@ -15,7 +15,7 @@
                         <h2>Editar Pontos quarentena  </h2>
                     </div>
                     <div class="col-sm-2">
-                        <a href="{{ url('/quarentenas') }}" class="btn btn-primary"> <i class="fa fa-arrow-left" aria-hidden="true"></i> Voltar</a>
+                        <a href="{{ url('/quarentenas') }}" class="btn btn-primary voltar_btn"> <i class="fa fa-arrow-left" aria-hidden="true"></i> Voltar</a>
                     </div>
                 </div>
                 <hr/>

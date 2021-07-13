@@ -51,7 +51,7 @@
                                             <td>{{ $pontoUnidade->descricao }}</td>
                                             <td>{{ $pontoUnidade->unidade->nome }}</td>
                                             <td>
-                                                <a href="{{ route('ponto-unidades.edit',$pontoUnidade->id) }}" class="btn btn-warning">
+                                                <a href="{{ route('ponto-unidades.edit',$pontoUnidade->id) }}" class="btn btn-warning edit_part">
                                                     <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                                                 </a>
                                                 <a href="{{ url('/ponto-unidades/'.$pontoUnidade->id.'/delete') }}" class="btn btn-danger">
@@ -74,7 +74,12 @@
                                     </tr>
                                 </tbody>
                             </table>
-                            {{ $pontoUnidades->onEachSide(5)->links() }}
+                            {{
+                                $pontoUnidades
+                                    ->appends($filtro)
+                                    ->onEachSide(5)
+                                    ->links()
+                            }}
                         </div>
                     </div>
                 </div>

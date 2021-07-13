@@ -50,6 +50,11 @@ class PontoIndividualRepository
                 $pontos = $pontos
                     ->orWhere('descricao', 'like', '%' . $query['search_descricao'] . '%');
             }
+
+            if (isset($query['usuarios_selecao'])) {
+                $pontos = $pontos
+                    ->orWhere('usuarios.id', '=',  $query['usuarios_selecao']);
+            }
         }
 
         return $pontos->orderBy('created_at', 'desc')->paginate(20);

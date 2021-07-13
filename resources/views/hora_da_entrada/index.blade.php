@@ -52,7 +52,7 @@
                                             <td>{{ $horaPonto->pontos }}</td>
                                             <td>
                                                 <div class="btn-group">
-                                                    <a href="{{ url('hora_da_entrada/edit/'.$horaPonto->id) }}"  class="btn btn-info"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                                    <a href="{{ url('hora_da_entrada/edit/'.$horaPonto->id) }}"  class="btn btn-info edit_part"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                                                     <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                         <span class="sr-only">Toggle Dropdown</span>
                                                     </button>
@@ -69,7 +69,12 @@
                                     @endforeach
                                 </tbody>
                             </table>
-                            {{ $horaPontos->onEachSide(5)->links() }}
+                            {{
+                                $horaPontos
+                                    ->appends($filtro)
+                                    ->onEachSide(5)
+                                    ->links()
+                            }}
                         </div>
 
                     </div>

@@ -15,7 +15,7 @@
                         <h2>Cadastrar Ficha Médica</h2>
                     </div>
                     <div class="col-sm-2">
-                        <a href="{{ url('/ficha-medicas/index/'.$id_usuario) }}" class="btn btn-primary">Voltar</a>
+                        <a href="{{ url('/ficha-medicas/index/'.$id_usuario) }}" class="btn btn-primary voltar_btn">Voltar</a>
                     </div>
                 </div>
                 <hr/>
@@ -58,10 +58,10 @@
 
                             <div class="col-sm-12">
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">Problemas de Saúde</label>                                    
+                                    <label for="exampleInputEmail1">Problemas de Saúde</label>
                                     <textarea class="form-control" id="problema_saude" name="problema_saude"  placeholder="Problemas de Saúde" >{{ $fichaMedica->problema_saude }}</textarea>
                                 </div>
-                            </div>                            
+                            </div>
 
                             <div class="col-sm-3">
                                 <div class="form-group">
@@ -69,7 +69,7 @@
                                     <input type="text" class="form-control" id="tipo_sanguineo" name="tipo_sanguineo"  value="{{ $fichaMedica->tipo_sanguineo }}" aria-describedby="tipo_sanguineo" placeholder="Tipo Sanguideo" />
                                 </div>
                             </div>
-                            
+
                             <input type="hidden" id="usuario_id" name="usuario_id" value="{{ $id_usuario }}" />
 
                             <!-- outra linha -->
@@ -86,7 +86,7 @@
                 </form>
 
             </div>
-        </div>       
+        </div>
     </div>
 
     </div>

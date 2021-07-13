@@ -49,6 +49,11 @@ class PontoUnidadesRepository
                 $pontos = $pontos
                     ->orWhere('descricao', 'like', '%' . $query['search_descricao'] . '%');
             }
+
+            if (isset($query['unidade_selecao'])) {
+                $pontos = $pontos
+                    ->where('unidades.id', '=', $query['unidade_selecao']);
+            }
         }
 
         return $pontos->orderBy('created_at', 'desc')->paginate(20);

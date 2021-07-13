@@ -20,7 +20,10 @@ class PontoUnidadesController extends Controller
     {
         $pontoUnidades = $this->repository->filtroIndex($request);
         $filtro = $request->query();
-        return view('ponto_unidades.index', compact('pontoUnidades', 'filtro'));
+
+        $unidades = Unidade::all();
+
+        return view('ponto_unidades.index', compact('pontoUnidades', 'filtro', 'unidades'));
     }
 
     public function create()

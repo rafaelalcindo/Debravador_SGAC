@@ -13569,8 +13569,22 @@ a.text-dark:focus {
   background-image: linear-gradient(to bottom right, #4c4ce4, #ff3333) !important;
 }
 
+.color_white {
+  color: white !important;
+}
+
 .dropdown-menu {
   border-radius: 0rem !important;
+}
+
+.background_color_white {
+  background-color: white !important;
+}
+
+.background_color_white_space {
+  background-color: white !important;
+  padding: 12px 1px;
+  border-bottom: 1px solid #dee2e6 !important;
 }
 
 .index_conteudo {

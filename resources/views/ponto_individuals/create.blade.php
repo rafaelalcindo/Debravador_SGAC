@@ -15,7 +15,7 @@
                         <h2>Cadastrar Pontos de Individual</h2>
                     </div>
                     <div class="col-sm-2">
-                        <a href="{{ url('ponto_individuals') }}" class="btn btn-primary"><i class="fa fa-arrow-left" aria-hidden="true"></i> Voltar</a>
+                        <a href="{{ url('ponto_individuals') }}" class="btn btn-primary voltar_btn"><i class="fa fa-arrow-left" aria-hidden="true"></i> Voltar</a>
                     </div>
                 </div>
                 <hr/>

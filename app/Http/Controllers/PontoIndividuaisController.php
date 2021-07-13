@@ -24,7 +24,9 @@ class PontoIndividuaisController extends Controller
         $pontoIndividuals = $this->repository->filtroIndex($request);
         $filtro = $request->query();
 
-        return view('ponto_individuals.index', compact('pontoIndividuals', 'filtro'));
+        $usuarios = Usuario::all();
+
+        return view('ponto_individuals.index', compact('pontoIndividuals', 'filtro', 'usuarios'));
     }
 
     public function create()

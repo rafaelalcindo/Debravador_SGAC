@@ -49,7 +49,7 @@
                                             <td>{{ $unidade->equipamentos }}</td>
                                             <td>{{ $unidade->pontosAcumulado() }}</td>
                                             <td>
-                                                <a href="{{ route('unidades.edit', $unidade->id) }}" class="btn btn-warning">
+                                                <a href="{{ route('unidades.edit', $unidade->id) }}" class="btn btn-warning edit_part">
                                                     <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                                                 </a>
                                                 <a href="{{ url('/unidades/'.$unidade->id.'/delete') }}" class="btn btn-danger">

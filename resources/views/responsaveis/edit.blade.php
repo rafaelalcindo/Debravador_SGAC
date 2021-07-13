@@ -15,7 +15,7 @@
                         <h2>Editar Responsaveis {{ $responsavel->nome }} {{ $responsavel->sobrenome }} </h2>
                     </div>
                     <div class="col-sm-2">
-                        <a href="{{ url('/responsaveis/index/'.$usuario->id) }}" class="btn btn-primary">Voltar</a>
+                        <a href="{{ url('/responsaveis/index/'.$usuario->id) }}" class="btn btn-primary voltar_btn">Voltar</a>
                     </div>
                 </div>
                 <hr/>
@@ -124,7 +124,7 @@
                 </form>
 
             </div>
-        </div>       
+        </div>
     </div>
 
     </div>

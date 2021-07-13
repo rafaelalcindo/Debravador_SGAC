@@ -15,7 +15,7 @@
                         <h2>Editar Especialidade</h2>
                     </div>
                     <div class="col-sm-2">
-                        <a href="{{ url('/especialidades/index/'.$id_usuario) }}" class="btn btn-primary">Voltar</a>
+                        <a href="{{ url('/especialidades/index/'.$id_usuario) }}" class="btn btn-primary voltar_btn">Voltar</a>
                     </div>
                 </div>
                 <hr/>
