@@ -51,7 +51,7 @@
                                             <td>{{ $desbravador->nivel }}</td>
                                             <td>
                                                 <div class="btn-group">
-                                                    <a href="{{ route('usuarios.edit',$desbravador->id) }}"  class="btn btn-info"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                                    <a href="{{ route('usuarios.edit',$desbravador->id) }}"  class="btn btn-info edit_part"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                                                     <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                         <span class="sr-only">Toggle Dropdown</span>
                                                     </button>
@@ -72,7 +72,12 @@
                                     @endforeach
                                 </tbody>
                             </table>
-                            {{ $desbravadores->onEachSide(5)->links() }}
+                            {{
+                                $desbravadores
+                                    ->appends($filtro)
+                                    ->onEachSide(5)
+                                    ->links()
+                            }}
                         </div>
                     </div>
                 </div>

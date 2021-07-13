@@ -43,4 +43,10 @@ $(document).ready(function() {
         $(this).val('');
     });
 
+    $(".select2").select2();
+
+
 });
+
+
+

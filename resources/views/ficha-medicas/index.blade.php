@@ -29,7 +29,7 @@
                                 @if(!isset( $fichaMedicas[0]->id) )
                                     <a href="{{ url('/ficha-medicas/create/'.$id_usuario) }}" class="btn btn-primary">Adicionar +</a>
                                 @else
-                                    <a href="{{ url('/ficha-medicas/edit/'.$fichaMedicas[0]->id.'/'.$id_usuario) }}" class="btn btn-success">Editar</a>
+                                    <a href="{{ url('/ficha-medicas/edit/'.$fichaMedicas[0]->id.'/'.$id_usuario) }}" class="btn btn-success edit_part">Editar</a>
                                 @endif
                             </div>
                             <hr/>

@@ -5,7 +5,7 @@
     <div class="body_form" >
         <form method="POST" action="{{ route('login') }}" class="form-signin">
             @csrf
-            <img class="mb-4 aguias_imagem" src="{{ asset('assets/imagens/aguias.png') }}" alt="" width="130" height="130">
+            <img class="mb-4 aguias_imagem" src="{{ asset('assets/imagens/aguias2.png') }}" alt="" width="130" height="130">
             <h1 class="h3 mb-3 font-weight-normal">Faça login</h1>
             <label for="inputEmail" class="sr-only">Endereço de email</label>
             <input id="login" type="text" placeholder="Login" class="form-control{{ $errors->has('login') ? ' is-invalid' : '' }} espaco_bottom_input" name="login" value="{{ old('login') }}" required autofocus>

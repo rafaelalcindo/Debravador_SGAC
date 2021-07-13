@@ -74,7 +74,7 @@
                                                     <td>{{ $classe->nome }}</td>
                                                     <td>{{ $classe->instrutor }}</td>
                                                     <td>
-                                                        <a href="{{ url('/classes/edit/'.$classe->id.'/'.$id_usuario ) }}" class="btn btn-warning" ><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                                        <a href="{{ url('/classes/edit/'.$classe->id.'/'.$id_usuario ) }}" class="btn btn-warning edit_part" ><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                                                         <a href="{{ url('/classes/delete/'.$classe->id.'/'.$id_usuario ) }}" class="btn btn-danger" ><i class="fa fa-times-circle" aria-hidden="true"></i></a>
                                                         <a href="{{ url('/classes/show/'.$classe->id.'/'.$id_usuario ) }}" class="btn btn-info" ><i class="fa fa-eye" aria-hidden="true"></i></a>
                                                     </td>

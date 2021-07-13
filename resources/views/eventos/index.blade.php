@@ -53,7 +53,7 @@
                                             <td>{{ $evento->ponto_evento }}</td>
                                             <td>{{ $evento->data_evento }}</td>
                                             <td>
-                                                <a href="{{ route('eventos.edit',$evento->id) }}" class="btn btn-warning"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                                <a href="{{ route('eventos.edit',$evento->id) }}" class="btn btn-warning edit_part"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                                                 <a href="{{ url('/eventos/'.$evento->id.'/delete') }}" class="btn btn-danger"><i class="fa fa-times-circle" aria-hidden="true"></i></a>
 
                                                 <a onclick="selecionarUsuarioNoEvento({{ $evento->id }})" style="cursor: pointer;" class="btn btn-info"><i class="fa fa-clipboard" aria-hidden="true"></i></a>

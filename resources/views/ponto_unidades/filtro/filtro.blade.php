@@ -1,7 +1,17 @@
 <form method="get" name="form_filtro_unidade" id="form_filtro_unidade" action="/ponto-unidades" >
     <div class="row">
 
-            <div class="col-md-4"></div>
+            <div class="col-md-1"></div>
+
+            <div class="col-md-3">
+                <label for="unidade_selecao" class="required_field">Unidades</label><br/>
+                <select class="js-example-basic-single select2" id="unidade_selecao"  name="unidade_selecao" >
+                    <option value=""  > selecione </option>
+                    @foreach ($unidades as $unidade)
+                        <option value="{{ $unidade->id }}" {{ (isset($filtro['unidade_selecao']) && $filtro['unidade_selecao'] == $unidade->id)? 'selected' : '' }} > {{ $unidade->nome }} </option>
+                    @endforeach
+                </select>
+            </div>
 
             <div class="col-md-3">
                 <div class="form-group">

@@ -47,7 +47,7 @@
                                                     <td>{{ $especialidade->nome }}</td>
                                                     <td>{{ $especialidade->area }}</td>
                                                     <td>
-                                                        <a href="{{ url('/especialidades/edit/'.$especialidade->id.'/'.$id_usuario ) }}" class="btn btn-warning" >Editar</a>
+                                                        <a href="{{ url('/especialidades/edit/'.$especialidade->id.'/'.$id_usuario ) }}" class="btn btn-warning edit_part" >Editar</a>
                                                         <a href="{{ url('/especialidades/delete/'.$especialidade->id.'/'.$id_usuario ) }}" class="btn btn-danger" >Deletar</a>
                                                         <a href="{{ url('/especialidades/show/'.$especialidade->id.'/'.$id_usuario ) }}" class="btn btn-info" >Informações</a>
                                                     </td>

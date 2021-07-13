@@ -46,7 +46,7 @@
                                         <td>{{ $quarentena->descricao }}</td>
                                         <td>{{ $quarentena->usuario->nome }}</td>
                                         <td>
-                                            <a href="{{ route('quarentenas.edit',$quarentena->id) }}" class="btn btn-warning">
+                                            <a href="{{ route('quarentenas.edit',$quarentena->id) }}" class="btn btn-warning edit_part">
                                                 <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                                             </a>
 
@@ -70,7 +70,12 @@
                                 </tr>
                             </tbody>
                         </table>
-                        {{ $quarentenas->onEachSide(5)->links() }}
+                        {{
+                            $quarentenas
+                                ->appends($filtro)
+                                ->onEachSide(5)
+                                ->links()
+                        }}
                     </div>
                 </div>
             </div>
