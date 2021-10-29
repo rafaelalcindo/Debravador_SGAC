@@ -5,6 +5,7 @@ namespace App\Repositories;
 use Illuminate\Http\Request;
 use App\Usuario;
 use App\HoraPonto;
+use App\DesbravadorHoraPonto;
 use App\Classes\FormataData;
 use App\Repositories\PontoIndividualRepository;
 use App\Repositories\DesbravadorHoraPontoRepository;
@@ -18,6 +19,7 @@ class HoraPontoRepository
     public function __construct()
     {
         $this->model = new HoraPonto();
+        $this->model_hora_ponto = new DesbravadorHoraPonto();
         $this->pontoIndividualRepository = new PontoIndividualRepository();
         $this->desbravadorHoraPontoRepository = new DesbravadorHoraPontoRepository();
     }
@@ -116,6 +118,15 @@ class HoraPontoRepository
         }
 
         return false;
+    }
+
+    public function pegarDesbravadorForaHoraMarcado($id_hora)
+    {
+        $horas_marcadas = $this->model_hora_ponto
+            ->where('hora_ponto_id', '=', $id_hora)
+            ->get();
+
+        return $horas_marcadas;
     }
 
     private function formataData($data)

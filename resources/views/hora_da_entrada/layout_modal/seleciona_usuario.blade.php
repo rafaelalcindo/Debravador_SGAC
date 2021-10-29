@@ -24,11 +24,11 @@
               </tr>
             </thead>
             <tbody>
-                @foreach ($horaPontos->usuarios as $usuario)
+                @foreach ($horaMarcadas as $hora_marcada)
                     <tr>
-                        <td>{{ $usuario->nome }} {{ $usuario->sobrenome }}</td>
-                        <td>{{ $usuario->horaPontos[0]->pivot->data_chegada }} </td>
-                        <td>{{ $usuario->horaPontos[0]->pivot->hora_chegada }} </td>
+                        <td>{{ $hora_marcada->usuario->nome }} {{ $hora_marcada->usuario->sobrenome }}</td>
+                        <td>{{ $hora_marcada->data_chegada }} </td>
+                        <td>{{ $hora_marcada->hora_chegada }} </td>
                     </tr>
                 @endforeach
             </tbody>

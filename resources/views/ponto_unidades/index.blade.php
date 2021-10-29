@@ -41,6 +41,7 @@
                                         <th scope="col">Pontos</th>
                                         <th scope="col">Descricao</th>
                                         <th scope="col">Unidade</th>
+                                        <th scope="col">Data Pontos</th>
                                         <th scope="col">Ação</th>
                                     </tr>
                                 </thead>
@@ -50,6 +51,7 @@
                                             <td>{{ $pontoUnidade->pontos }} </td>
                                             <td>{{ $pontoUnidade->descricao }}</td>
                                             <td>{{ $pontoUnidade->unidade->nome }}</td>
+                                            <td>{{ $pontoUnidade->data_pontos }}</td>
                                             <td>
                                                 <a href="{{ route('ponto-unidades.edit',$pontoUnidade->id) }}" class="btn btn-warning edit_part">
                                                     <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
@@ -68,7 +70,7 @@
                                         <td>
                                             <h4>Total de Pontos:</h4>
                                         </td>
-                                        <td colspan="3">
+                                        <td colspan="4">
                                             <h4>{{ $totalPontos }}</h4>
                                         </td>
                                     </tr>

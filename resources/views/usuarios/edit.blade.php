@@ -173,10 +173,10 @@
                             <div class="form-group">
                                 <label for="nivel">Nível</label>
                                 <select id="nivel" name="nivel" class="form-control" >
-                                    <option value="1" {{ ($usuario->nivel == 1)? 'selected' : '' }} >Administrativo</option>
-                                    <option value="2" {{ ($usuario->nivel == 2)? 'selected' : '' }} >Secretaria</option>
-                                    <option value="3" {{ ($usuario->nivel == 3)? 'selected' : '' }} >Conselheiros</option>
-                                    <option value="4" {{ ($usuario->nivel == 4)? 'selected' : '' }} >Desbravadores</option>
+                                    <option value="1" {{ ($usuario->nivel == 'Administrativo')? 'selected' : '' }} >Administrativo</option>
+                                    <option value="2" {{ ($usuario->nivel == 'Secretaria')? 'selected' : '' }} >Secretaria</option>
+                                    <option value="3" {{ ($usuario->nivel == 'Conselheiros')? 'selected' : '' }} >Conselheiros</option>
+                                    <option value="4" {{ ($usuario->nivel == 'Desbravadores')? 'selected' : '' }} >Desbravadores</option>
                                 </select>
 
                             </div>

@@ -86,7 +86,9 @@ class HoraDaEntradaController extends Controller
     {
         $horaPontos = HoraPonto::find($id);
         $usuarios = $this->repository->pegarDesbravadorForaHora($id);
-        return view('hora_da_entrada.layout_modal.seleciona_usuario', compact('horaPontos', 'usuarios'));
+        $horaMarcadas = $this->repository->pegarDesbravadorForaHoraMarcado($id);
+
+        return view('hora_da_entrada.layout_modal.seleciona_usuario', compact('horaPontos', 'usuarios', 'horaMarcadas'));
     }
 
     public function adicionarUsuarioHorario(Request $request)

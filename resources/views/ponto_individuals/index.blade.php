@@ -42,6 +42,7 @@
                                         <th scope="col">Pontos</th>
                                         <th scope="col">Descricao</th>
                                         <th scope="col">Desbravador</th>
+                                        <th scope="col">Data Ponto</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -51,6 +52,7 @@
                                             <td>{{ $pontoIndividua->pontos }} </td>
                                             <td>{{ $pontoIndividua->descricao }}</td>
                                             <td>{{ $pontoIndividua->usuario->nome .' '. $pontoIndividua->usuario->sobrenome }}</td>
+                                            <td> {{ $pontoIndividua->data_pontos }} </td>
                                             <td>
                                                 <a href="{{ route('ponto_individuals.edit',$pontoIndividua->id) }}" class="btn btn-warning edit_part">
                                                     <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
@@ -69,7 +71,7 @@
                                         <td>
                                             <h4>Total de Pontos:</h4>
                                         </td>
-                                        <td colspan="3">
+                                        <td colspan="4">
                                             <h4>{{ $totalPontos }}</h4>
                                         </td>
                                     </tr>

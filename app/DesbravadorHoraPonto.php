@@ -21,4 +21,9 @@ class DesbravadorHoraPonto extends Model
         'created_at',
         'updated_at'
     ];
+
+    public function usuario()
+    {
+        return $this->belongsTo('App\Usuario');
+    }
 }
